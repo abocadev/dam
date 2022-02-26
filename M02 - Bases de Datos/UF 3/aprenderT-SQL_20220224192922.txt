@@ -1,0 +1,44 @@
+###############################
+### TIPOS DE DATOS DE T-SQL ###
+###############################
+
+
+TIPOS EXACTOS DE NUMEROS:
+
+Bigint: -9,223,372,036,854,775,808 --> 9,223,372,036,854,775,807
+Int: -2,147,483,648	--> -2,147,483,648	
+Smallint: -32,768 --> 32,767
+Tinyint: 0 --> 255
+Bit: 0 --> 1
+Decimal: -10^38+1 --> 10^38 –1
+Numeric: -10^38+1 --> 10^38 –1
+Money: -922,337,203,685,477.5808 --> +922,337,203,685,477.5807
+SmallMoney: -214,748.3648 --> 214,748.3647
+
+
+TIPOS NÚMERICOS APROXIMADOS:
+
+Float: 	-1,79E+308		-->		1.79E + 108
+Real:	-3.40E+28		-->		3.40E + 38
+
+
+TIPOS DE FECHA Y TIEMPO:
+
+dateTime(3.33 precisión de milisegundos): Jan 1, 1753 --> DEC 31, 9999
+SmallDateTime (1 minuto de precisión): Jan 1, 1900 --> JUN 6, 2079
+Date (1 dia de aproxim0
+OTROS TIPOS DE DATOS:
+
+	· sql_variant: Almacena valores de varios tipos de datos compatibles con SQL Server, excepto text, ntext y timestamp.
+	
+	· timestamp: Almacena un número único en toda la base de datos que se actualiza cada vez que se actualiza una fila.
+	
+	· uniqueidentifier: Almacena un identificador único global (GUID).
+	
+	· xml: Almacena datos XML. Puede almacenar instancias XML en una columna o una variable (introducido en SQL Server 2005).
+	
+	· cursor: Una referencia a un cursor.
+	
+	· table: Almacena un conjunto de resultados para su posterior procesamiento.
+	
+	· hierarchyid: Un tipo de datos del sistema de longitud variable que se usa para representar la posición en una jerarquía.

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recetas>
+    <receta numero="1">
+        <nombre>Tortilla de Patata</nombre>
+        <img src="tortilla.jpg" />
+        <lista_ingredientes>
+            <personas>Para 5 personas</personas>
+            <ingrediente>5 huevos</ingrediente>
+            <ingrediente>500g de patata</ingrediente>
+            <ingrediente>1 debolla</ingrediente>
+            <ingrediente>Sal</ingrediente>
+            <ingrediente>Aceite de oliva virgen extra</ingrediente>
+        </lista_ingredientes>
+        <pasos>
+            <num1>Cortar y freir patatas y la cebolla</num1>
+            <num2>Mezclar con los huevos</num2>
+            <num3>Cuajar a tortilla</num3>
+        </pasos>
+    </receta>
+</recetas>
+

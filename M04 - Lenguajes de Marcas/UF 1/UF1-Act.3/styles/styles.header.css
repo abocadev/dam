@@ -1,0 +1,339 @@
+/* PARA APLICAR A TODOS LOS ELEMENTOS */
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Mono', monospace;
+}
+
+/* ANIMACIONES */
+
+/* ANIMACIÓN MOVIMIENTO DEL TEXTO DEL HEADER */
+@keyframes animacion-header {
+    from{
+        transform: translate(5%);
+    }to{
+        transform: translate(20%);
+    }
+}
+
+/* ANIMACIÓN DE LAS IMAGENES DEL FOOTER*/
+@keyframes animacion-redessociales{
+    0%{
+        filter: invert(100%);
+    }10%{
+        filter: invert(90%);
+    }20%{
+        filter: invert(80%);
+    }30%{
+        filter: invert(70%);
+    }40%{
+        filter: invert(60%);
+    }50%{
+        filter: invert(50%);
+    }60%{
+        filter: invert(40%);
+    }70%{
+        filter: invert(30%);
+    }80%{
+        filter: invert(20%);
+    }90%{
+        filter: invert(10%);
+    }100%{
+        filter: invert(0%);
+    }
+}
+
+
+
+
+/* HEADER */
+header{
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)) ,url(../src/img/header-img.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 30%;
+    background-position: 10%;
+}
+
+/* ANIMACIÓN DEL DEL TEXTO DEL HEADER */
+header div{
+    width: max-content;
+    padding-top: 4em;
+    padding-bottom: 4em;
+    animation: animacion-header 7s infinite alternate;
+}
+
+/* EL TEXTO DEL HEADER */
+header div h1, header div h2{
+    font-variant: small-caps;
+    color: white;
+}
+/* EL TÍTULO H2 DEL HEADER*/
+header div h2{
+    margin-left: 1em;
+}
+
+
+
+
+/* BARRA DE NAVEGACION */
+nav{
+    font-weight: bold;
+    height: 3.3em;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    background-color: #97c5c4;
+}
+
+/*LISTA DE LA BARRA DE NAVEGACIÓN*/
+nav ul{
+    margin: 0;
+}
+
+/* LISTA DE LOS CONTENIDOS DE LA BARRA DE NAVEGACIÓN*/
+nav ul li{
+    position:relative;
+    background-color: #97c5c4;
+    list-style-type: none;
+    display: inline-block;
+    padding: 1em;
+    margin-left: 2em;
+}
+
+/* INDICAMOS AL PRIMER ELEMENTO DE LA BARRA DE NAVEGACIÓN */
+nav ul li::first-line{
+    margin-left: 0;
+}
+
+/* SI NOS COLOCAMOS ENCIMA DEL COMPONENTE DE LA LISTA QUE CAMBIE EL FONDO*/
+nav ul li:hover{
+    background: linear-gradient(#003479,#97c5c4);
+}
+
+/* SI NOS COLOCAMOS ENCIMA DE ALGUN ELEMENTO QUE TIENE SUBELEMENTOS ESCONDIDOS QUE LOS MUESTRE */
+nav ul li:hover > ul{
+    display: block;
+}
+
+
+/* HIPERVINCULOS DE LA BARRA DE NAVEGACIÓN */
+nav ul a{
+    text-decoration: none;
+    color: white;
+}
+
+/* INDICAMOS AL SUBELEMENTO DE LA BARRA DE NAVEGACIÓN */
+nav ul li ul{
+    color: white;
+    display: none;
+    position: absolute;
+    width: max-content;
+    margin-top: 1em;
+    left: -2em;
+}
+
+/* LLAMAMOS A LOS SUBELEMENTOS DE LA LISTA */
+nav ul li ul li{
+    text-align: left;
+    display: block;
+}
+
+/* INDICAMOS EL TAMAÑO DEL ELEMENTO DE LAS BARRAS*/
+nav #barras{
+    display: none;
+    width: 2em;
+    height: 0.25em;
+    padding: 1em;
+}
+
+/* MOSTRAMOS LAS PEQUEÑAS BARRAS */
+nav #barras div{
+    height: 0.2em;
+    width: 2em;
+    background-color: white;
+    margin-top: 0.3em;
+}
+
+
+#contenido{
+    background-color: #badbe6;
+    display: inline-block;
+    width: 100%;
+}
+
+
+/* ARTICLE */
+
+
+#contenido article{
+    width: 75%;
+    padding: 2em 0;
+    background-color: #777;
+    float: left;
+}
+
+
+
+
+/* ASIDE */
+
+#contenido aside{
+    width: 25%;
+    float: right;
+    height: 79vh;
+}
+
+#contenido aside div{
+    width: 100%;
+    height: max-content;
+}
+
+#contenido aside img{
+    display: block;    
+    margin: 1em auto 0 auto;
+    width: 15em;
+    height: auto;
+}
+
+#contenido aside p{
+    margin-top: 1em;
+    text-align: center;
+}
+
+#contenido aside #bullying img{
+    width: 10em;
+    height: auto;
+}
+
+#contenido aside #aniversari img{
+    width: 10em;
+    height: auto;
+}
+
+
+
+/* FOOTER */
+footer{
+    display: table;
+    margin-top: -0.26em;
+    width: 100%;
+    height: auto;
+}
+
+/* LUGAR DONDE SE MUESTRAN LAS REDES SOCIALES*/
+footer #redessociales{
+    float: left;
+    width: 50%;
+    display: table;
+    height: max-content;
+}
+
+/* LUGAR DONDE SE MUESTRAN LAS IMAGENES DE LA REDES SOCIALES*/
+footer #redessociales #imagenes{
+    display: table-cell;
+    padding: 0.5em;
+    padding: 0.5em;
+    width: max-content;
+    text-align: center;
+}
+
+/*TEXTO QUE INDICA QUE LE SIGAN A LAS REDES SOCIALES*/
+footer #redessociales #texto{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+/* IMAGENES DE TWITTER Y DE INSTAGRAM*/
+footer #redessociales #imagenes img{
+    filter: invert(100%);
+    display: block;
+    margin: 0 auto;
+}
+
+/* IMAGENES DE TWITTER Y DE INSTAGRAM SI SE COLOCAN ENCIMA */
+footer #redessociales #imagenes img:hover{
+    background-color:rgba(0, 0, 0, 0);
+    animation: animacion-redessociales 0.5s;
+    filter: invert(0%);
+}
+
+/* IMAGEN DE TWITTER */
+footer #redessociales #imagenes #twitter{
+    width: 3em;
+    display: block;
+}
+
+/* IMAGEN DE INSTAGRAM */
+footer #redessociales #imagenes #instagram{
+    margin-top: 2em;
+    width: 3em;
+    display: block;
+}
+
+/* HIPERVINCULO DE LAS REDES SOCIALES */
+footer #redessociales #imagenes a{
+    width: 100%;
+    margin-top: 1em;
+    color: black;
+    text-decoration: none;
+    font-size: 0.75em;
+}
+
+/* APARTADO DONDE SE MUESTRA INFORMACIÓN DE CONTACTO */
+footer #littlecontact{
+    display: table-cell;
+    vertical-align: center;
+    margin-top: 1em;
+    height: max-content;
+    float: right;
+    width: 50%;
+}
+
+footer #littlecontact p{
+    text-align: right;
+}
+
+
+/* APARTADO RESPONSIBE */
+@media screen and (max-width: 1010px){
+    nav #barras{
+        display: block;
+        margin-top: -2.25em;
+        left: 0;
+        position: relative;
+        margin-bottom: 2em;
+    }
+    
+    nav #barras  a{
+        display: none;        
+    }
+
+    nav #barras a:first-child{
+        padding-top: -3em;
+    }
+    
+    nav #barras  a li{
+        width: 10em;
+    }
+
+    nav #barras a li::first-line{
+        margin-top: -2em;
+    }
+    nav #barras:hover > a, nav #barras:active > a{
+        display: block;
+    }
+    
+    nav ul a{
+        display: none;
+    }
+
+    #contenido article{
+        width: 100%;
+    }
+
+    #contenido aside{
+        display: none;
+    }
+}

@@ -1,0 +1,51 @@
+article > #intro, #profesores{
+    width: 70%;
+    margin: 0 auto;
+    text-align: justify;
+}
+
+article #intro h2{
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+article #intro p{
+    margin-bottom: 1em;
+}
+
+#profesores table{
+    background-color: #badbe6;
+    padding: 1em;
+    border-radius: 1em;
+    width: 90%;
+    text-align: center;
+}
+
+#profesores table img{
+    width: 25%;
+    display: block;
+    margin: 0.75em auto 0 auto;
+}
+
+#contenido article table td{
+    padding: 0.5em;
+    background-color: #e3e3e3;
+}
+
+#contenido article table th{
+    font-size: 2em;
+    background-color: #cdf0fa;
+    padding: 0.5em;
+}
+
+#profesores h4{
+    margin-top: 1em;
+}
+
+#profesores #profesores-ga{
+    margin-top: 5em;
+}
+
+#profesores #alumnado{
+    margin-top: 5em;
+}

@@ -1,0 +1,26 @@
+#contenido article h2{
+    text-align: center;
+    font-weight: bolder;
+    color: white;
+}
+
+#contenido article p{
+    color: white;
+    text-align: justify;
+    margin-top: 2em;
+    margin-left: 3em;
+    margin-right: 3em;
+}
+
+#contenido article ul{
+    margin-top: 1em;
+    margin-left: 5em;
+    margin-right: 5em;
+    list-style-type:square;
+    color: white;
+}
+
+#contenido article img{
+    display: block;
+    margin: 0 auto;
+}

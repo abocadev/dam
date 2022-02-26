@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<curso>
+    <lecciones>
+        <leccion titulo="Introducción"></leccion>
+        <leccion titulo="Documento bien formado"></leccion>
+        <leccion titulo="Ejemplo de uso"></leccion>
+    </lecciones>
+</curso>

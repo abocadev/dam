@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Ejercicio de creación de un formato RSS con XML</title>
+        <link>http://www.ifp.es</link>
+        <description>Esta página nos ofrece las últimas noticias de la actualidad de nuestro país de forma estructurada y concisa</description>
+        <item>
+            <title>La Vanguardia</title>
+            <link>www.lavanguardia.com</link>
+            <description>Aquí podrás encontrar las últimas noticias de este diario de referencia de este país</description>
+            <item>
+                <item>
+                    <title>El Periódico</title>
+                    <link>www.elperiodico.com</link>
+                    <description>Aquí podrás encontrar las últimas noticias de este diario de referencia de este país</description>
+                </item>
+            </item>
+        </item>
+    </channel>

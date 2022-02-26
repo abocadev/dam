@@ -1,0 +1,26 @@
+label{
+    display: block;
+    margin-top: 20px;
+    letter-spacing: 1px;
+}
+
+.principal{
+    display: block;
+    margin: 0 auto;
+    width: 510px;
+    color: #666;
+    font-family: Arial;
+}
+form{
+    margin: 0 auto;
+    width: 400px;
+}
+input, textarea{
+    width: 380px;
+    height: 27px;
+    background: #666;
+    border: 2px solid #f6f6f6;
+    padding: 10px;
+    font-size: 10px;
+    color: #fff;
+}

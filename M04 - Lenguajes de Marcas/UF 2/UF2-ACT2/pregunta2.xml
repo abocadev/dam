@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE cd SYSTEM "pregunta2.dtd">
+<cd>
+    <evento modalidad="presencial">
+        <fecha formato="dia/mes/hora">13/01/2022</fecha>
+        <nombreeven>Hackaton Barcelona</nombreeven>
+        <ubicacion>Barcelona, España</ubicacion>
+        <participantes>1000</participantes>
+    </evento>
+    <evento modalidad="online">
+        <fecha formato="dia/mes/hora">25/03/2022</fecha>
+        <nombreeven>Hackaton Nuwe</nombreeven>
+        <ubicacion>España</ubicacion>
+        <participantes>2000</participantes>
+    </evento>
+    <evento modalidad="online">
+        <fecha formato="dia/mes/hora">24/10/2022</fecha>
+        <nombreeven>Hackaton de FP</nombreeven>
+        <ubicacion>Barcelona, España</ubicacion>
+        <participantes>100</participantes>
+    </evento>
+</cd>

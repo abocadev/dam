@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE cd SYSTEM "pregunta3.dtd">
+<cd>
+    <coche>
+        <codigoCoche>00123</codigoCoche>
+        <marca>Opel</marca>
+        <modelo>Corsa</modelo>
+        <matricula>0527CSP</matricula>
+        <potencia medida="caballos">1000</potencia>
+        <plazas>5</plazas>
+        <numeroPuertas>5</numeroPuertas>
+    </coche>
+    <coche>
+        <codigoCoche>00123</codigoCoche>
+        <marca>Opel</marca>
+        <modelo>Corsa</modelo>
+        <matricula>0527CSP</matricula>
+        <potencia medida="caballos">1000</potencia>
+        <plazas>5</plazas>
+        <numeroPuertas>5</numeroPuertas>
+    </coche>
+    <coche>
+        <codigoCoche>00123</codigoCoche>
+        <marca>Opel</marca>
+        <modelo>Corsa</modelo>
+        <matricula>0527CSP</matricula>
+        <potencia medida="caballos">1000</potencia>
+        <plazas>5</plazas>
+        <numeroPuertas>5</numeroPuertas>
+    </coche>
+</cd>

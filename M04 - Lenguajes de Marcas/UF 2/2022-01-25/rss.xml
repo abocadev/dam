@@ -1,0 +1,34 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<?xml-stylesheet href="file.css" type="text/css"?>
+<rss version="2.0">
+    <channel>
+        <title>Pilar Canal de RSS</title>
+        <link>http://www.loquesea.net/rss/rss.xml</link>
+        <description>Programacion</description>
+        
+        <item>
+            <title>Lenguaje Marcas</title>
+            <link>http://www.loquesea.com/</link>
+            <guid>http://www.loquesea.com</guid>
+            <pubDate>Mon, 02. Abril 2021, 13:20:00 GMT</pubDate>
+            <description>Tiene tambien codigo fuente</description>
+        </item>
+        
+        <item>
+            <title>Lenguajes Marcas</title>
+            <link>http://www.loquesea.com/</link>
+            <guid>http://www.loquesea.com</guid>
+            <pubDate>Mon, 02. Abril 2021, 13:20:00 GMT</pubDate>
+            <description>Lluvias en Catalunya</description>
+        </item>
+        
+        <item>
+            <title>Lenguajes Marcas</title>
+            <link>http://www.loquesea.com/</link>
+            <guid>http://www.loquesea.com</guid>
+            <pubDate>Mon, 02. Abril 2021, 13:20:00 GMT</pubDate>
+            <description>Trucos de programacion</description>
+        </item>
+
+    </channel>
+</rss>

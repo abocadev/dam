@@ -1,0 +1,9 @@
+<!ELEMENT cd (evento, evento, evento)>
+<!ELEMENT evento (fecha, nombreeven, ubicacion, participantes)>
+<!ELEMENT fecha (#PCDATA)>
+<!ELEMENT nombreeven (#PCDATA)>
+<!ELEMENT ubicacion (#PCDATA)>
+<!ELEMENT participantes (#PCDATA)>
+
+<!ATTLIST evento modalidad NMTOKEN #REQUIRED>
+<!ATTLIST fecha formato CDATA #REQUIRED>

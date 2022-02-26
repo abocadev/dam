@@ -1,0 +1,10 @@
+<direccion>
+    <nombre>
+        <titulo> Sr </titulo>
+        <nombre> Albert </nombre>
+        <apellido> Bocanegra </apellido>
+    </nombre>
+    <calle> Carrer Emporda, 21</calle>
+    <ciudad estado="ciudad"> Roda de Bera</ciudad>
+    <codigo-postal> 43883</codigo-postal>
+</direccion>

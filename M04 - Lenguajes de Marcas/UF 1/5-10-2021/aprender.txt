@@ -1,0 +1,1 @@
+Una vez que hagamos el código XML y para que funcione y tengamos que guardar el XML en códificación en ANSII.

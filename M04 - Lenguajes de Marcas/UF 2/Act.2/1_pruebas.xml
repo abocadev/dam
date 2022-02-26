@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="./ejemplo.css" type="text/css"?>
+<professor>
+    <nombre>Albert</nombre>
+    <apellido>Bocanegra</apellido>
+    <departamento>Departamento de Informática</departamento>
+    <cargos>
+        <cargo>Mantenimiento, </cargo>
+        <cargo>Tutor</cargo>
+    </cargos>
+</professor>
+

@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
+/* PARA TODOS LOS COMPONENTES */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Mochiy Pop One', sans-serif;
+
+}
+body{
+  background-color: #666;
+}
+/* 
+  HEADER
+*/
+header {
+  background: #666;
+}
+
+header h1 {
+  text-align: center;
+  padding: 2em;
+  color: #f7f7f7;
+  font-variant: small-caps;
+  font-size: 2.5em;
+}
+
+/* 
+  ARTICLE
+*/
+article {
+  width: 75%;
+  height: 50em;
+  float: left;
+  background-color: #999;
+}
+
+article h1 {
+    text-align: center;
+    padding-top: 1em;
+    font-variant: small-caps;
+    color: white;
+}
+
+article #frikie{
+    width: 15em;
+    height: 15em;
+    display: block;
+    margin: 0 auto;
+}
+
+article #videogames{
+  width: 30em;
+  height: 20em;
+  display: block;
+  margin: 0 auto;
+  margin-top: 2em;
+}
+
+article p{
+    font-size: 0.85em;
+    padding-top: 2em;
+    padding-left: 3em;
+    padding-right: 3em;
+    text-align: justify;
+}
+
+/* 
+  ASIDE
+*/
+aside {
+    width: 25%;
+    height: 50em;
+    float: right;
+    background: #c4c4c4;
+}
+
+aside h1{
+    text-align: center;
+    padding-top: 1em;
+}
+
+#login form{
+  display: block;
+  margin: 0 auto;
+}
+
+#login form label{
+  margin-top: 2em;
+  display: block;
+  text-align: center;
+}
+
+#login form input{
+  display: block;
+  margin: 1em auto 0 auto;
+  border-radius: 2em;
+  background-color: whitesmoke;
+}
+
+#login button{
+  margin: 2em auto 0 auto;
+  display: block;
+  border-radius: 0.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+#registrer form{
+  display: block;
+  margin: 0 auto;
+}
+
+#registrer form label{
+  margin-top: 2em;
+  display: block;
+  text-align: center;
+}
+
+#registrer form input{
+  display: block;
+  margin: 1em auto 0 auto;
+  border-radius: 2em;
+  background-color: whitesmoke;
+}
+
+#registrer button{
+  margin: 2em auto 0 auto;
+  display: block;
+  border-radius: 0.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+/*
+  FOOTER
+*/
+
+footer{
+  padding-top: 2em;
+  padding-bottom: 2em;
+  margin: 0;
+  display: inline-block;
+  background-color: #666;
+  width: 100%;
+  height:fit-content;
+  position:sticky;
+}
+
+footer h4{
+  margin-top: 0.5em;
+  text-align: center;
+  color: #010;
+}
+
+footer h2{
+  margin-top: 1.5em;
+  color: black;
+  text-align: center;
+}

@@ -1,0 +1,49 @@
+#contenido h3{
+    text-align: center;
+    margin-bottom: 3em;
+}
+
+
+#contenido form{
+    margin: 0 auto;
+    display: block;
+    width: 70%;
+}
+
+#contenido form label{
+    display: block;
+    text-align: center;
+    font-weight: bolder;
+}
+
+#contenido form input{
+    margin-top: 1em;
+    margin-bottom: 2em;
+    display: flex;
+    width: 70%;
+    height: 2em;
+    border-radius: 1em;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#contenido form textarea{
+    margin: 0 auto;
+    margin-top: 0.5em;
+    margin-bottom: 2em;
+    display: flex;
+    width: 69%;
+    padding: 1%;
+    border-radius: 1em;
+}
+
+#contenido form input[type="submit"]{
+    margin: 4em auto 0 auto;
+    padding: 0.25em 0.5em;
+    width: max-content;
+    height: 3em;
+    font-weight: bold;
+    border-radius: 1em;
+    color: black;
+    text-align: center;
+}

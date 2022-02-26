@@ -1,0 +1,72 @@
+#contenido article #intro{
+    width:70%;
+    display: block;
+    margin: 0 auto;
+    text-align: justify;
+}
+
+#contenido article h2{
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+#contenido article p{
+    margin-bottom: 2em;
+}
+
+#contenido article #oferta{
+    text-align: center;
+    font-variant: small-caps;
+}
+
+#contenido article div{
+    width: 70%;
+    margin: 0 auto;
+}
+
+#contenido article div h3{
+    font-variant: small-caps;
+}
+
+#contenido article div h4{
+    margin-top: 2em;
+    font-variant: small-caps;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+#contenido article table{
+    padding: 1em;
+    border-radius: 1em;
+    margin: 0 auto;
+}
+#contenido article table td{
+    padding: 0.5em;
+    background-color: #e3e3e3;
+}
+
+#contenido article table th{
+    background-color: #cdf0fa;
+    padding: 0.5em;
+}
+#contenido article #superior{
+    margin-top: 3em;
+}
+
+#contenido article button{
+    padding-top: 2em;
+    padding-bottom: 2em;
+    border-radius: 5em;
+    width: 100%;
+    text-align: center;
+    margin-top: 4em;
+    background-color: #97c5c4;
+
+}
+
+#contenido article button:hover{
+    background: linear-gradient(#003479,#97c5c4);
+    filter: invert(0%);
+    animation: animacion-redessociales 0.5s;
+    color: white;
+}

@@ -1,0 +1,18 @@
+package example.estructurada;
+import java.util.Scanner;
+public class UF1_024 {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        int TAM = 10;
+        int nums[] = new int[TAM];
+        for(int i = 0; i<TAM; i++){
+            System.out.println("Introduce un numero:");
+            nums[i] = entrada.nextInt();
+        }
+        for(int i = 0; i < (TAM/2); i++){
+            System.out.println(nums[i]);
+            System.out.println(nums[(TAM-1)-i]);
+        }
+    }
+    
+}

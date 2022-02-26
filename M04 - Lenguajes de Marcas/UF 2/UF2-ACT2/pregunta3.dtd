@@ -1,0 +1,11 @@
+<!ELEMENT cd (coche, coche, coche)>
+<!ELEMENT coche (codigoCoche, marca, modelo, matricula, potencia, plazas, numeroPuertas)>
+<!ELEMENT codigoCoche (#PCDATA)>
+<!ELEMENT marca (#PCDATA)>
+<!ELEMENT modelo (#PCDATA)>
+<!ELEMENT matricula (#PCDATA)>
+<!ELEMENT potencia (#PCDATA)>
+<!ELEMENT plazas (#PCDATA)>
+<!ELEMENT numeroPuertas (#PCDATA)>
+
+<!ATTLIST potencia medida NMTOKEN #REQUIRED>
