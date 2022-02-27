@@ -13,11 +13,11 @@ public class E013enteroMayor {
         Scanner lectura = null;
         try {
             // intentamos abrir el fichero
-            File f = new File("C://Temp//doc.txt");
+            File f = new File("D:/fichero.txt");
             lectura = new Scanner(f);
             
             int max = lectura.nextInt();
-            for(int i = 0; i < 20; i++){
+            for(int i = 1; i < 10; i++){
                 int valor = lectura.nextInt();
                 if(max<valor){
                     max = valor;

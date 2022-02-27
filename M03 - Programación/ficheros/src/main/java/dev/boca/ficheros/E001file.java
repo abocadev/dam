@@ -7,7 +7,6 @@ public class E001file {
         E001file programa = new E001file();
         programa.inicio();
     }
-    
     public void inicio(){
         // INICIALIZAR dos rutas absolutas
         File carpetaAbs = new File("C:/Carpeta/");
@@ -24,7 +23,6 @@ public class E001file {
         MostrarRutas(ficheroRe1);
         
     }
-    
     public void MostrarRutas(File f){
         System.out.println("La ruta es: " + f.getAbsolutePath());
         System.out.println("Su padre es: " + f.getParent());

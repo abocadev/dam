@@ -12,7 +12,7 @@ public class E014escribeEnteros {
     public void inicio(){
         try {
             // intentamos abrir el fichero
-            File f = new File("C://Temp//Enteros.txt");
+            File f = new File("D:/fichero.txt");
             PrintStream escribe = new PrintStream(f);
             // escribimos el primer valor
             int valor = 1;
