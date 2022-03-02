@@ -1,2 +1,6 @@
 Esta conversacion la compone entre: Albert y Jose
-Albert: helloJose: helloAlbert: byeJose: byeAlbert: f
+Albert: hols
+Jose: hola
+Albert: adios
+Jose: adios
+Albert: f

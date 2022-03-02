@@ -16,12 +16,9 @@ public class E021notasNuevoFichero {
     public void inicio(){
         try {
             File f = new File("conversacion.txt");
-            PrintStream escritura = new PrintStream(f);      
             String Nombre1 = "Albert";
             String Nombre2 = "Jose";
-            escritura.println("Esta conversacion la compone entre: " + Nombre1 + " y " + Nombre2);
             conversacion(Nombre1, Nombre2, f);
-            escritura.close();
         } catch (Exception e) {
             System.out.println("Error: " + e);
         }
@@ -33,6 +30,7 @@ public class E021notasNuevoFichero {
             PrintWriter sobreEscritura = new PrintWriter(new FileWriter(f, true));
             boolean fin = false;
             Scanner entrada = new Scanner(System.in);
+            sobreEscritura.println("Esta conversacion la compone entre: " + a + " y " + b);
             while(!fin){
                 String texto;
                 if(turno == 0){
@@ -53,5 +51,4 @@ public class E021notasNuevoFichero {
             System.out.println("Error: " + e);
         }
     }
-    
 }
