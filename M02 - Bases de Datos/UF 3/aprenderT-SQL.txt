@@ -1,3 +1,234 @@
-######################################################
-### CAMPOS CALCULADOS Y PROCEDIMIENTOS ALMACENADOS ###
-######################################################
+#########################
+### CAMPOS CALCULADOS ###
+#########################
+
+Lo que tendremos que hacer es crear un nuevo campo y haremos lo siguiente:
+
+	"""
+	alter table Facturas
+		add Campo as (Operacion)
+	"""
+	
+Una formula de un campo calculado no puede estar dentro de otro campo calculado.
+
+Entonces por ejemplo si queremos crear un campo calculado utilizando otro campo calculado, lo que tendremos que hacer es la siguiente:
+
+	"""
+	alter table Tabla
+		add Campo2 as (Operacion - (Operacion tabla anterior))
+	"""
+	
+
+############################################
+### PROCEDIMIENTOS ALMACENADOS (Parte 1) ###
+############################################
+
+Para poder crear un procedimiento almacenado, lo que tendremos que hacer es irnos a la BD --> "Programmability" --> "Stored Procedures" y le damos a Click Derecho y le damos a "Stored Procedure...".
+
+Lo primero que haremos sera poner
+
+"""
+create procedure [NOMBRE DE LA FUNCION]
+
+AS
+BEGIN
+	[Aquí iria todo el código]
+END 
+GO
+"""
+
+Para poder declarar una variable:
+
+	"""
+	declare @i int [La creamos]
+	set @i = 5 [Para establecer un valor]
+	"""
+	
+Para mostrar el valor de @i, lo que tendremos que hacer es:
+
+"""
+select @i
+"""
+
+Una vez que ejecutemos este código, nos volvemos a la pestaña de donde esta la BD BD --> "Programmability" --> "Stored Procedures" y si le damos a la tecla "F5", nos saldra la nueva función.
+
+Si lo queremos ejecutar, nos dirigiremos dentro de la funcion y le daremos a click derecho a la funcion y le daremos a execute. Nos saldra una pestaña y lo que haremos será darle a OK.
+
+Para poder utilizar un "procedure" que ya esta creado, lo que tendremos que hacer es lo siguiente:
+
+"""
+ALTER PROCEDURE [Nombre de la función]
+
+AS
+BEGIN
+	[Aquí iria todo el código]
+END 
+GO
+"""
+
+Para poder asignar un select a una variable, lo que tendremos que hacer es lo siguiente:
+
+"""
+create procedure [NOMBRE DE LA FUNCION]
+
+AS
+BEGIN
+	declare @i decimal
+	set @i = (SELECT SUM(Importe) FROM Facturas)
+	
+	select @i
+END 
+GO
+"""
+
+Si queremos hacer dos selects lo que tendremos que hacer es lo siguiente:
+
+"""
+select @i, @a
+"""
+
+Si queremos hacer dos select en un select y queremos insertar el valor en dos variables diferentes, tendremos que hacer lo siguiente:
+
+"""
+select @importe = sum(Importe), @importeDescuento = sum(ImporteDescuento) from Facturas
+"""
+
+Si queremos hacer una condición, lo que tendremos que hacer es lo siguiente:
+
+"""
+if(@Importe > 10000) BEGIN
+	Update Facturas set Descuento = Descuento * 10
+END ELSE BEGIN
+	
+END
+"""
+
+Como generar un bucle "while":
+
+"""
+ALTER PROCEDURE [Nombre de la función]
+
+AS
+BEGIN
+	declare @contador int
+	set @contador = 0
+	
+	while(@contador  < 5) BEGIN
+		select @contador = @contador + 1
+	END
+END 
+GO
+"""
+
+############################################
+### PROCEDIMIENTOS ALMACENADOS (Parte 2) ###
+############################################
+
+Utilizaremos la BD de un bar y crearemos un procedimiento almacenado que sirve para pedir un artículo para la mesa:
+
+"""
+CREATE PROCEDURE PedirArticuloMesa
+	@MesaId int,
+	@ArticuloId int
+AS
+BEGIN
+	
+	declare @TicketId int
+	
+	if((SELECT COUNT(*) FROM Ticket where MesaId = @MesaId and FechaCierre is Null) = 0) BEGIN
+		-- no hay ticket abierto
+		select 'Aqui ha entrado'
+		INSERT INTO Ticket(MesaId)
+		values (@MesaId)
+		
+		@TicketId = @@indetity
+	END ELSE BEGIN
+		-- si hay un ticket abierto
+		select @TicketId = Id from Ticket where MesaId = @MesaId and FechaCierre is Null
+	END
+	
+	if((select count(*) from linea where ArticuloId = @ArticuloId and TicketId = @TicketId)=0) BEGIN
+		-- No existe el articulo en el ticket
+		insert into Linea (TicketId,ArticuloId,Nombre,TipoIvaId,PrecioFinal,Unidades)
+		select @TicketId, @ArticuloId, Nombre, TipoIvaId, PrecioFinal,0 from Articulo where Id = @ArticuloId
+	END
+	
+	Update Linea set Unidades = Unidades + 1
+	where TicketId = @TicketId AND ArticuloId = @ArticuloId
+		
+END
+GO
+"""
+
+Para saber el ultimo ID creado en este entorno de ejecución lo que tendremos que hacer es lo siguiente:
+
+"""
+@MesaId = @@identity
+"""
+
+Para insertar valores en una base de datos utilizando un select, lo que tendremos que hacer es lo siguiente:
+
+"""
+insert into Linea (TicketId,ArticuloId,Nombre,TipoIvaId,PrecioFinal,Unidades)
+select @TicketId, @ArticuloId, Nombre, TipoIvaId, PrecioFinal,0 from Articulo where Id = @ArticuloId
+"""
+
+Para mejorar el rendimiento lo que tendremos que hacer es un índice en un where de la siguiente manera:
+
+	1. Lo primero que tendremos que hacer es irnos a la tabla y le tendremos que dar a click derecho de la tabla y le damos a "diseño".
+	
+	2. Ahora lo que haremos sera irnos a "Manage Indexs" y crearemos los índices que conpondran el where.
+	
+
+#################
+### FUNCIONES ###
+#################
+
+Para poder crear una nueva función, lo que tendremos que hacer es irnos a la BD --> "Programmability" --> "Functions" --> "Scalar-Value Functions" y le daremos clic derecho y le damos a "Scalar-Value Functions..."
+
+Y la estructura de la función es la siguiente:
+
+"""
+CREATE FUNCTION dbo.TotalTicket(
+	[Los datos que va a coger la función]
+)
+RETURNS <Function_Date_Type, ,int>
+AS BEGIN
+	[Aquí pondremos lo que hara la función]
+END
+"""
+
+Función del total de un ticket:
+
+"""
+CREATE FUNCTION dbo.TotalTicket(
+	@TicketId int
+)
+RETURNS DECIMAL (10, 2)
+AS BEGIN
+	-- Aqui declararemos la variable de retorno
+	DECLARE @ret DECIMAL (10, 2)
+	
+	-- Añadimos las declaraciones de T-SQL para poder darle valor a la variable de retorno
+	SELECT @ret = sum(TotalLinea) from Linea where TicketId = @TicketId
+	
+	-- Añadimos el resultado de la función
+	RETURN @ret
+END
+GO
+"""
+
+	AVISO: Las funciones no se pueden ejecutar, si no que se llaman
+	
+Para poder llamar a una función lo que tendremos que hacer es lo siguiente:
+
+"""
+SELECT *, dbo.TotalTicket(Id) FROM Ticket
+"""
+
+Ahora añadiremos esta función a un campo calculado, para ello lo que tendremos que hacer es lo siguiente:
+
+"""
+ALTER TABLE ticket
+	ADD TotalTicket AS dbo.TotalTicket(Id)
+"""
