@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<buzon>
+    <Mensaje>
+        <Remitente>
+            <nombre>Pau Gomez</nombre>
+            <email>aa@loquesea.com</email>
+        </Remitente>
+        <Destinatario>
+            <nombre>Biel</nombre>
+            <email>ii@loquesea.com</email>
+        </Destinatario>
+        <Texto>
+            <parrafo>Hola que tal?</parrafo>
+            <parrafo>Hace tiempo que no escribes. A ver...</parrafo>
+            <parrafo>Un saludo</parrafo>
+        </Texto>
+    </Mensaje>
+</buzon>

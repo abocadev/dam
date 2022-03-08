@@ -180,9 +180,9 @@ Para mejorar el rendimiento lo que tendremos que hacer es un índice en un where
 	2. Ahora lo que haremos sera irnos a "Manage Indexs" y crearemos los índices que conpondran el where.
 	
 
-#################
-### FUNCIONES ###
-#################
+##########################
+### FUNCIONES: PARTE I ###
+##########################
 
 Para poder crear una nueva función, lo que tendremos que hacer es irnos a la BD --> "Programmability" --> "Functions" --> "Scalar-Value Functions" y le daremos clic derecho y le damos a "Scalar-Value Functions..."
 
@@ -232,3 +232,208 @@ Ahora añadiremos esta función a un campo calculado, para ello lo que tendremos
 ALTER TABLE ticket
 	ADD TotalTicket AS dbo.TotalTicket(Id)
 """
+
+###########################
+### FUNCIONES: PARTE II ###
+###########################
+
+Ahora en estos momentos lo que haremos será crear una función para saber el total de un ticket:
+
+"""
+CREATE FUNCTION [dbo].[TotalTicket]
+(
+	@TicketId int
+)
+
+RETURNS decimal (10, 2)
+AS BEGIN
+	-- Aqui declararemos la variable de retorno
+	DECLARE @ret DECIMAL (10, 2)
+	
+	-- Añadimos las declaraciones de T-SQL para poder darle valor a la variable de retorno
+	SELECT @ret = sum(TotalLinea) from Linea where TicketId = @TicketId
+	
+	-- Añadimos el resultado de la función
+	RETURN @ret
+END
+GO
+"""
+
+Y para que esto se añada a un campo calculado lo que tendremos que hacer es lo siguiente:
+
+"""
+ALTER TABLE Ticket
+	add TotalTicket AS dbo.TotalTicket(Id)
+"""
+
+Para saber si una mesa no esta cerrada, lo que tendremos que hacer es una función que es la siguiente:
+
+"""
+CREATE FUNCTION [dbo].[TicketAbierto]
+(
+	@MesaId int
+)
+
+RETURNS bit
+AS BEGIN
+	-- Aqui declararemos la variable de retorno
+	DECLARE @ret bit
+	
+	-- Añadimos las declaraciones de T-SQL para poder darle valor a la variable de retorno
+	select @ret = count(*) from Ticket where MesaId = @MesaId and FechaCierre is null
+	
+	-- Añadimos el resultado de la función
+	RETURN @ret
+END
+GO
+"""
+
+Y lo añadimos en un campo calculado:
+
+"""
+ALTER TABLE Mesa
+	ADD TicketAbierto AS dbo.TicketAbierto(Id)
+"""
+
+Ahora lo que haremos será pasar un Tipo de Iva (que el valor será tipo "int") y lo que haremos será devolver el porcentaje:
+
+"""
+CREATE FUNCTION [dbo].[PorcentajeIva]
+(
+	@TipoIvaId int
+)
+
+RETURNS decimal (18, 2)
+AS BEGIN
+	-- Aqui declararemos la variable de retorno
+	DECLARE @ret DECIMAL (18, 2)
+	
+	-- Añadimos las declaraciones de T-SQL para poder darle valor a la variable de retorno
+	SELECT @ret = PorcentajeIva from TipoIva where id = @TipoIvaId
+	
+	-- Añadimos el resultado de la función
+	RETURN @ret
+END
+GO
+"""
+
+Y lo añadimos a un campo calculado:
+
+"""
+ALTER TABLE Linea
+	ADD PorcentajeIva as dbo.PorcentajeIva(TipoIvaId)
+"""
+
+Ahora lo que haremos será quitarle el Iva del producto:
+
+"""
+select *, TotalLinea/(1+(PorcentajeIva/100)) from Linea
+"""
+
+Y para ponerlo en un campo calculado lo que tendremos que hacer es lo siguiente:
+
+"""
+ALTER TABLE Linea
+	ADD PrecioSinIva AS (PrecioFinal + Unidades)/(1 + (dbo.PorcentajeIva(TipoIvaId)/100))
+"""
+
+Ahora lo que haremos será crear el ImporteIva:
+
+"""
+CREATE FUNCTION [dbo].[ImporteIva]
+(
+	@TicketId int
+)
+
+RETURNS decimal (10, 2)
+AS BEGIN
+	-- Aqui declararemos la variable de retorno
+	DECLARE @ret DECIMAL (10, 2)
+	
+	-- Añadimos las declaraciones de T-SQL para poder darle valor a la variable de retorno
+	SELECT @ret = sum(ImporteSinIva) from Linea where TicketId = @TicketId
+	
+	-- Añadimos el resultado de la función
+	RETURN @ret
+END
+GO
+"""
+
+Y ahora lo que haremos será añadirlo a un campo calculado:
+
+"""
+ALTER TABLE Ticket
+	ADD ImporteIva AS [dbo].[ImporteIva](Id)
+ALTER TABLE Ticket
+	ADD ImporteSinIva AS [dbo].[ImporteSinIva](Id)
+"""
+
+#########################
+### 	S: PARTE I ###
+#########################
+
+Lo primero que haremos será crear un campo donde pondremos las ventas total del artículo,
+
+"""
+use Bar
+alter table Articulo
+	add Ventas int default 0 not null
+	
+	go
+	
+	update Articulo set Ventas = 0
+	
+	go
+"""
+
+Para poder añadir un Trigger lo que tendreemos que hacer es lo siguiente: BD --> Tables --> Tabla a la que queremos hacer un trigger --> Triggers --> Click Derecho "New Trigger"
+
+Y la estructura del trigger es la siguiente:
+
+"""
+CREATE TRIGGER <Schema_Name, sysname, Schema_Name>.<Trigger_Name, sysname, Trigger_Name>
+	ON <Schema_Name, sysname, Schema_Name>.<Table_Name, sysname, Table_Name>
+	AFTER <Data_Modification_Statements, , INSERT, DELETE, UPDATE>
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+END
+GO
+"""
+
+Ahora lo que haremos será crear un Trigger para la tabla Linea, para cuando insertemos un dato en esta tabla.
+
+"""
+CREATE TRIGGER trgActualizasVentas
+	ON Linea
+	AFTER INSERT
+BEGIN
+	UPDATE Articulo
+	SET 
+	Articulo.Ventas=Articulo.Ventas + Inserted.Unidades
+	FROM Inserted
+	INNER JOIN
+	Articulo
+	ON Articulo.Id = Inserted.ArticuloId
+END
+GO
+"""
+
+Esta es una plantilla para hacer un "sql update from select":
+
+"""
+UPDATE Per
+SET 
+Per.PersonCityName=Addr.City, 
+Per.PersonPostCode=Addr.PostCode
+FROM Persons Per
+INNER JOIN
+AddressList Addr
+ON Per.PersonId = Addr.PersonId
+"""
+
+AVISO: Diferencia entre TRUNCATE y DELETE:
+	TRUNCATE: Borra la tabla y la vuelve a recrear.
+	DELETE: Borra la tabla.
