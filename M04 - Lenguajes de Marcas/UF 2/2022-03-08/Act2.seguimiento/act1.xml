@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pedido [
+    <!ELEMENT pedido (nombre, direccion, contenido)>
+    <!ELEMENT nombre (#PCDATA)>
+    <!ELEMENT direccion (calle, numero, piso)>
+    <!ELEMENT calle (#PCDATA)>
+    <!ELEMENT numero (#PCDATA)>
+    <!ELEMENT piso (#PCDATA)>
+    <!ELEMENT contenido (#PCDATA)>
+]>
+<pedido>
+        <nombre>Pedro Gomez Sanchez</nombre>
+        <direccion>
+            <calle>Mallorca</calle>
+            <numero>123</numero>
+            <piso>noveno</piso>
+        </direccion>
+        <contenido>Televisor A1313</contenido>
+</pedido>

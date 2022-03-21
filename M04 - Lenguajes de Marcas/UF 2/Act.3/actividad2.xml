@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE listaventas [
+    <!ELEMENT listaventas (venta, venta, venta)>
+    <!ELEMENT venta (importe, comprador, vendedor, fecha, factura)>
+    <!ELEMENT importe (#PCDATA)>
+        <!ATTLIST importe moneda NMTOKEN #REQUIRED>
+    <!ELEMENT comprador (#PCDATA)>
+    <!ELEMENT vendedor (#PCDATA)>
+    <!ELEMENT fecha (#PCDATA)>
+    <!ELEMENT factura (#PCDATA)>
+]>
+<listaventas>
+    <venta>
+        <importe moneda="euros">270</importe>
+        <comprador>Raul Garcia</comprador>
+        <vendedor>Albert Bocanegra</vendedor>
+        <fecha>12/03/2022</fecha>
+        <factura>291058</factura>
+    </venta>
+    <venta>
+        <importe moneda="euros"></importe>
+        <comprador></comprador>
+        <vendedor></vendedor>
+        <fecha></fecha>
+        <factura></factura>
+    </venta>
+    <venta>
+        <importe moneda="euros"></importe>
+        <comprador></comprador>
+        <vendedor></vendedor>
+        <fecha></fecha>
+        <factura></factura>
+    </venta>
+</listaventas>

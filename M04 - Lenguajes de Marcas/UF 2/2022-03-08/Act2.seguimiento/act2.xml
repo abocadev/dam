@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE carta [
+    <!ELEMENT carta (plato, plato, plato, plato, plato)>
+    <!ELEMENT plato (nombre, precio, descripcion, calorias)>
+    <!ELEMENT nombre (#PCDATA)>
+    <!ELEMENT precio (#PCDATA)>
+    <!ATTLIST precio moneda NMTOKEN #REQUIRED>
+    <!ELEMENT descripcion (#PCDATA)>
+    <!ELEMENT calorias (#PCDATA)>
+]>
+<carta>
+    <plato>
+        <nombre>Hamburguesa</nombre>
+        <precio moneda="euros">7</precio>
+        <descripcion>Carne de ternera</descripcion>
+        <calorias>650</calorias>
+    </plato>
+    <plato>
+        <nombre>Hamburguesa</nombre>
+        <precio moneda="euros">15</precio>
+        <descripcion>Carne de pollo con queso doble</descripcion>
+        <calorias>900</calorias>
+    </plato>
+    <plato>
+        <nombre>Patatas la alegria</nombre>
+        <precio moneda="euros">3</precio>
+        <descripcion>Salsa de tomate picante</descripcion>
+        <calorias>500</calorias>
+    </plato>
+    <plato>
+        <nombre>Patatas caseras</nombre>
+        <precio moneda="euros">2</precio>
+        <descripcion>Sin salsa</descripcion>
+        <calorias>200</calorias>
+    </plato>
+    <plato>
+        <nombre>Manzana al horno</nombre>
+        <precio moneda="euros">2</precio>
+        <descripcion>Con miel y limon</descripcion>
+        <calorias>100</calorias>
+    </plato>
+</carta>
