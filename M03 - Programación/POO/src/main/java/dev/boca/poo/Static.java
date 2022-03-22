@@ -24,7 +24,7 @@ public class Static {
         System.out.println(uno.frase);
         
         // si el atributo es de clase, no hace falta inicializar el objeto
-        System.out.println(Static.frase);
+        //System.out.println(static.frase);
         
         // metodo estatico
         System.out.println("La suma es: " + Static.sumar(50, 20));
