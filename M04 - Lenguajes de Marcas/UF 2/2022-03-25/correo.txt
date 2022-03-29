@@ -1,0 +1,11 @@
+<!ELEMENT ejemplo(nombre)> = 1 y solo 1
+<!ELEMENT ejemplo(nombre?)> = NInguna o 1
+<!ELEMENT ejemplo(nombre+)> = 1 o mas veces
+<!ELEMENT ejemplo(nombre*)> = Ninguna o muchas veces
+<!ELEMENT cualquieres(perro|gato)>
+<!ELEMENT perro EMPTY>
+<!ELEMENT gato EMPTY>
+
+<cualquieres>
+    <gato />
+</cualquieres>
