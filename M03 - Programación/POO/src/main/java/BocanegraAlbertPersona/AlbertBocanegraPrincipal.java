@@ -11,6 +11,7 @@ public class AlbertBocanegraPrincipal {
         double peso = 0, altura = 0;
         
         boolean salir = false;
+        
         while(!salir){
             System.out.println("Introduce tu nombre y Apellido: ");
             if(entrada.hasNextLine()){
@@ -115,5 +116,4 @@ public class AlbertBocanegraPrincipal {
         System.out.println("Pesas " + persona1.getPeso() + " y tu indice de masa corporal es " + persona1.calcularPeso() + '.');
         System.out.println('¿' + persona1.getName() + "es mayor de edad? " + persona1.comprobarEdad());
     }
-    
 }
