@@ -84,7 +84,8 @@ public class AlbertBocanegraPersona {
     }
     
     public int calcularPeso(){
-        double calculo = peso/(altura*altura);
+        double calculo = Math.round((peso/(altura*altura)) * 100.0)/100.0;
+        System.out.println(calculo);
         int resultado;
         if(calculo < 20){
             resultado = -1;

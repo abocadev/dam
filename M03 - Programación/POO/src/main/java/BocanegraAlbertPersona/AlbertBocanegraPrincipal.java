@@ -2,7 +2,7 @@ package BocanegraAlbertPersona;
 import java.util.Scanner;
 public class AlbertBocanegraPrincipal {
     public static void main(String[] args) {
-        AlbertBocanegraPersona persona1 = new AlbertBocanegraPersona();
+        AlbertBocanegraPersona p1 = new AlbertBocanegraPersona();
         Scanner entrada = new Scanner(System.in);
         String name = null;
         int edad = 0;
@@ -109,11 +109,11 @@ public class AlbertBocanegraPrincipal {
             }
         }
         
-        persona1 = new AlbertBocanegraPersona(name, edad, numDni, sexo, peso, altura);
+        p1 = new AlbertBocanegraPersona(name, edad, numDni, sexo, peso, altura);
         
         //System.out.println("Nombre: " + persona1);
-        System.out.println("Los numeros de tu DNI es " + persona1.getNumDNI() + " y la letra de tu DNI es " + persona1.getLetraDni() + '.');
-        System.out.println("Pesas " + persona1.getPeso() + " y tu indice de masa corporal es " + persona1.calcularPeso() + '.');
-        System.out.println('¿' + persona1.getName() + "es mayor de edad? " + persona1.comprobarEdad());
+        System.out.println("Los numeros de tu DNI es " + p1.getNumDNI() + " y la letra de tu DNI es " + p1.getLetraDni() + '.');
+        System.out.println("Pesas " + p1.getPeso() + " y tu indice de masa corporal es " + p1.calcularPeso() + '.');
+        System.out.println('¿' + p1.getName() + "es mayor de edad? " + p1.comprobarEdad());
     }
 }
