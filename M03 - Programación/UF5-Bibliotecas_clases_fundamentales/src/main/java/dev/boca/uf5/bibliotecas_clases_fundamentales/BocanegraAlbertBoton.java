@@ -7,6 +7,9 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.HeadlessException;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
@@ -36,6 +39,7 @@ public class BocanegraAlbertBoton extends JFrame{
         crearPanel();
         crearTexto();
         botonNormal();
+        botonEscapar();
     }
 
     private void crearPanel(){
@@ -56,14 +60,51 @@ public class BocanegraAlbertBoton extends JFrame{
     }
     
     private void botonNormal(){
-        botonNormal = new JButton();
-        botonNormal.setText("¡JAMÁS!");
-        botonNormal.setBounds(100, 75, 50, 25);
+        botonNormal = new JButton("¡JAMÁS!");
+        botonNormal.setBounds(75, 75, 100, 25);
+        botonNormal.setFont(new Font("Tahoma", Font.BOLD, 16));
         panel.add(botonNormal);
     }
+    
+    private void botonEscapar(){
+        botonEscapar = new JButton("¡Y TANTO!");
+        botonEscapar.setBounds(300, 75, 125, 25);
+        botonEscapar.setFont(new Font("Tahoma", Font.BOLD, 16));
+        panel.add(botonEscapar);
+    }
+    
     // Este metodo sirve para poner pasar de String a hexadecimal
     private int hex(String color_hex){
         return Integer.parseInt(color_hex, 16);
+    }
+    
+    private void eventoEscapar(){
+        MouseListener evento = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+        };
     }
 
 }
