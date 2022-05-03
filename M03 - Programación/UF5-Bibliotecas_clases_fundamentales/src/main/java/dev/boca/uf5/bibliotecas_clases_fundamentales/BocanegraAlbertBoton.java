@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 
 import java.awt.Color;
 import java.awt.HeadlessException;
+import javax.swing.JTextField;
 
 public class BocanegraAlbertBoton extends JFrame{
 
