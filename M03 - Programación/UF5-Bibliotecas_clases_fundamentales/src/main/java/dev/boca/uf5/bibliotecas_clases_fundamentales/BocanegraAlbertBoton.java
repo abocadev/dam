@@ -71,6 +71,8 @@ public class BocanegraAlbertBoton extends JFrame{
         botonEscapar.setBounds(300, 75, 125, 25);
         botonEscapar.setFont(new Font("Tahoma", Font.BOLD, 16));
         panel.add(botonEscapar);
+        
+        eventoEscapar();
     }
     
     // Este metodo sirve para poner pasar de String a hexadecimal
@@ -81,30 +83,38 @@ public class BocanegraAlbertBoton extends JFrame{
     private void eventoEscapar(){
         MouseListener evento = new MouseListener() {
             @Override
-            public void mouseClicked(MouseEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-            }
-
+            public void mouseClicked(MouseEvent e) {}
             @Override
-            public void mousePressed(MouseEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-            }
-
+            public void mousePressed(MouseEvent e) {}
             @Override
-            public void mouseReleased(MouseEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-            }
-
+            public void mouseReleased(MouseEvent e) {}
+            @Override
+            public void mouseExited(MouseEvent e) {}
+            
             @Override
             public void mouseEntered(MouseEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                int randomX = 0;
+                boolean salir = false;
+                while(!salir){
+                    randomX = (int) (Math.random()*400);
+                    if(randomX < 500){
+                        salir = true;
+                    }
+                }
+                
+                salir = false;
+                
+                int randomY = 0;
+                while(!salir){
+                    randomY = (int) (Math.random()*500);
+                    if(randomY < 400){
+                        salir = true;
+                    }
+                }
+                botonEscapar.setBounds(randomX, randomY, 125, 25);
             }
         };
+        botonEscapar.addMouseListener(evento);
     }
 
 }
