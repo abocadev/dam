@@ -19,6 +19,9 @@ public class BocanegraAlbertBoton extends JFrame {
     private JButton botonNormal;
     private JButton botonEscapar;
     private JOptionPane panelPringado;
+    private static boolean iniciar = false;
+    private static int contador = 0;
+    
 
     public static void main(String[] args) {
         BocanegraAlbertBoton programa = new BocanegraAlbertBoton("¿APROBARE?");
@@ -82,14 +85,17 @@ public class BocanegraAlbertBoton extends JFrame {
 
     private void crearPringado() {
         panelPringado = new JOptionPane();
-        panelPringado.showMessageDialog(null, "¡ERES UN PRINGADO!");
-        panelPringado.setLocation(100, WIDTH);
+        panelPringado.showMessageDialog(null, "¡NO TE RINDAS, INTENTALO AL MENOS 10 VECES MAS!");
+        iniciar = true;
     }
 
     private void eventos() {
         MouseListener eventoEscapar = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                if(contador == 10){
+                    JOptionPane.showMessageDialog(null, "VAS A SUPENDER IGUAL");
+                }
             }
 
             @Override
@@ -106,25 +112,30 @@ public class BocanegraAlbertBoton extends JFrame {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                int randomX = 0;
-                boolean salir = false;
-                while (!salir) {
-                    randomX = (int) (Math.random() * 400);
-                    if (randomX < 500) {
-                        salir = true;
+                if(contador < 10){
+                    int randomX = 0;
+                    boolean salir = false;
+                    while (!salir) {
+                        randomX = (int) (Math.random() * 400);
+                        if (randomX < 500) {
+                            salir = true;
+                        }
+                    }
+
+                    salir = false;
+
+                    int randomY = 0;
+                    while (!salir) {
+                        randomY = (int) (Math.random() * 400);
+                        if (randomY < 400) {
+                            salir = true;
+                        }
+                    }
+                    botonEscapar.setBounds(randomX, randomY, 125, 25);
+                    if(iniciar){
+                        contador++;
                     }
                 }
-
-                salir = false;
-
-                int randomY = 0;
-                while (!salir) {
-                    randomY = (int) (Math.random() * 500);
-                    if (randomY < 400) {
-                        salir = true;
-                    }
-                }
-                botonEscapar.setBounds(randomX, randomY, 125, 25);
             }
         };
         botonEscapar.addMouseListener(eventoEscapar);
@@ -173,31 +184,7 @@ public class BocanegraAlbertBoton extends JFrame {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                int ancho = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
-                int alto = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
                 
-                System.out.println("Ancho: " + ancho);
-                System.out.println("Alto: " + alto);
-                /*
-                int randomX = 0;
-                boolean salir = false;
-                while (!salir) {
-                    randomX = (int) (Math.random() * alto);
-                    if (randomX < 500) {
-                        salir = true;
-                    }
-                }
-
-                salir = false;
-
-                int randomY = 0;
-                while (!salir) {
-                    randomY = (int) (Math.random() * ancho);
-                    if (randomY < 400) {
-                        salir = true;
-                    }
-                }
-                panelPringado.setLocation(randomX, randomY);*/
             }
         };
         panelPringado.addMouseListener(eventoEscaparPringado);
