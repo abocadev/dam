@@ -1,6 +1,0 @@
-Esta conversacion la compone entre: Albert y Jose
-Albert: hols
-Jose: hola
-Albert: adios
-Jose: adios
-Albert: f
