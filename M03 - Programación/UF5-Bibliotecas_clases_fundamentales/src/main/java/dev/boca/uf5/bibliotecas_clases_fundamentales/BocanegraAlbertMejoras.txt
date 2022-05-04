@@ -2,4 +2,8 @@ MEJORAS:
 
     1. La primera mejora que he realizado es que cuando cliques el boton de JAMAS, te salga una ventana de dialogo, y desde que clicaste el boton se inicia un contador en el que el boton que se tiene que escapar se escapa 10 veces, se queda parado para que lo puedas pulsar
     
-    2. Te sale una ventana cuando le das click al boton de 
+    2. Te sale una ventana cuando le das click al boton de "Y TANTO", pero tendra dos respuestas y esto dependera de lo siguiente:
+
+        - Si primero le has pasado pulsado el boton de JAMAS y después de las 10 veces se queda quieto, el mensaje es: "VAS A SUPENDER IGUAL"
+
+        - Si has ido a por el raton, sin contar la primera opcion y el boton a escapado, pero el mouse se encuentra dentro del boton y clicas, el mensaje es: "Lo has conseguido. VAS A APROBAR"
