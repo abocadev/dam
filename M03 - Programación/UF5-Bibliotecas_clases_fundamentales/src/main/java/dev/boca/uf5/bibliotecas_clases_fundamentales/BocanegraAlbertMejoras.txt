@@ -1,0 +1,5 @@
+MEJORAS:
+
+    1. La primera mejora que he realizado es que cuando cliques el boton de JAMAS, te salga una ventana de dialogo, y desde que clicaste el boton se inicia un contador en el que el boton que se tiene que escapar se escapa 10 veces, se queda parado para que lo puedas pulsar
+    
+    2. Te sale una ventana cuando le das click al boton de 
