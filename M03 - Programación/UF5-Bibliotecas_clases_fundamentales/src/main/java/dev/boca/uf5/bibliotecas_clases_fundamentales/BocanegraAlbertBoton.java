@@ -41,8 +41,7 @@ public class BocanegraAlbertBoton extends JFrame {
     private void crearComponentes() {
         crearPanel();
         crearTexto();
-        botonNormal();
-        botonEscapar();
+        botones();
 
         eventos();
     }
@@ -64,24 +63,18 @@ public class BocanegraAlbertBoton extends JFrame {
         texto.setFont(new Font("Tahoma", Font.BOLD, 24));
     }
 
-    private void botonNormal() {
+    private void botones() {
         botonNormal = new JButton("¡JAMÁS!");
         botonNormal.setBounds(75, 75, 100, 25);
         botonNormal.setFont(new Font("Tahoma", Font.BOLD, 16));
         panel.add(botonNormal);
-    }
-
-    private void botonEscapar() {
+        
         botonEscapar = new JButton("¡Y TANTO!");
         botonEscapar.setBounds(300, 75, 125, 25);
         botonEscapar.setFont(new Font("Tahoma", Font.BOLD, 16));
         panel.add(botonEscapar);
     }
 
-    // Este metodo sirve para poner pasar de String a hexadecimal
-    private int hex(String color_hex) {
-        return Integer.parseInt(color_hex, 16);
-    }
 
     private void crearPringado() {
         panelPringado = new JOptionPane();
@@ -89,13 +82,47 @@ public class BocanegraAlbertBoton extends JFrame {
         iniciar = true;
     }
 
+    // Este metodo sirve para poner pasar de String a hexadecimal
+    private int hex(String color_hex) {
+        return Integer.parseInt(color_hex, 16);
+    }
+    
+    private void escapar(){
+        if(contador < 10){
+            int randomX = 0;
+            boolean salir = false;
+            while (!salir) {
+                randomX = (int) (Math.random() * 400);
+                if (randomX < 500) {
+                    salir = true;
+                }
+            }
+
+            salir = false;
+
+            int randomY = 0;
+            while (!salir) {
+                randomY = (int) (Math.random() * 400);
+                if (randomY < 400) {
+                    salir = true;
+                }
+            }
+            botonEscapar.setBounds(randomX, randomY, 125, 25);
+            if(iniciar){
+                contador++;
+            }
+        }
+    }
     private void eventos() {
         MouseListener eventoEscapar = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if(contador == 10){
                     JOptionPane.showMessageDialog(null, "VAS A SUPENDER IGUAL");
+                    iniciar = false;
+                    contador = 0;
                 }
+                escapar();
             }
 
             @Override
@@ -112,30 +139,7 @@ public class BocanegraAlbertBoton extends JFrame {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                if(contador < 10){
-                    int randomX = 0;
-                    boolean salir = false;
-                    while (!salir) {
-                        randomX = (int) (Math.random() * 400);
-                        if (randomX < 500) {
-                            salir = true;
-                        }
-                    }
-
-                    salir = false;
-
-                    int randomY = 0;
-                    while (!salir) {
-                        randomY = (int) (Math.random() * 400);
-                        if (randomY < 400) {
-                            salir = true;
-                        }
-                    }
-                    botonEscapar.setBounds(randomX, randomY, 125, 25);
-                    if(iniciar){
-                        contador++;
-                    }
-                }
+                escapar();
             }
         };
         botonEscapar.addMouseListener(eventoEscapar);
@@ -164,30 +168,6 @@ public class BocanegraAlbertBoton extends JFrame {
 
         };
         botonNormal.addMouseListener(eventoClick);
-
-        MouseListener eventoEscaparPringado = new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                
-            }
-        };
-        panelPringado.addMouseListener(eventoEscaparPringado);
     }
 
 }
