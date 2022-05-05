@@ -2,7 +2,10 @@ package tienda;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.GridBagLayout;
 import java.awt.HeadlessException;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import javafx.scene.control.ComboBox;
 import javax.swing.ComboBoxModel;
@@ -11,6 +14,8 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -31,7 +36,7 @@ public class BocanegraAlbertTienda extends JFrame{
         super(string);
         setSize(750, 650);
         setLocationRelativeTo(null);
-        //setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         
         crearComponentes();
     }
@@ -43,23 +48,25 @@ public class BocanegraAlbertTienda extends JFrame{
         crearTextArea();
         crearBotones();
         crearComboBox();
+        eventos();
     }
     
     private void crearPanel(){
         panel = new JPanel();
         panel.setBackground(Color.CYAN);
         panel.setLayout(null);
+        panel.setVisible(true);
         this.getContentPane().add(panel);
     }
     
     private void crearEtiquetas(){
         textArticulo = new JLabel("Articulo:");
         textPrecio = new JLabel("Precio:");
-        textImporteParcial = new JLabel(devolverPrecioTotal());
+        textImporteParcial = new JLabel("Importe parcial: " + precioFinal + "€");
         
         textArticulo.setBounds(20, 10, 150, 50);
         textPrecio.setBounds(400, 10, 150, 50);
-        textImporteParcial.setBounds(550, 150, 150, 50);
+        textImporteParcial.setBounds(535, 120, 200, 100);
         
         panel.add(textArticulo);
         panel.add(textPrecio);
@@ -121,7 +128,60 @@ public class BocanegraAlbertTienda extends JFrame{
         panel.add(cajaArticulos);
     }
     
-    private String devolverPrecioTotal(){
-        return "Importe parcial: " + precioFinal + "€";
+    private void getPrecioTotal(){
+        textImporteParcial.setText("Importe parcial: \n"+ precioFinal + "€" );
+    }
+    
+    private void actPrecioFinal(){
+        precioFinal += Double.parseDouble(insertPrecio.getText());
+    }
+    
+    private void addArticulo(){
+        articulos.add(insertArticulo.getText());
+        precios.add(Double.parseDouble(insertPrecio.getText()));
+    }
+    
+    private void addComboBox(){
+        cajaArticulos.addItem(insertArticulo.getText());
+    }
+    
+    private void mostContTextArea(){
+        String aux = "Articulos Comprados:\n";
+        for(int i = 0; i<articulos.size(); i++){
+            aux += "    " + articulos.get(i) + "      " + precios.get(i) + "€\n";
+        }
+        contenido.setText(aux);
+    }
+    
+    private void eventos(){
+        MouseListener siguienteArticulo = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if(!(insertArticulo.getText().equals("")) && !(insertPrecio.getText().equals(""))){
+                    actPrecioFinal();
+                    addArticulo();
+                    mostContTextArea();
+                    addComboBox();
+                    getPrecioTotal();
+                }
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+            }
+        };
+        botonSiguiente.addMouseListener(siguienteArticulo);
     }
 }
