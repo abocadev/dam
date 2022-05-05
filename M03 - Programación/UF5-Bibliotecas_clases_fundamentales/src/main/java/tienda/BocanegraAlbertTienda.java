@@ -7,15 +7,11 @@ import java.awt.HeadlessException;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
-import javafx.scene.control.ComboBox;
-import javax.swing.ComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollBar;
-import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -53,7 +49,7 @@ public class BocanegraAlbertTienda extends JFrame{
     
     private void crearPanel(){
         panel = new JPanel();
-        panel.setBackground(Color.CYAN);
+        panel.setBackground(new Color(50, 107, 199));
         panel.setLayout(null);
         panel.setVisible(true);
         this.getContentPane().add(panel);
@@ -153,6 +149,12 @@ public class BocanegraAlbertTienda extends JFrame{
         contenido.setText(aux);
     }
     
+    private void eliminarArticulo(){
+        int opcion = cajaArticulos.getSelectedIndex();
+        articulos.remove(opcion);
+        precios.remove(opcion);
+    }
+    
     private void eventos(){
         MouseListener siguienteArticulo = new MouseListener() {
             @Override
@@ -183,5 +185,30 @@ public class BocanegraAlbertTienda extends JFrame{
             }
         };
         botonSiguiente.addMouseListener(siguienteArticulo);
+        
+        MouseListener eliminar = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                eliminarArticulo();
+                mostContTextArea();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+            }
+        };
+        botonEliminar.addMouseListener(eliminar);
     }
 }
