@@ -2,7 +2,6 @@ package tienda;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.GridBagLayout;
 import java.awt.HeadlessException;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -11,12 +10,13 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class BocanegraAlbertTienda extends JFrame {
-
+    
     private JPanel panel;
     private JLabel textArticulo, textPrecio, textImporteParcial;
     private JTextField insertArticulo, insertPrecio;
@@ -33,7 +33,6 @@ public class BocanegraAlbertTienda extends JFrame {
         setSize(750, 650);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-
         crearComponentes();
     }
 
@@ -115,7 +114,7 @@ public class BocanegraAlbertTienda extends JFrame {
         panel.add(botonEliminar);
         panel.add(botonTotal);
     }
-
+    
     private void crearComboBox() {
         String[] aux = new String[articulos.size()];
         aux = articulos.toArray(aux);
@@ -123,30 +122,30 @@ public class BocanegraAlbertTienda extends JFrame {
         cajaArticulos.setBounds(550, 200, 150, 50);
         panel.add(cajaArticulos);
     }
+    
+    private void siguienteArticulo(){
+        try {
+            Double precio = Double.parseDouble(insertPrecio.getText());
+            precio = Math.round(precio * 100.0) / 100.0;
+            String articulo = insertArticulo.getText();
+            precioFinal += precio;
+            articulos.add(articulo);
+            precios.add(precio);
+            
+            System.out.println("Articulo: " + articulo);
+            System.out.println("Precio: " + precio);
+            System.out.println("--------------------------------------");
+            
+            mostContTextArea();
+            cajaArticulos.addItem(insertArticulo.getText());
+            getPrecioTotal();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No puedes insertar valores que sean distintos a Double");
+        }
+    }
 
     private void getPrecioTotal() {
         textImporteParcial.setText("Importe parcial: \n" + precioFinal + "€");
-    }
-
-    private void actPrecioFinal() {
-        precioFinal += Double.parseDouble(insertPrecio.getText());
-    }
-
-    private void addArticulo() {
-        articulos.add(insertArticulo.getText());
-        precios.add(Double.parseDouble(insertPrecio.getText()));
-        System.out.println("Articulo: " + insertArticulo.getText());
-        System.out.println("Precio: " + insertPrecio.getText());
-        System.out.println("--------------------------------------");
-    }
-
-    private void addComboBox() {
-        cajaArticulos.addItem(insertArticulo.getText());
-    }
-
-    private void delComboBox() {
-        int opcion = cajaArticulos.getSelectedIndex();
-        cajaArticulos.removeItemAt(opcion);
     }
 
     private void mostContTextArea() {
@@ -159,21 +158,24 @@ public class BocanegraAlbertTienda extends JFrame {
 
     private void eliminarArticulo() {
         int opcion = cajaArticulos.getSelectedIndex();
+        precioFinal = precioFinal -  precios.get(opcion);
         articulos.remove(opcion);
         precios.remove(opcion);
+        cajaArticulos.removeItemAt(opcion);
+        mostContTextArea();
+        getPrecioTotal();
     }
 
     private void total() {
         ArrayList<String> auxArticulos = new ArrayList<String>();
         ArrayList<Integer> auxCantArticulos = new ArrayList<Integer>();
         ArrayList<Double> auxPrecioArticulos = new ArrayList<Double>();
+        
         for (int i = 0; i < articulos.size(); i++) {
             boolean esta = false;
-            int posicion = 0;
             for (int j = 0; j < auxArticulos.size(); j++) {
                 if (articulos.get(i).equals(auxArticulos.get(j))) {
                     esta = true;
-                    posicion = j;
                 }
             }
             if (!esta) {
@@ -192,24 +194,25 @@ public class BocanegraAlbertTienda extends JFrame {
             auxCantArticulos.add(contador);
         }
 
+        String aux = "Nombre Articulo - Cantidad - Euro/Unidad - IVA-Unidad\n";
+        double iva = 0;
         for (int i = 0; i < auxArticulos.size(); i++) {
-            System.out.println("Articulo: " + auxArticulos.get(i));
-            System.out.println("Cantidad: " + auxCantArticulos.get(i));
-            System.out.println("Precio/unidad: " + auxPrecioArticulos.get(i));
-            System.out.println("-------------------------------------------------------------------------");
+            iva += auxPrecioArticulos.get(i)*0.21;
+            aux += "\nArticulo: " + auxArticulos.get(i) + " (x " + auxCantArticulos.get(i) + ")     " + auxPrecioArticulos.get(i) + "€/u    " + (auxPrecioArticulos.get(i)*0.21) + "€/u";
+            
         }
+        iva = Math.round(iva * 100.0) / 100.0;
+        aux += "\n Total: " + precioFinal + "\n     IVA Total: " + iva + "\n    Total sin IVA: " + (precioFinal - iva);
+        contenido.setText(aux);
     }
 
     private void eventos() {
-        MouseListener siguienteArticulo = new MouseListener() {
+        MouseListener siguienteArticulo;
+        siguienteArticulo = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (!(insertArticulo.getText().equals("")) && !(insertPrecio.getText().equals(""))) {
-                    actPrecioFinal();
-                    addArticulo();
-                    mostContTextArea();
-                    addComboBox();
-                    getPrecioTotal();
+                    siguienteArticulo();
                 }
             }
 
@@ -235,8 +238,6 @@ public class BocanegraAlbertTienda extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 eliminarArticulo();
-                mostContTextArea();
-                delComboBox();
             }
 
             @Override
