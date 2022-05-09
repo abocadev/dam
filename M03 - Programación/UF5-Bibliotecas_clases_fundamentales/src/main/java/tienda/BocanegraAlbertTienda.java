@@ -167,33 +167,32 @@ public class BocanegraAlbertTienda extends JFrame {
         ArrayList<String> auxArticulos = new ArrayList<String>();
         ArrayList<Integer> auxCantArticulos = new ArrayList<Integer>();
         ArrayList<Double> auxPrecioArticulos = new ArrayList<Double>();
-        auxArticulos.add(articulos.get(0));
-        for(int i = 0; i<articulos.size(); i++){
+        for (int i = 0; i < articulos.size(); i++) {
             boolean esta = false;
             int posicion = 0;
-            for(int j = 0; j<auxArticulos.size(); j++){
-                if(articulos.get(i).equals(auxArticulos.get(j))){
+            for (int j = 0; j < auxArticulos.size(); j++) {
+                if (articulos.get(i).equals(auxArticulos.get(j))) {
                     esta = true;
                     posicion = j;
                 }
             }
-            if(!esta){
+            if (!esta) {
                 auxArticulos.add(articulos.get(i));
                 auxPrecioArticulos.add(precios.get(i));
             }
         }
-        
-        for(int i = 0; i<auxArticulos.size();i++){
+
+        for (int i = 0; i < auxArticulos.size(); i++) {
             int contador = 0;
-            for(int j = 0; j<articulos.size(); j++){
-                if(auxArticulos.get(i).equals(articulos.get(j))){
+            for (int j = 0; j < articulos.size(); j++) {
+                if (auxArticulos.get(i).equals(articulos.get(j))) {
                     contador++;
                 }
             }
             auxCantArticulos.add(contador);
         }
-        
-        for(int i = 0; i<auxArticulos.size(); i++){
+
+        for (int i = 0; i < auxArticulos.size(); i++) {
             System.out.println("Articulo: " + auxArticulos.get(i));
             System.out.println("Cantidad: " + auxCantArticulos.get(i));
             System.out.println("Precio/unidad: " + auxPrecioArticulos.get(i));
@@ -201,11 +200,11 @@ public class BocanegraAlbertTienda extends JFrame {
         }
     }
 
-private void eventos(){
+    private void eventos() {
         MouseListener siguienteArticulo = new MouseListener() {
             @Override
-public void mouseClicked(MouseEvent e) {
-                if(!(insertArticulo.getText().equals("")) && !(insertPrecio.getText().equals(""))){
+            public void mouseClicked(MouseEvent e) {
+                if (!(insertArticulo.getText().equals("")) && !(insertPrecio.getText().equals(""))) {
                     actPrecioFinal();
                     addArticulo();
                     mostContTextArea();
@@ -215,69 +214,69 @@ public void mouseClicked(MouseEvent e) {
             }
 
             @Override
-public void mousePressed(MouseEvent e) {
+            public void mousePressed(MouseEvent e) {
             }
 
             @Override
-public void mouseReleased(MouseEvent e) {
+            public void mouseReleased(MouseEvent e) {
             }
 
             @Override
-public void mouseEntered(MouseEvent e) {
+            public void mouseEntered(MouseEvent e) {
             }
 
             @Override
-public void mouseExited(MouseEvent e) {
+            public void mouseExited(MouseEvent e) {
             }
         };
         botonSiguiente.addMouseListener(siguienteArticulo);
-        
+
         MouseListener eliminar = new MouseListener() {
             @Override
-public void mouseClicked(MouseEvent e) {
+            public void mouseClicked(MouseEvent e) {
                 eliminarArticulo();
                 mostContTextArea();
                 delComboBox();
             }
 
             @Override
-public void mousePressed(MouseEvent e) {
+            public void mousePressed(MouseEvent e) {
             }
 
             @Override
-public void mouseReleased(MouseEvent e) {
+            public void mouseReleased(MouseEvent e) {
             }
 
             @Override
-public void mouseEntered(MouseEvent e) {
+            public void mouseEntered(MouseEvent e) {
             }
 
             @Override
-public void mouseExited(MouseEvent e) {
+            public void mouseExited(MouseEvent e) {
             }
         };
         botonEliminar.addMouseListener(eliminar);
-        
+
         MouseListener Total = new MouseListener() {
             @Override
-public void mouseClicked(MouseEvent e) {
+            public void mouseClicked(MouseEvent e) {
                 total();
             }
 
             @Override
-public void mousePressed(MouseEvent e) {
+            public void mousePressed(MouseEvent e) {
             }
 
             @Override
-public void mouseReleased(MouseEvent e) {
+            public void mouseReleased(MouseEvent e) {
             }
 
             @Override
-public void mouseEntered(MouseEvent e) {
+            public void mouseEntered(MouseEvent e) {
             }
 
             @Override
-public void mouseExited(MouseEvent e) {
+            public void mouseExited(MouseEvent e) {
             }
         };
         botonTotal.addMouseListener(Total);
