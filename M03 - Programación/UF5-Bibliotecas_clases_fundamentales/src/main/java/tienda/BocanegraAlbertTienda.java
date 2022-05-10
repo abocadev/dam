@@ -131,11 +131,6 @@ public class BocanegraAlbertTienda extends JFrame {
             precioFinal += precio;
             articulos.add(articulo);
             precios.add(precio);
-            
-            System.out.println("Articulo: " + articulo);
-            System.out.println("Precio: " + precio);
-            System.out.println("--------------------------------------");
-            
             mostContTextArea();
             cajaArticulos.addItem(insertArticulo.getText());
             getPrecioTotal();
@@ -158,6 +153,7 @@ public class BocanegraAlbertTienda extends JFrame {
 
     private void eliminarArticulo() {
         int opcion = cajaArticulos.getSelectedIndex();
+        
         precioFinal = precioFinal -  precios.get(opcion);
         articulos.remove(opcion);
         precios.remove(opcion);
@@ -202,7 +198,7 @@ public class BocanegraAlbertTienda extends JFrame {
             
         }
         iva = Math.round(iva * 100.0) / 100.0;
-        aux += "\n Total: " + precioFinal + "\n     IVA Total: " + iva + "\n    Total sin IVA: " + (precioFinal - iva);
+        aux += "\nTotal: " + precioFinal + "€\n     IVA Total: " + iva + "€\n    Total sin IVA: " + (precioFinal - iva + "€");
         contenido.setText(aux);
     }
 
