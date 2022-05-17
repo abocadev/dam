@@ -11,7 +11,7 @@ public class InputOutputStream {
             String texto = "Prueba para ficheros binarios";
             // copiar el texto en un array de bytes
             byte codigo[] = texto.getBytes();
-            fis.write(codigo);
+            fis.read(codigo);
         } catch (Exception e) {
         }
     }
