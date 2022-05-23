@@ -24,6 +24,7 @@ public class ABMain{
     }
     
     public void mostrarOpciones(){
+        System.out.println("Tienes " + contactos + " contactos.");
         System.out.println("Selecciona una de estas opciones:");
         System.out.println("    [1] Añadir contactos");
         System.out.println("    [2] Buscar contactos");
@@ -31,6 +32,7 @@ public class ABMain{
         System.out.println("    [4] Añadir contactos automaticamente");
         System.out.println("    [5] Salir");
         System.out.println("Introduce un numero del 1 al 5:");
+        
     }
     
     public int escogerOpcion(){
@@ -56,16 +58,25 @@ public class ABMain{
 
     private void opciones() {
         int opcion = escogerOpcion();
-        if(opcion == 1){
-            addContactos();
-        }else if(opcion == 2){
-            searchContactos();
-        }else if(opcion == 3){
-            delContactos();
-        }else if(opcion == 4){
-            addAutomaticContactos();
-        }else if(opcion == 5){
-            bandera = true;
+        switch (opcion) {
+            case 1:
+                addContactos();
+                break;
+            case 2:
+                searchContactos();
+                break;
+            case 3:
+                delContactos();
+                break;
+            case 4:
+                addAutomaticContactos();
+                break;
+            case 5:
+                bandera = true;
+                break;
+            default:
+                System.out.println("ERROR");
+                break;
         }
     }
     
@@ -154,6 +165,7 @@ public class ABMain{
                 contacto10 = new ABContacto(auxNombre, auxEmpresa, auxEmail, auxTelefono);
                 oos.writeObject(contacto10);
             }
+            contactos++;
         }catch (Exception e) {
             System.out.println("Error: " + e);
         }
