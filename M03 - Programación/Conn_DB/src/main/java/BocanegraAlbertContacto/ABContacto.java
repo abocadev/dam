@@ -46,6 +46,9 @@ public class ABContacto implements Serializable{
     public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "ABContacto{ Nombre: " + nombre + "\nEmpresa: " + empresa + "\nEmail: " + email + "\nTelefono: " + telefono + '}';
+    }
 }
