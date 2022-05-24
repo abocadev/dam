@@ -18,7 +18,7 @@ public class ABMain{
     public static void main(String[] args) {
         ABMain programaMain = new ABMain();
         ABContacto programaContacto = new ABContacto();
-        
+        programaMain.comprobarArchivo();
         while(!bandera){
             programaMain.mostrarOpciones();
             programaMain.opciones();
@@ -146,17 +146,39 @@ public class ABMain{
     }
     
     private void mostrarContactos(){
-        for(int i = 0; i<TodosContactos.size(); i++){
-            System.out.println("Contacto " + (i+1) + ":");
-            System.out.println("    Nombre: " + TodosContactos.get(i).getNombre());
-            System.out.println("    Email: " + TodosContactos.get(i).getEmail());
-            System.out.println("    Empresa: " + TodosContactos.get(i).getEmpresa());
-            System.out.println("    Telefono: " + TodosContactos.get(i).getTelefono());
+        try (
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("BocanegraAlbert.bin"));
+        ){
+            while (true) {
+                ABContacto aux = (ABContacto)ois.readObject();
+                System.out.println("\n----------------------------------------------------------------------");
+                System.out.println(" Nombre: " + aux.getNombre());
+                System.out.println(" Email: " + aux.getEmail());
+                System.out.println(" Empresa: " + aux.getEmpresa());
+                System.out.println(" Telefono: " + aux.getTelefono());
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e);
         }
+
+        // for(int i = 0; i<TodosContactos.size(); i++){    
+        //     System.out.println("\nContacto " + (i+1) + ":");
+        //     System.out.println("    Nombre: " + TodosContactos.get(i).getNombre());
+        //     System.out.println("    Email: " + TodosContactos.get(i).getEmail());
+        //     System.out.println("    Empresa: " + TodosContactos.get(i).getEmpresa());
+        //     System.out.println("    Telefono: " + TodosContactos.get(i).getTelefono());
+        // }
     }
     
     private void searchContactos(){
-        
+        // Aqui tienes que introducir el nombre del archivo
+        try (
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("BocanegraAlbert.bin"));
+        ){
+            System.out.println("Buscando los nuevos contactos...");
+        } catch (Exception e) {
+            System.out.println("Error: " + e);
+        }
     }
     
     private void delContactos(){
@@ -197,5 +219,19 @@ public class ABMain{
         } catch (Exception e) {
             System.out.println("Error: " + e);
         }
+    }
+
+    private void comprobarArchivo(){
+        try (
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("BocanegraAlbert.bin"));) {
+            while (true) {
+                ABContacto aux = (ABContacto) ois.readObject();
+                aux = new ABContacto(aux.getNombre(), aux.getEmpresa(), aux.getEmail(), aux.getTelefono());
+                TodosContactos.add(aux);
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e);
+        }
+        escribirArchivo();
     }
 }
