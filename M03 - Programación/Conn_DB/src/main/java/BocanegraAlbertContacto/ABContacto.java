@@ -5,14 +5,17 @@ import java.io.Serializable;
 public class ABContacto implements Serializable{
     private static final long serialVersionUID = 1L;
     
-    private String nombre, empresa, email;
+    private String nombre, empresa, email, origen;
     private int telefono;
 
+    public ABContacto(){
+    }
     public ABContacto(String nombre, String empresa, String email, int telefono) {
         this.nombre = nombre;
         this.empresa = empresa;
         this.email = email;
         this.telefono = telefono;
+        this.origen = "AB";
     }
 
     public String getNombre() {
@@ -39,6 +42,14 @@ public class ABContacto implements Serializable{
         this.email = email;
     }
 
+    public String getOrigen() {
+        return origen;
+    }
+
+    public void setOrigen(String origen) {
+        this.origen = origen;
+    }
+
     public int getTelefono() {
         return telefono;
     }
@@ -49,6 +60,8 @@ public class ABContacto implements Serializable{
 
     @Override
     public String toString() {
-        return "ABContacto{ Nombre: " + nombre + "\nEmpresa: " + empresa + "\nEmail: " + email + "\nTelefono: " + telefono + '}';
+        return "ABContacto{" + "nombre=" + nombre + ", empresa=" + empresa + ", email=" + email + ", origen=" + origen + ", telefono=" + telefono + '}';
     }
+    
+    
 }

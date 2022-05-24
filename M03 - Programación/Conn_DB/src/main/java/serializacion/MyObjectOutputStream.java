@@ -18,6 +18,4 @@ public class MyObjectOutputStream extends ObjectOutputStream {
 
     public MyObjectOutputStream() throws IOException, SecurityException {
     }
-    
-    
 }
