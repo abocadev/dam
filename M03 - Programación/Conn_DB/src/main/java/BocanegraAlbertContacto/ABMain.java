@@ -4,7 +4,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -17,8 +16,7 @@ public class ABMain{
     
     public static void main(String[] args) {
         ABMain programaMain = new ABMain();
-        ABContacto programaContacto = new ABContacto();
-        programaMain.comprobarArchivo();
+        programaMain.importarDatosAntiguos();
         while(!bandera){
             programaMain.mostrarOpciones();
             programaMain.opciones();
@@ -27,6 +25,7 @@ public class ABMain{
                 
     }
     
+
     public void mostrarOpciones(){
         System.out.println("Tienes " + TodosContactos.size() + " contactos.");
         System.out.println("Selecciona una de estas opciones:");
@@ -39,6 +38,7 @@ public class ABMain{
         
     }
     
+
     public int escogerOpcion(){
         int auxOpcion = 0;
         boolean auxBandera = false;
@@ -85,6 +85,7 @@ public class ABMain{
         }
     }
     
+
     private void addContactos(){
         String auxNombre = "", auxEmpresa = "", auxEmail = "";
         int auxTelefono = 0;
@@ -145,31 +146,28 @@ public class ABMain{
         escribirArchivo();
     }
     
+
     private void mostrarContactos(){
         try (
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream("BocanegraAlbert.bin"));
         ){
+            int num  = 1;
             while (true) {
                 ABContacto aux = (ABContacto)ois.readObject();
                 System.out.println("\n----------------------------------------------------------------------");
-                System.out.println(" Nombre: " + aux.getNombre());
-                System.out.println(" Email: " + aux.getEmail());
-                System.out.println(" Empresa: " + aux.getEmpresa());
-                System.out.println(" Telefono: " + aux.getTelefono());
+                System.out.println("\nContacto " + num + ":");
+                System.out.println("    Nombre: " + aux.getNombre());
+                System.out.println("    Email: " + aux.getEmail());
+                System.out.println("    Empresa: " + aux.getEmpresa());
+                System.out.println("    Telefono: " + aux.getTelefono());
+                num++;
             }
         } catch (Exception e) {
-            System.out.println("Error: " + e);
         }
-
-        // for(int i = 0; i<TodosContactos.size(); i++){    
-        //     System.out.println("\nContacto " + (i+1) + ":");
-        //     System.out.println("    Nombre: " + TodosContactos.get(i).getNombre());
-        //     System.out.println("    Email: " + TodosContactos.get(i).getEmail());
-        //     System.out.println("    Empresa: " + TodosContactos.get(i).getEmpresa());
-        //     System.out.println("    Telefono: " + TodosContactos.get(i).getTelefono());
-        // }
+        System.out.println("----------------------------------------------------------------------");
     }
     
+
     private void searchContactos(){
         // Aqui tienes que introducir el nombre del archivo
         try (
@@ -177,10 +175,10 @@ public class ABMain{
         ){
             System.out.println("Buscando los nuevos contactos...");
         } catch (Exception e) {
-            System.out.println("Error: " + e);
         }
     }
     
+
     private void delContactos(){
         if(TodosContactos.size() > 0){
             mostrarContactos();
@@ -209,6 +207,7 @@ public class ABMain{
         
     }
     
+
     private void escribirArchivo(){
         try (
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("BocanegraAlbert.bin"));
@@ -217,11 +216,11 @@ public class ABMain{
                 oos.writeObject(TodosContactos.get(i));
             }
         } catch (Exception e) {
-            System.out.println("Error: " + e);
         }
     }
 
-    private void comprobarArchivo(){
+
+    private void importarDatosAntiguos(){
         try (
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream("BocanegraAlbert.bin"));) {
             while (true) {
@@ -230,7 +229,6 @@ public class ABMain{
                 TodosContactos.add(aux);
             }
         } catch (Exception e) {
-            System.out.println("Error: " + e);
         }
         escribirArchivo();
     }
