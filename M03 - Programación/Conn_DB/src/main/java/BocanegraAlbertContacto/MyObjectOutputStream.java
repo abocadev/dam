@@ -1,4 +1,4 @@
-package EjercicioClientes;
+package BocanegraAlbertContacto;
 
 import serializacion.*;
 import java.io.IOException;

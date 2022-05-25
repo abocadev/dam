@@ -1,4 +1,4 @@
-package BocanegraAlbertContacto;
+package TorresKatlheenContacto;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -8,15 +8,15 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class ABMain{
+public class KTMain{
     
-    private ArrayList<ABContacto> TodosContactos = new ArrayList<ABContacto>();
+    private ArrayList<Contacto> TodosContactos = new ArrayList<Contacto>();
     private ABContacto aux;
     private Scanner entrada = new Scanner(System.in);
     private static boolean bandera = false;
     
     public static void main(String[] args) {
-        ABMain programaMain = new ABMain();
+        KTMain programaMain = new KTMain();
         programaMain.importarDatosAntiguos();
         while(!bandera){
             programaMain.mostrarOpciones();
@@ -36,15 +36,13 @@ public class ABMain{
         System.out.println("    [5] Importar contactos");
         System.out.println("    [6] Salir");
         System.out.println("Introduce un numero del 1 al 5:");
-    }
-
-    public int escogerOpcion(){
-        int auxOpcion = 0;
+        
+        int opcion = 0;
         boolean auxBandera = false;
         while(!auxBandera){
             if(entrada.hasNextInt()){
-                auxOpcion = entrada.nextInt();
-                if(auxOpcion > 0 && auxOpcion < 7){
+                opcion = entrada.nextInt();
+                if(opcion > 0 && opcion < 7){
                     auxBandera = true;
                 }else{
                     System.out.println("Tienes que introducir un numero del 1 al 5.");
@@ -55,11 +53,7 @@ public class ABMain{
                 mostrarOpciones();
             }
         }
-        return auxOpcion;
-    }
-
-    private void opciones() {
-        int opcion = escogerOpcion();
+        
         switch (opcion) {
             case 1:
                 addContactos();
@@ -88,67 +82,14 @@ public class ABMain{
     private void addContactos(){
         String auxNombre = "", auxEmpresa = "", auxEmail = "";
         int auxTelefono = 0;
-
-        boolean auxBandera = false;
-        while(!auxBandera){
-            System.out.println("Introduce el nombre: ");
-            if(entrada.hasNext()){
-                auxNombre = entrada.next();
-                auxBandera = true;
-            }else{
-                entrada.nextLine();
-                System.out.println("Has introducido un dato incorrecto.");
-            }
-        }
-
-        auxBandera = false;
-
-        while(!auxBandera){
-            System.out.println("Introduce el nombre de la empresa: ");
-            if(entrada.hasNext()){
-                auxEmpresa = entrada.next();
-                auxBandera = true;
-            }else{
-                entrada.nextLine();
-                System.out.println("Has introducido un valor incorrecto.");
-            }
-        }
-
-        auxBandera = false;
-
-        while(!auxBandera){
-            System.out.println("Introduce el correo electronico: ");
-            if(entrada.hasNext()){
-                boolean arroba = false;
-                auxEmail = entrada.next();
-                for(int i = 0; i < auxEmail.length(); i++){
-                    if(auxEmail.charAt(i) == '@'){
-                        arroba = true;
-                    }
-                }
-                if(arroba){
-                    auxBandera = true;
-                }else{
-                    System.out.println("Nos has introducido una direccion de correo valida");
-                }
-            }else{
-                entrada.nextLine();
-                System.out.println("Has introducido un valor incorrecto.");
-            }
-        }
-
-        auxBandera = false;
-
-        while(!auxBandera){
-            System.out.println("Introduce el numero de telefono: ");
-            if(entrada.hasNext()){
-                auxTelefono = entrada.nextInt();
-                auxBandera = true;
-            }else{
-                entrada.nextLine();
-                System.out.println("Has introducido un valor incorrecto.");
-            }
-        }
+        System.out.println("Introduce el nombre: ");
+        auxNombre = entrada.next();
+        System.out.println("Introduce el nombre de la empresa: ");
+        auxEmpresa = entrada.next();
+        System.out.println("Introduce el correo electronico: ");
+        auxEmail = entrada.next();
+        System.out.println("Introduce el numero de telefono: ");
+        auxTelefono = entrada.nextInt();
 
         aux = new ABContacto(auxNombre, auxEmpresa, auxEmail, auxTelefono);
         TodosContactos.add(aux);
@@ -159,21 +100,14 @@ public class ABMain{
         // Aqui tienes que introducir el nombre del archivo
         int nResultados = 0;
         try (
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("BocanegraAlbert.bin"));
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("TorresKatlheen.bin"));
         ){
             String busqueda = "";
-            boolean auxBandera = false;
-            while(!auxBandera){
-                System.out.println("Introduce un nombre del contacto a buscar: ");
-                if(entrada.hasNext()){
-                    busqueda = entrada.next();
-                    auxBandera = true;
-                }else{
-                    entrada.nextLine();
-                    System.out.println("Has introducido un valor erroneo");
-                }
-            }
-            
+            System.out.println("Introduce un nombre del contacto a buscar: ");
+            busqueda = entrada.next();
+
+            int nResultados = 0;
+
             while(true){
                 ABContacto aux = (ABContacto)ois.readObject();
                 if(busqueda.equals(aux.getNombre())){
@@ -215,7 +149,7 @@ public class ABMain{
 
     private void mostrarContactos(){
         try (
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("BocanegraAlbert.bin"));
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("TorresKatlheen.bin"));
         ){
             int num  = 1;
             while (true) {
@@ -263,7 +197,7 @@ public class ABMain{
     
     private void importarDatosAntiguos(){
         try (
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("BocanegraAlbert.bin"));) {
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("TorresKatlheen.bin"));) {
             while (true) {
                 ABContacto aux = (ABContacto) ois.readObject();
                 aux = new ABContacto(aux.getNombre(), aux.getEmpresa(), aux.getEmail(), aux.getTelefono());
@@ -276,7 +210,7 @@ public class ABMain{
     
     private void escribirArchivo(){
         try{   
-            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("BocanegraAlbert.bin"));
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("TorresKatlheen.bin"));
             for(int i = 0; i<TodosContactos.size(); i++){
                 oos.writeObject(TodosContactos.get(i));
             }
