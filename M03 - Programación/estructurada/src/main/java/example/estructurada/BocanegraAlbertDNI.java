@@ -18,47 +18,7 @@ public class BocanegraAlbertDNI {
 
         // Indicamos las letras del DNI en el siguiente orden
         char letrasDNI[] = new char[]{'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
-        /*
-        // CODIGO PRINCIPAL -> comenta desde aqui para poder ejecutar el codigo mejorado
-        // INICIO DE CODIGO PRINCIPAL
-
-        // Pedimos los numeros del DNI e indicamos si lo que ha puesto esta bien
-        System.out.println("Introduce el numero de DNI (sin la letra):");
-
-        // Comprobamos, que el numero que ha insertado es un numero de variable INT
-        if(input.hasNextInt()){
-            numeroDNI = input.nextInt();
-        }else{
-            System.out.println("El numero que has introducido es erroneo.");
-        }
-
-        // Introduce la letra del DNI
-        System.out.println("Introduce la letra de tu DNI:");
-        
-        // Al no haber ningun tipo de dato para las variables "Char", lo que hacemos es pedirlo como si fuera un String y luegolo passamos a una variable tipo "Char"
-        letraDNI = input.next().toUpperCase().charAt(0); 
-
-        // Ahora lo que hacemos es saber dividir  NUMERO DEL DNI entre 23 y el resto será la letra indicada en el array de letras del DNI
-        int saberLetra = numeroDNI % 23;
-
-        // Por precaución lo que haremos será poner las letras en mayúsculas, para que luego no le de error
-
-        // Mostraremos si el resultado es correcto o incorrecto
-        // En el caso que sea correcto, lo imprimira
-        // Y en el caso de que sea incorrecto, indicara la verdadera letra que corresponde al numero indicado anteriormente
-        if (letrasDNI[saberLetra] == letraDNI) {
-            System.out.println("La letra que has introducido corresponde a la del DNI.");
-            System.out.println("Tu numero de DNI es " + numeroDNI + " y la letra es " + letraDNI);
-        } else {
-            letraDNI = letrasDNI[saberLetra];
-            System.out.println("La letra que has introducido no corresponde a la del DNI.");
-            System.out.println("Tu numero de DNI es " + numeroDNI + " y tu letra sería " + letraDNI);
-        }        
-
-        // FIN DEL CODIGO PRINCIPAL -> Comenta hasta aquí para poder ejecutar el codigo mejorado
-        */
-        // CÓDIGO MEJORADO -> Comenta a partir de aquí poder ejecutar el codigo principal
-        // INICIO DEL CODIGO MEJORADO
+      
         
         // Pedir numero de DNI, hasta que el numero cumpla los requisitos
         do {
