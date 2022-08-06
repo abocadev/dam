@@ -177,5 +177,5 @@ public class BocanegraAlbertBoton extends JFrame {
 
         };
         botonNormal.addMouseListener(eventoClick); // Añadimos el Listener al boton normal
+        }
     }
-}
