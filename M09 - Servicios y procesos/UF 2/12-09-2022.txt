@@ -1,0 +1,125 @@
+############
+### UF 1 ###
+############
+
+# 12 de septiembre de 2022
+
+DIFERENCIA ENTRE APLICACIÓN / PROCESO / EJEUTABLE
+
+	Lenguaje de Alto Nivel --> Lenguaje maquina
+		|
+		| Transformacion
+		|
+	Lenguaje de Bajo Nivel --> Lenguaje humano
+	- Aplicación --> Programa destinado a obtener un resultado --> Aplicación de usuario => Depende de programas
+															   --> Programa => Diseños para ejecutarse en el Sistema Operativo
+															   
+	- Ejecutable --> Fichero que contiene el codigo binario para ser interpretado en un PC.
+	
+	- Proceso --> Cada vez que una aplicacion se ejecuta, se genera un proceso de ejecucion.
+	
+	- Binarios --> Conjunto de instrucciones ejecutadas directamente en el procesador.
+	
+	- Interpretados --> Codigo Java (Lenguaje humano) --> Script Bash
+	
+	- Libreria --> Conjunto de funciones (Fecha, para un fin concreto)
+	
+	
+DEFINICIONES: 
+
+	MULTIPROCESO: Ejecucion de mas de un proceso a la vez. [Es casi mentira]
+	
+		Ventajas: 
+			
+			- Varios procesos en ejecucion.
+			
+			- Permite servicio a varios usuarios.
+			
+			- Aumenta el uso de la cpu.
+	
+	MULTIPROGRAMACION: Viene a ser lo mismo.
+	
+		Tipos:
+		
+			- Multitarea nula --> MS-DOS --> 1 proceso a la vez. [Obsoleto]
+			
+			- Multitarea corporativa --> Procesos de usuario ceden la CPU. --> Sistemas operativos anteriores a 1995. [Obsoleto]
+			
+			- Multitarea preferente --> El sistema operativo se encarga de decidir que proceso se ejecuta.
+			
+			- Multitarea real --> Multiples procesadores.
+			
+			
+
+GESTION DE PROCESOS: --> Multitarea
+
+	Es el S.O quien decide que se ejecuta:
+	
+		Gestion de procesos por lotes --> Conjunto de tareas cuyo resultados es lo unico que interesa, grupo de procesos muy similares.
+	
+		Gestion de procesos por interaccion --> Depende de la interpretacion del usuario.
+	
+		Gestion de procesos por tiempo real --> Esta todo el rato en ejecucion.
+	
+	
+	
+FUNCIONAMIENTO DE PROCESOS: 
+
+	Entrada -------> [ |P8| P2 | P3 | P4 | P3 | P2 | P1 ] -------> [PROCESADOR] ---> Salida
+				<														  |
+				|						  								  |
+				|---------------------------------------------------------|
+				|                               Fin del tiempo asignado   |
+				|------------------------[ P2 | ] -------------------------
+													Colas de bloqueados, tambien RAM.
+													
+	# El procesador comprueba toda la lista --> Hace que todos pasen a la cola para ejecutar el proceso mas critico
+	
+	# Cola de bloqueados --> Algunos procesos van a la RAM --> Engaña al Sistema Operativo y le hace coger que tiene mas memoria.
+	
+	ESTADO  DE PROCESO/HILO:
+	
+		1-. NUEVO --> Proceso de que acaba de cerrar.
+		
+		2-. LISTO --> Proceso en cola.
+		
+		3-. EN EJECUCION --> Se esta procesando
+		
+		4-. BUSQUEDA --> A la espera de alguna accion.
+		
+		5-. SUSPENDIDO --> RAM
+		
+		6-. TERMINANDO --> Se ha procesado.
+		
+		
+	CARGADOR --> El encargado de poner los procesos en cola.
+	
+		1-. Lo pone en memoria.
+		
+		2-. Copia sus instrucciones del ejecutable y elige variables y demas.
+		
+		3-. Crea el PCB (Bloque de control de proceso)
+			
+			- PID <-- Identificador.
+			
+			- Espacio
+			
+			- Informacion de prioridad.
+			
+			- Estado
+			
+			
+	PLANIFICADOR --> Toma las decisiones relacionadas con la prioridad de ejecucion de los procesos.
+	
+		1-. Round-Robin --> Asigna un tiempo de ejecucion en funcion del tiempo tarda mas o menos } Se tratan los procesos por igual.
+		
+		2-. PRIORIDAD
+		
+		3-. MULTIPLES COLAS --> Combinacion de los dos [Hoy en dia]
+		
+		
+	[IMAGEN1.PNG]
+	
+		1-. Almacena la ejecucion del siguiente proceso a ejecutar, mientras se ejecuta P1, el procesador ya prepara P2.
+		
+		2-. Puntero a piga de ocupa de priorizar o determinar quien se ejecuta.
