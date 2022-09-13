@@ -1,0 +1,14 @@
+C:\Users\Alumno\Documents\GitHub\dam\M06 - Acesso a Datos\UF 1\EjemploInterface\EjemploInterface\EjemploInterface\bin\Debug\netcoreapp3.1\EjemploInterface.exe
+C:\Users\Alumno\Documents\GitHub\dam\M06 - Acesso a Datos\UF 1\EjemploInterface\EjemploInterface\EjemploInterface\bin\Debug\netcoreapp3.1\EjemploInterface.deps.json
+C:\Users\Alumno\Documents\GitHub\dam\M06 - Acesso a Datos\UF 1\EjemploInterface\EjemploInterface\EjemploInterface\bin\Debug\netcoreapp3.1\EjemploInterface.runtimeconfig.json
+C:\Users\Alumno\Documents\GitHub\dam\M06 - Acesso a Datos\UF 1\EjemploInterface\EjemploInterface\EjemploInterface\bin\Debug\netcoreapp3.1\EjemploInterface.runtimeconfig.dev.json
+C:\Users\Alumno\Documents\GitHub\dam\M06 - Acesso a Datos\UF 1\EjemploInterface\EjemploInterface\EjemploInterface\bin\Debug\netcoreapp3.1\EjemploInterface.dll
+C:\Users\Alumno\Documents\GitHub\dam\M06 - Acesso a Datos\UF 1\EjemploInterface\EjemploInterface\EjemploInterface\bin\Debug\netcoreapp3.1\EjemploInterface.pdb
+C:\Users\Alumno\Documents\GitHub\dam\M06 - Acesso a Datos\UF 1\EjemploInterface\EjemploInterface\EjemploInterface\obj\Debug\netcoreapp3.1\EjemploInterface.csproj.AssemblyReference.cache
+C:\Users\Alumno\Documents\GitHub\dam\M06 - Acesso a Datos\UF 1\EjemploInterface\EjemploInterface\EjemploInterface\obj\Debug\netcoreapp3.1\EjemploInterface.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Alumno\Documents\GitHub\dam\M06 - Acesso a Datos\UF 1\EjemploInterface\EjemploInterface\EjemploInterface\obj\Debug\netcoreapp3.1\EjemploInterface.AssemblyInfoInputs.cache
+C:\Users\Alumno\Documents\GitHub\dam\M06 - Acesso a Datos\UF 1\EjemploInterface\EjemploInterface\EjemploInterface\obj\Debug\netcoreapp3.1\EjemploInterface.AssemblyInfo.cs
+C:\Users\Alumno\Documents\GitHub\dam\M06 - Acesso a Datos\UF 1\EjemploInterface\EjemploInterface\EjemploInterface\obj\Debug\netcoreapp3.1\EjemploInterface.csproj.CoreCompileInputs.cache
+C:\Users\Alumno\Documents\GitHub\dam\M06 - Acesso a Datos\UF 1\EjemploInterface\EjemploInterface\EjemploInterface\obj\Debug\netcoreapp3.1\EjemploInterface.dll
+C:\Users\Alumno\Documents\GitHub\dam\M06 - Acesso a Datos\UF 1\EjemploInterface\EjemploInterface\EjemploInterface\obj\Debug\netcoreapp3.1\EjemploInterface.pdb
+C:\Users\Alumno\Documents\GitHub\dam\M06 - Acesso a Datos\UF 1\EjemploInterface\EjemploInterface\EjemploInterface\obj\Debug\netcoreapp3.1\EjemploInterface.genruntimeconfig.cache

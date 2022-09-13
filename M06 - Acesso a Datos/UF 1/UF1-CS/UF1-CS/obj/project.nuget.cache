@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "p5rLNCztOqRGcdavL5CJLlXG3D4xDF7GxqpXnbn8LpMjOyRDzCC20QHu8bDeyqjSqoP/xt7YtrXQhRZGm4Cv2w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Alumno\\Documents\\GitHub\\dam\\M06 - Acesso a Datos\\UF 1\\UF1-CS\\UF1-CS\\UF1-CS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Alumno\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
