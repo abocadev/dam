@@ -135,6 +135,59 @@ PROGRAMACION MULTIHILO --> Programacion que ejecuta distintos subprocesos.
 		
 		- [La programacion multihilo consiste en esto] Programa de flujo multiple --> Mas de un proceso por programa --> Ejecucion "a la vez" de una o mas tareas del mismo programa = Ejemplos: Firefox
 		
+	Hilo (subproceso) --> Es un flujo de control secuencial "independiente" [no hay relacion entre los distintos hilos] dentro de un proceso y esta asociado a una secuencia de instrucciones (codigo).
+		|
+		|--> Cada vez que se ejecuta un programa aparece 1 hilo.
+		|
+		|--> Unico de cada hilo:
+		|
+		|	- Tiene un pID (identificador).
+		|	
+		|	- Contador de programa (Para indicar a quien pertenece)
+		|	
+		|	- Registros
+		|	
+		|	- Pila (variables locales) 
+		|
+		|--> Compartido:
+		
+			- Codigo
+			
+			- Datos (variables locales)
+			
+			- Ficheros abiertos [Elemento peligroso | Zona critica (Synchronize)]
+			
+			
+	Procesos de un hilo:
+			
+		1-. Un hilo no puede existir sin un proceso.
+		
+		2-. Un hilo no se puede ejecutar por si solo.
+		
+		3-. Dentro de lado proceso hay 1 o mas hilos.
 		
 		
-		
+
+VENTAJAS DE USAR USAR HILOS/SUBPROCESOS:
+
+	- Se consumen menos recursos.
+	
+	- Se tarda menos tiempo en ejecutar.
+	
+	- Ideal para programas con dispositivos de E/S (Entrada y Salida)
+	
+	- Procesos que deben de ejecutar muchas tareas a la vez.
+	
+	- PRIORIDADES
+	
+	
+CREAR HILO --> Thread (Hilo)
+			|	|
+			|	|--> extends (Herencia) ==> No se puede heredar dos veces.
+			|
+			|
+			|--> Runnable ==> implements (interficie){
+				
+				[Main]
+					Se crea el objeto y se ejecuta es su run.
+			}

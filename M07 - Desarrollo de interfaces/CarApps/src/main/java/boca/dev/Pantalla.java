@@ -1,6 +1,7 @@
 package boca.dev;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
 public class Pantalla extends JFrame {
@@ -8,7 +9,11 @@ public class Pantalla extends JFrame {
     private JLabel lNombre, lModelo, lMarca, lPrecio, lColor, lGasolina, lIcon;
     private JTextField iNombre, iModelo, iMarca, iPrecio, iColor, iGasolina;
 
-    private JButton bInput;
+    private JButton bInput, bRead;
+
+    private JScrollPane jScrollPanel;
+
+    JTable tableNews;
 
     public Pantalla(String s) throws HeadlessException{
         super(s);
@@ -24,6 +29,7 @@ public class Pantalla extends JFrame {
         crearEtiquetas();
         crearInputs();
         crearButtons();
+        crearTable();
     }
 
     public void crearPanel(){
@@ -119,8 +125,46 @@ public class Pantalla extends JFrame {
 
      public void crearButtons(){
         bInput = new JButton("Añadir");
-        bInput.setBounds(750, 100, 100, 50);
+        bInput.setBounds(675, 23, 100, 40);
         bInput.setFont(new Font("Arial", Font.BOLD, 14));
+        bInput.setForeground(Color.WHITE);
+        bInput.setBackground(new Color(46, 46, 46));
         panel.add(bInput);
+
+        bRead = new JButton("Leer");
+        bRead.setBounds(675, 90, 100, 40);
+        bRead.setFont(new Font("Arial", Font.BOLD, 14));
+        bRead.setForeground(Color.WHITE);
+        bRead.setBackground(new Color(46, 46, 46));
+        panel.add(bRead);
+    }
+
+    public void crearTable(){
+        JScrollPane jScrollPanel = new JScrollPane();
+
+        tableNews = new JTable();
+        tableNews.setModel(new DefaultTableModel(
+           new Object[][] {
+                   {null, null, null, null,null, null},
+                   {null, null, null, null,null, null},
+                   {null, null, null, null,null, null}
+           },
+           new String[] {
+                "Nombre", "Modelo", "Marca", "Precio", "Color", "Gasolina"
+           }
+        ));
+        jScrollPanel.setViewportView(tableNews);
+        tableNews.getColumnModel().getColumn(0).setHeaderValue("Nombre");
+        tableNews.getColumnModel().getColumn(1).setHeaderValue("Modelo");
+        tableNews.getColumnModel().getColumn(2).setHeaderValue("Marca");
+        tableNews.getColumnModel().getColumn(3).setHeaderValue("Precio");
+        tableNews.getColumnModel().getColumn(4).setHeaderValue("Color");
+        tableNews.getColumnModel().getColumn(5).setHeaderValue("Gasolina");
+
+        tableNews.setBackground(new Color(245, 245, 245));
+        tableNews.setBounds(20, 175, 490, 490);
+        tableNews.setFont(new Font("Arial", Font.BOLD, 14));
+
+        panel.add(tableNews);
     }
 }
