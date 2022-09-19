@@ -1,5 +1,5 @@
 ############
-### UF 1 ###
+### UF 2 ###
 ############
 
 # 12 de septiembre de 2022
@@ -123,3 +123,18 @@ FUNCIONAMIENTO DE PROCESOS:
 		1-. Almacena la ejecucion del siguiente proceso a ejecutar, mientras se ejecuta P1, el procesador ya prepara P2.
 		
 		2-. Puntero a piga de ocupa de priorizar o determinar quien se ejecuta.
+		
+		
+# 19 de Septiembre de 2022:
+
+PROGRAMACION MULTIHILO --> Programacion que ejecuta distintos subprocesos.
+
+	Tipos de programacion multihilo:
+	
+		- Programa de flujo unico --> Solo un proceso por programa = Ejemplos: Calculadora, MS-DOS/Terminal
+		
+		- [La programacion multihilo consiste en esto] Programa de flujo multiple --> Mas de un proceso por programa --> Ejecucion "a la vez" de una o mas tareas del mismo programa = Ejemplos: Firefox
+		
+		
+		
+		
