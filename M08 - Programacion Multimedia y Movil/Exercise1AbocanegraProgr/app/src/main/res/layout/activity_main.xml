@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".MainActivity">
 
 
@@ -12,29 +12,49 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        android:textColor="@android:color/white"
         android:padding="10dp"
+        android:text="@string/article_title"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
-        android:textStyle="bold"
-        android:text="@string/article_title" />
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/article_subheading"
-        android:layout_below="@id/article_heading"
-        android:layout_width="match_parent"
+
+
+
+    <ScrollView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_regular"
-        android:textAppearance="@android:style/TextAppearance.DeviceDefault"
-        android:textColor="@android:color/black"
-        android:text="@string/article_subtitle"
-        />
+        android:layout_below="@id/article_heading">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:id="@+id/article"
-        android:layout_below="@id/article_subheading"
-        android:lineSpacingExtra="@dimen/line_spacing"
-        android:padding="@dimen/regular_padding"
-        android:text="@string/article_text"
-         android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/article_subheading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_regular"
+                android:text="@string/article_subtitle"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/article"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autoLink="web"
+                android:lineSpacingExtra="@dimen/line_spacing"
+                android:padding="@dimen/padding_regular"
+                android:text="@string/article_text" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#2596be"
+                android:text="Add Comment" />
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>
