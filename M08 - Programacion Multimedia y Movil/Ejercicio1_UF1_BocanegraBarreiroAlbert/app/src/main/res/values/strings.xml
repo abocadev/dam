@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">Ejercicio1_UF1_BocanegraBarreiroAlbert</string>
+    <string name="app_name">EJERCICIO 1 - UF 1</string>
+    <string name="title">CULTURA CASTELLERA</string>
+    <!-- PREGUNTA 1: Respuesta b -->
+    <string name="question1">\n<b>¿Como se les llama a las construcciones humanas en Cataluña?</b>\nA. Muixeranga\nB. Castells\nC. Falcons</string>
+
+    <!-- PREGUNTA 2: Respuesta c -->
+    <string name="question2">\n\n<b>¿Quien gano "Les Anxaneta de Plata" Vilafranca?</b>\nA. Nens del Vendrell, Vella de Valls y Castellers de Vilafranca\nB. Castells de Vilafranca y Catellers de Barcelona\nC. Nens del Vendrell</string>
+
+    <!-- PREGUNTA 3: Respuesta c -->
+    <string name="question3">\n\n<b>¿Que se celebra en la TAP (Tarraco Arena Plaza)?</b>\nA. Encuentro de colles castelleres\nB. La diada de la Fiesta Mayor de Tarragona\nC. El Concurs de Castells</string>
 </resources>
