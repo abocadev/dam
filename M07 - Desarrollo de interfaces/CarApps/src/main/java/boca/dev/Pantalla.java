@@ -13,7 +13,8 @@ public class Pantalla extends JFrame {
 
     private JScrollPane jScrollPanel;
 
-    JTable tableNews;
+    private DefaultTableModel modelo = new DefaultTableModel();
+    private JTable tableNews;
 
     public Pantalla(String s) throws HeadlessException{
         super(s);
@@ -142,10 +143,10 @@ public class Pantalla extends JFrame {
     public void crearTable(){
         JScrollPane jScrollPanel = new JScrollPane();
 
-        tableNews = new JTable();
+        tableNews = new JTable(modelo);
         tableNews.setModel(new DefaultTableModel(
            new Object[][] {
-                   {null, null, null, null,null, null},
+                   {"Nombre", "Modelo", },
                    {null, null, null, null,null, null},
                    {null, null, null, null,null, null}
            },
