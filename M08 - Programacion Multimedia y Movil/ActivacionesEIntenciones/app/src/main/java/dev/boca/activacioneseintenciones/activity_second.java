@@ -3,6 +3,7 @@ package dev.boca.activacioneseintenciones;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 
 public class activity_second extends AppCompatActivity {
 
@@ -11,4 +12,5 @@ public class activity_second extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
     }
+
 }

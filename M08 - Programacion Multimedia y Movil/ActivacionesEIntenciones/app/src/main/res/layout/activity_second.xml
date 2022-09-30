@@ -6,17 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".activity_second">
 
-    <TextView
+    <TextViewa
         android:id="@+id/text_header"
-        android:layout_width="60dp"
-        android:layout_height="21dp"
-        android:marginLeft="8dp"
-        android:marginTop="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/message_received"
-        android:textAppearance="AppCompat.Medium"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textStyle="bold"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="73dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
