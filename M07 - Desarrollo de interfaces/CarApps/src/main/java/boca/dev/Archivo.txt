@@ -1,19 +1,8 @@
-package boca.dev;
-
-import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-import java.awt.*;
-
-public class Pantalla extends JFrame {
-    private JPanel panel;
+private JPanel panel;
     private JLabel lNombre, lModelo, lMarca, lPrecio, lColor, lGasolina, lIcon;
     private JTextField iNombre, iModelo, iMarca, iPrecio, iColor, iGasolina;
 
     private JButton bInput, bRead;
-
-    private JScrollPane jScrollPanel;
-
-    private DefaultTableModel modelo = new DefaultTableModel();
     private JTable tableNews;
 
     public Pantalla(String s) throws HeadlessException{
@@ -37,49 +26,47 @@ public class Pantalla extends JFrame {
         panel = new JPanel();
         panel.setBackground(Color.gray);
         panel.setLayout(null);
-        
+
         panel.setVisible(true);
         this.getContentPane().add(panel);
     }
-
     public void crearEtiquetas() {
         lNombre = new JLabel("Nombre:");
         lNombre.setBounds(20, 10, 150, 50);
         lNombre.setFont(new Font("Arial", Font.BOLD, 14));
-        panel.add(lNombre);
+        PanelPantallaPrincipal.add(lNombre);
 
         lModelo = new JLabel("Modelo:");
         lModelo.setBounds(20, 50, 150, 50);
         lModelo.setFont(new Font("Arial", Font.BOLD, 14));
-        panel.add(lModelo);
+        PanelPantallaPrincipal.add(lModelo);
 
         lMarca = new JLabel("Marca:");
         lMarca.setBounds(20, 90, 150, 50);
         lMarca.setFont(new Font("Arial", Font.BOLD, 14));
-        panel.add(lMarca);
+        PanelPantallaPrincipal.add(lMarca);
 
         lPrecio = new JLabel("Precio:");
         lPrecio.setBounds(350, 10, 150, 50);
         lPrecio.setFont(new Font("Arial", Font.BOLD, 14));
-        panel.add(lPrecio);
+        PanelPantallaPrincipal.add(lPrecio);
 
         lColor = new JLabel("Color:");
         lColor.setBounds(350, 50, 150, 50);
         lColor.setFont(new Font("Arial", Font.BOLD, 14));
-        panel.add(lColor);
+        PanelPantallaPrincipal.add(lColor);
 
         lGasolina = new JLabel("Gasolina:");
         lGasolina.setBounds(350, 90, 150, 50);
         lGasolina.setFont(new Font("Tahoma", Font.BOLD, 14));
-        panel.add(lGasolina);
+        PanelPantallaPrincipal.add(lGasolina);
 
         // Icono boca
         lIcon = new JLabel();
         lIcon.setIcon(new ImageIcon("Logo.png"));
         lIcon.setBounds(800, 10, 150, 150);
-        panel.add(lIcon);
+        PanelPantallaPrincipal.add(lIcon);
     }
-
     public void crearInputs() {
        iNombre = new JTextField();
        iNombre.setBounds(85, 25, 200, 20);
@@ -141,31 +128,23 @@ public class Pantalla extends JFrame {
     }
 
     public void crearTable(){
-        JScrollPane jScrollPanel = new JScrollPane();
 
-        tableNews = new JTable(modelo);
-        tableNews.setModel(new DefaultTableModel(
-           new Object[][] {
-                   {"Nombre", "Modelo", },
-                   {null, null, null, null,null, null},
-                   {null, null, null, null,null, null}
-           },
-           new String[] {
-                "Nombre", "Modelo", "Marca", "Precio", "Color", "Gasolina"
-           }
-        ));
-        jScrollPanel.setViewportView(tableNews);
-        tableNews.getColumnModel().getColumn(0).setHeaderValue("Nombre");
-        tableNews.getColumnModel().getColumn(1).setHeaderValue("Modelo");
-        tableNews.getColumnModel().getColumn(2).setHeaderValue("Marca");
-        tableNews.getColumnModel().getColumn(3).setHeaderValue("Precio");
-        tableNews.getColumnModel().getColumn(4).setHeaderValue("Color");
-        tableNews.getColumnModel().getColumn(5).setHeaderValue("Gasolina");
-
+        String [] nombresColumnas = {"Nombre", "Modelo", "Marca", "Precio", "Color", "Gasolina"};
+        Object [][] datosFila = {
+                {"Nombre", "Modelo", "Marca", "Precio", "Color", "Gasolina"},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+        };
+        // Viejo
+        tableNews = new JTable(datosFila, nombresColumnas);
+        JScrollPane scroll = new JScrollPane();
         tableNews.setBackground(new Color(245, 245, 245));
-        tableNews.setBounds(20, 175, 490, 490);
+        tableNews.setBounds(20, 175, 495, 80);
         tableNews.setFont(new Font("Arial", Font.BOLD, 14));
+
+        tableNews.add(scroll);
 
         panel.add(tableNews);
     }
-}
