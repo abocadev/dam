@@ -1,0 +1,108 @@
+package boca.dev.Events;
+
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+public class EventosPantallaPrincipal {
+    
+      
+    public EventosPantallaPrincipal() {
+    }
+    
+    // Apartado de controlar el evento de los Botones    
+    public MouseListener ReadButton(
+            String nombre, 
+            String modelo, 
+            String marca, 
+            float precio, 
+            String color, 
+            int indexGasolina, 
+            JTable tabla
+    ){ // Eventos para el boton de Leer
+        MouseListener l;
+        l = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if(indexGasolina == 0){
+                    JOptionPane.showMessageDialog(null, "No has seleccionado tipo de gasolina");
+                }else{
+                    String gas = "";
+                    switch(indexGasolina){
+                        case 1 -> gas = "Diesel";
+                            
+                        case 2 -> gas = "Gasolina";
+                            
+                        case 3 -> gas = "Hibrido";
+                            
+                        case 4 -> gas = "Hibrido enchufable";
+                            
+                        case 5 -> gas = "Electrico";
+                                        
+                    }
+                    DefaultTableModel model = (DefaultTableModel)tabla.getModel();
+                    model.addRow(new Object[] {
+                        nombre,
+                        modelo,
+                        marca,
+                        precio,
+                        color,
+                        gas
+                    });
+                }
+            }
+
+            @Override public void mousePressed(MouseEvent e) {}
+
+            @Override public void mouseReleased(MouseEvent e) {}
+
+            @Override public void mouseEntered(MouseEvent e) {}
+
+            @Override public void mouseExited(MouseEvent e) {}
+        };
+        return l;
+    }
+    
+    public MouseListener AddButton(){
+        MouseListener l;
+        l = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                JOptionPane.showMessageDialog(null, "Has clicado el boton de Leer");
+            }
+
+            @Override public void mousePressed(MouseEvent e) {}
+
+            @Override public void mouseReleased(MouseEvent e) {}
+
+            @Override public void mouseEntered(MouseEvent e) {}
+
+            @Override public void mouseExited(MouseEvent e) {}
+        };
+        return l;
+    }
+    
+    public MouseListener ContractButton(){
+        MouseListener l;
+        l = new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                JOptionPane.showMessageDialog(null, "Has clicado el boton de contrato");
+            }
+
+            @Override public void mousePressed(MouseEvent e) {}
+
+            @Override public void mouseReleased(MouseEvent e) {}
+
+            @Override public void mouseEntered(MouseEvent e) {}
+
+            @Override public void mouseExited(MouseEvent e) {}
+        };
+        return l;
+    }
+    
+    public void FeaturesButton(){
+    }
+}
