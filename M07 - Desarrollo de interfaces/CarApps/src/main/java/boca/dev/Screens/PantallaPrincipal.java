@@ -1,28 +1,27 @@
 package boca.dev.Screens;
 
 import boca.dev.Events.EventosPantallaPrincipal;
+import boca.dev.Objects.Coche;
+
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.io.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 public class PantallaPrincipal extends JFrame{
     
-    public static void start() {
+    public static void start(){
         PantallaPrincipal h = new PantallaPrincipal("Concesionario de coches");
         h.setVisible(true);
     }
     
-    JPanel PanelPantallaPrincipal;
-    JLabel lNombre, lModelo, lMarca, lPrecio, lColor, lGasolina, lIcon;
-    JTextField iNombre, iModelo, iMarca, iPrecio, iColor;
-    JComboBox<String> jCBGasolina;
+    public static JPanel PanelPantallaPrincipal;
+    public static JLabel lNombre, lModelo, lMarca, lPrecio, lColor, lGasolina, lIcon;
+    public static JTextField iNombre, iModelo, iMarca, iPrecio, iColor;
+    public static JComboBox<String> jCBGasolina;
 
-    JButton bAdd, bRead, bContract, bFeatures;
-    JTable TablaNuevosCoches, TablaCoches;
-    
-    public PantallaPrincipal(){}
+    public static JButton bAdd, bRead, bContract, bFeatures;
+    public static JTable TablaNuevosCoches, TablaCoches;
     
     public PantallaPrincipal(String s) throws HeadlessException{
         super(s);
@@ -33,16 +32,17 @@ public class PantallaPrincipal extends JFrame{
         crearComponentes();
     }
 
-    public void crearComponentes(){
+    public void crearComponentes() {
         crearPanel();
         crearEtiquetas();
         crearInputs();
         crearButtons();
         crearTableNuevosCoches();
         crearTableCoches();     
-        AddButton();
-    } 
-    
+        eventos();
+    }
+
+
     // Creamos el panel
     public void crearPanel(){
         PanelPantallaPrincipal = new JPanel();
@@ -203,54 +203,9 @@ public class PantallaPrincipal extends JFrame{
     }
     
     public void eventos(){
-        
-//        bAdd.addMouseListener(epp.AddButton());
+        bAdd.addMouseListener(EventosPantallaPrincipal.AddButton());
+        bRead.addMouseListener(EventosPantallaPrincipal.ReadButton());
+        bContract.addMouseListener(EventosPantallaPrincipal.ContractButton());
     }
-    
-    // Apartado de controlar el evento de los Botones    
-    public void AddButton(){ // Eventos para el boton de Leer
-        MouseListener l;
-        l = new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if(jCBGasolina.getSelectedIndex() == 0){
-                    JOptionPane.showMessageDialog(null, "No has seleccionado tipo de gasolina");
-                }else{
-                    String gas = "";
-                    switch(jCBGasolina.getSelectedIndex()){
-                        case 1 -> gas = "Diesel";
-                            
-                        case 2 -> gas = "Gasolina";
-                            
-                        case 3 -> gas = "Hibrido";
-                            
-                        case 4 -> gas = "Hibrido enchufable";
-                            
-                        case 5 -> gas = "Electrico";
-                                        
-                    }
-                    DefaultTableModel model = (DefaultTableModel)TablaNuevosCoches.getModel();
-                    model.addRow(new Object[] {
-                        iNombre.getText(),
-                        iModelo.getText(),
-                        iMarca.getText(),
-                        Float.parseFloat(iPrecio.getText()),
-                        iColor.getText(),                        
-                        gas
-                    });
-                }
-            }
-
-            @Override public void mousePressed(MouseEvent e) {}
-
-            @Override public void mouseReleased(MouseEvent e) {}
-
-            @Override public void mouseEntered(MouseEvent e) {}
-
-            @Override public void mouseExited(MouseEvent e) {}
-        };
-        bAdd.addMouseListener(l);
-    }
-    
 }
 

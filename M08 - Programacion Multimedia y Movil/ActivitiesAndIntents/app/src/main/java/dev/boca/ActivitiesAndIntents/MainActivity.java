@@ -40,13 +40,10 @@ public class MainActivity extends AppCompatActivity {
                 new ActivityResultCallback<ActivityResult>() {
                     @Override
                     public void onActivityResult(ActivityResult result) {
-                        if(result.getResultCode() == RESULT_OK && result.getData() != null){
-                            String reply = result.getData().getStringExtra(SecondActivity.EXTRA_REPLY);
-                            mReplyHeadTextView.setVisibility(View.VISIBLE);
-                            mReplyTextView.setText(reply);
-                            mReplyTextView.setVisibility(View.VISIBLE);
-                        }
-
+                        String reply = result.getData().getStringExtra(SecondActivity.EXTRA_REPLY);
+                        mReplyHeadTextView.setVisibility(View.VISIBLE);
+                        mReplyTextView.setText(reply);
+                        mReplyTextView.setVisibility(View.VISIBLE);
                     }
                 }
         );

@@ -43,8 +43,8 @@
         android:onClick="launchSecondActivity"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        tools:ignore="UsingOnClickInXml"
-    />
+
+        tools:ignore="UsingOnClickInXml" />
 
     <EditText
         android:id="@+id/editText_main"
