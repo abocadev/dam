@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "C:\\Users\\USUARI\\.gradle\\daemon\\7.3.3\\dev.boca.activacioneseintenciones.app-mergeDebugResources-32:\\layout\\activity_second.xml",
+        "source": "C:\\Users\\USUARI\\.gradle\\daemon\\7.3.3\\dev.boca.activacioneseintenciones.app-main-35:\\layout\\activity_second.xml"
+    },
+    {
+        "merged": "dev.boca.activacioneseintenciones.app-mergeDebugResources-32:/layout/activity_main.xml",
+        "source": "dev.boca.activacioneseintenciones.app-main-35:/layout/activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\USUARI\\.gradle\\daemon\\7.3.3\\dev.boca.activacioneseintenciones.app-mergeDebugResources-32:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\USUARI\\.gradle\\daemon\\7.3.3\\dev.boca.activacioneseintenciones.app-main-35:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "dev.boca.activacioneseintenciones.app-mergeDebugResources-32:/layout/activity_second.xml",
+        "source": "dev.boca.activacioneseintenciones.app-main-35:/layout/activity_second.xml"
+    }
+]
