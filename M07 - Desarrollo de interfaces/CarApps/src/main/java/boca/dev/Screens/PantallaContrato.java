@@ -6,8 +6,7 @@ import javax.swing.*;
 public class PantallaContrato extends JFrame{
 
     // Datos cogidos
-    static String nombre, modelo, marca, color, gasolina;
-    static float precio;
+    static String nombre, modelo, marca, color, gasolina, precio;
 
     public static JPanel PanelPantallaContrato;
     static JLabel lNombre, lModelo, lMarca, lPrecio, lColor, lGasolina;
@@ -15,9 +14,8 @@ public class PantallaContrato extends JFrame{
     public static void main(String[] args) {
         start();
     }
+    
     public static void start(){
-        //
-        // getData();
         PantallaContrato p = new PantallaContrato("Contrato " + modelo);
         p.setVisible(true);
     }
@@ -27,22 +25,14 @@ public class PantallaContrato extends JFrame{
         setSize(1000, 500);
         setResizable(false);
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(this.EXIT_ON_CLOSE);
         CrearComponentes();
     }
 
-    static void getData(){
-        try {
-            int puntero = PantallaPrincipal.TablaCoches.getSelectedRow();
-            nombre = (String) PantallaPrincipal.TablaCoches.getValueAt(puntero, 0);
-            modelo = (String) PantallaPrincipal.TablaCoches.getValueAt(puntero, 1);
-            marca = (String) PantallaPrincipal.TablaCoches.getValueAt(puntero, 2);
-            precio = Float.parseFloat((String) PantallaPrincipal.TablaCoches.getValueAt(puntero, 3));
-            color = (String) PantallaPrincipal.TablaCoches.getValueAt(puntero, 4);
-            gasolina = (String) PantallaPrincipal.TablaCoches.getValueAt(puntero, 5);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+    public static void getData(String nombre, String modelo, String marca, String color, String gasolina, String precio){
+        PantallaContrato.nombre = nombre;
+        PantallaContrato.modelo = modelo;
+        
     }
 
     public void CrearComponentes(){
@@ -62,6 +52,8 @@ public class PantallaContrato extends JFrame{
     // Creamos las etiquetas de texto
     void CrearEtiquetas(){
         // Label Nombre
-        lNombre = new JLabel("       ");
+        lNombre = new JLabel("");
     }
+    
+    
 }

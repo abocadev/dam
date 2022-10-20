@@ -1,6 +1,7 @@
 package boca.dev.Events;
 import boca.dev.Screens.PantallaContrato;
 import boca.dev.Screens.PantallaPrincipal;
+import static boca.dev.Screens.PantallaPrincipal.TablaCoches;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -131,6 +132,14 @@ public class EventosPantallaPrincipal {
         l = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                int puntero = PantallaPrincipal.TablaCoches.getSelectedRow();
+                String nombre = (String) PantallaPrincipal.TablaCoches.getValueAt(puntero, 0);
+                String modelo = (String) PantallaPrincipal.TablaCoches.getValueAt(puntero, 1);
+                String marca = (String) PantallaPrincipal.TablaCoches.getValueAt(puntero, 2);
+                String precio = (String) PantallaPrincipal.TablaCoches.getValueAt(puntero, 3);
+                String color = (String) PantallaPrincipal.TablaCoches.getValueAt(puntero, 4);
+                String gasolina = (String) PantallaPrincipal.TablaCoches.getValueAt(puntero, 5);
+                PantallaContrato.getData( nombre,  modelo,  marca,  color,  gasolina,  precio );
                 PantallaContrato.start();
             }
 
