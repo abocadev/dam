@@ -8,10 +8,10 @@ import java.io.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
-public class PantallaPrincipal extends JFrame{
+public class PantallaInicio extends JFrame{
     
     public static void start(){
-        PantallaPrincipal h = new PantallaPrincipal("Concesionario de coches");
+        PantallaInicio h = new PantallaInicio("Concesionario de coches");
         h.setVisible(true);
     }
     
@@ -23,7 +23,7 @@ public class PantallaPrincipal extends JFrame{
     public static JButton bAdd, bRead, bContract, bFeatures;
     public static JTable TablaNuevosCoches, TablaCoches;
     
-    public PantallaPrincipal(String s) throws HeadlessException{
+    public PantallaInicio(String s) throws HeadlessException{
         super(s);
         setSize(1000, 500);
         setResizable(false);

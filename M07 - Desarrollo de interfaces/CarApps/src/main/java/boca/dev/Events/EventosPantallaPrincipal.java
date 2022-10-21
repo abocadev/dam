@@ -1,7 +1,7 @@
 package boca.dev.Events;
 import boca.dev.Screens.PantallaContrato;
-import boca.dev.Screens.PantallaPrincipal;
-import static boca.dev.Screens.PantallaPrincipal.TablaCoches;
+import boca.dev.Screens.PantallaInicio;
+import static boca.dev.Screens.PantallaInicio.TablaCoches;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -17,12 +17,12 @@ public class EventosPantallaPrincipal {
         l = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                String nombre = PantallaPrincipal.iNombre.getText();
-                String modelo = PantallaPrincipal.iModelo.getText();
-                String marca = PantallaPrincipal.iMarca.getText();
-                float precio = Float.parseFloat(PantallaPrincipal.iPrecio.getText());
-                String color = PantallaPrincipal.iColor.getText();
-                int indexGasolina = PantallaPrincipal.jCBGasolina.getSelectedIndex();
+                String nombre = PantallaInicio.iNombre.getText();
+                String modelo = PantallaInicio.iModelo.getText();
+                String marca = PantallaInicio.iMarca.getText();
+                float precio = Float.parseFloat(PantallaInicio.iPrecio.getText());
+                String color = PantallaInicio.iColor.getText();
+                int indexGasolina = PantallaInicio.jCBGasolina.getSelectedIndex();
 
                 if (indexGasolina == 0) {
                     JOptionPane.showMessageDialog(null, "No has seleccionado tipo de gasolina");
@@ -41,7 +41,7 @@ public class EventosPantallaPrincipal {
                         case 5 -> gas = "Electrico";
 
                     }
-                    DefaultTableModel model = (DefaultTableModel) PantallaPrincipal.TablaNuevosCoches.getModel();
+                    DefaultTableModel model = (DefaultTableModel) PantallaInicio.TablaNuevosCoches.getModel();
                     model.addRow(new Object[]{
                             nombre,
                             modelo,
@@ -78,17 +78,17 @@ public class EventosPantallaPrincipal {
             public void mouseClicked(MouseEvent e) {
                 int punteroTabla = 0;
                 try {
-                    punteroTabla = PantallaPrincipal.TablaNuevosCoches.getSelectedRow();
+                    punteroTabla = PantallaInicio.TablaNuevosCoches.getSelectedRow();
 
 
-                    String nombre = (String) PantallaPrincipal.TablaNuevosCoches.getValueAt(punteroTabla, 0);
-                    String modelo = (String) PantallaPrincipal.TablaNuevosCoches.getValueAt(punteroTabla, 1);
-                    String marca = (String) PantallaPrincipal.TablaNuevosCoches.getValueAt(punteroTabla, 2);
-                    float precio = (float) PantallaPrincipal.TablaNuevosCoches.getValueAt(punteroTabla, 3);
-                    String color = (String) PantallaPrincipal.TablaNuevosCoches.getValueAt(punteroTabla, 4);
-                    String gasolina = (String) PantallaPrincipal.TablaNuevosCoches.getValueAt(punteroTabla, 5);
+                    String nombre = (String) PantallaInicio.TablaNuevosCoches.getValueAt(punteroTabla, 0);
+                    String modelo = (String) PantallaInicio.TablaNuevosCoches.getValueAt(punteroTabla, 1);
+                    String marca = (String) PantallaInicio.TablaNuevosCoches.getValueAt(punteroTabla, 2);
+                    float precio = (float) PantallaInicio.TablaNuevosCoches.getValueAt(punteroTabla, 3);
+                    String color = (String) PantallaInicio.TablaNuevosCoches.getValueAt(punteroTabla, 4);
+                    String gasolina = (String) PantallaInicio.TablaNuevosCoches.getValueAt(punteroTabla, 5);
 
-                    DefaultTableModel modelTablaCoches = (DefaultTableModel) PantallaPrincipal.TablaCoches.getModel();
+                    DefaultTableModel modelTablaCoches = (DefaultTableModel) PantallaInicio.TablaCoches.getModel();
                     modelTablaCoches.addRow(new Object[]{
                             nombre,
                             modelo,
@@ -98,10 +98,10 @@ public class EventosPantallaPrincipal {
                             gasolina
                     });
 
-                    DefaultTableModel modelTablaNuevosCoches = (DefaultTableModel) PantallaPrincipal.TablaNuevosCoches.getModel();
+                    DefaultTableModel modelTablaNuevosCoches = (DefaultTableModel) PantallaInicio.TablaNuevosCoches.getModel();
                     modelTablaNuevosCoches.removeRow(punteroTabla);
                 } catch (Exception exception) {
-                    if(PantallaPrincipal.TablaNuevosCoches.getRowCount() > 0) {
+                    if(PantallaInicio.TablaNuevosCoches.getRowCount() > 0) {
                         JOptionPane.showMessageDialog(null, "No has seleccionado niguna fila");
                     }else{
                         JOptionPane.showMessageDialog(null, "No tienes ninguna fila para añadir");
@@ -132,13 +132,25 @@ public class EventosPantallaPrincipal {
         l = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                int puntero = PantallaPrincipal.TablaCoches.getSelectedRow();
-                String nombre = (String) PantallaPrincipal.TablaCoches.getValueAt(puntero, 0);
-                String modelo = (String) PantallaPrincipal.TablaCoches.getValueAt(puntero, 1);
-                String marca = (String) PantallaPrincipal.TablaCoches.getValueAt(puntero, 2);
-                String precio = (String) PantallaPrincipal.TablaCoches.getValueAt(puntero, 3);
-                String color = (String) PantallaPrincipal.TablaCoches.getValueAt(puntero, 4);
-                String gasolina = (String) PantallaPrincipal.TablaCoches.getValueAt(puntero, 5);
+                String nombre = null, modelo = null, marca = null,  color = null, gasolina = null;
+                float precio = 0;
+                int puntero;
+                try {
+                    puntero = PantallaInicio.TablaCoches.getSelectedRow();
+                    nombre = (String) PantallaInicio.TablaCoches.getValueAt(puntero, 0);
+                    modelo = (String) PantallaInicio.TablaCoches.getValueAt(puntero, 1);
+                    marca = (String) PantallaInicio.TablaCoches.getValueAt(puntero, 2);
+                    precio = (float) PantallaInicio.TablaCoches.getValueAt(puntero, 3);
+                    color = (String) PantallaInicio.TablaCoches.getValueAt(puntero, 4);
+                    gasolina = (String) PantallaInicio.TablaCoches.getValueAt(puntero, 5);
+                } catch (Exception ee) {    
+                }
+                System.out.println("Nombre: " + nombre
+                        + "Modelo: " + modelo
+                        + "Marca: " + marca
+                        + "Color: " + color
+                        + "Gasolina: " + gasolina
+                        + "Precio: " + precio);
                 PantallaContrato.getData( nombre,  modelo,  marca,  color,  gasolina,  precio );
                 PantallaContrato.start();
             }
