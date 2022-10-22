@@ -8,10 +8,6 @@ public class PantallaContrato extends JFrame{
     // Datos cogidos
     static String nombre, modelo, marca, color, gasolina;
     static float precio;
-    
-    // Label Color
-    // Label Gasolina
-    // Label Precio
 
     public static JPanel PanelPantallaContrato;
     static JLabel lNombre, lModelo, lMarca, lPrecio, lColor, lGasolina;
@@ -31,18 +27,11 @@ public class PantallaContrato extends JFrame{
         CrearComponentes();
     }
 
-    public static void getData(String nombre, String modelo, String marca, String color, String gasolina, float precio){
-        PantallaContrato.nombre = nombre;
-        PantallaContrato.modelo = modelo;
-        PantallaContrato.marca = marca;
-        PantallaContrato.color = color;
-        PantallaContrato.gasolina = gasolina;
-        PantallaContrato.precio = precio;
-    }
-
+    
     public void CrearComponentes(){
         CrearPanel();
         CrearEtiquetas();
+        CrearInputs();
     }
 
     void CrearPanel(){
@@ -94,55 +83,69 @@ public class PantallaContrato extends JFrame{
     }
     
     // Creamos las entradasde texto
-    public void crearInputs() {
+    public void CrearInputs() {
     
         // Input Nombre
-       iNombre = new JTextField();
+       iNombre = new JTextField(nombre);
        iNombre.setBounds(85, 25, 200, 20);
        iNombre.setFont(new Font("Arial", Font.BOLD, 14));
        iNombre.setBackground(new Color(245, 245, 245));
        iNombre.setBorder(null);
+       iNombre.setEditable(false);
        PanelPantallaContrato.add(iNombre);
        
        // Input Modelo
-       iModelo = new JTextField();
+       iModelo = new JTextField(modelo);
        iModelo.setBounds(85, 65, 200, 20);
        iModelo.setFont(new Font("Arial", Font.BOLD, 14));
        iModelo.setBackground(new Color(245, 245, 245));
        iModelo.setBorder(null);
+       iModelo.setEditable(false);
        PanelPantallaContrato.add(iModelo);
 
        // Input Marca
-       iMarca = new JTextField();
+       iMarca = new JTextField(marca);
        iMarca.setBounds(85, 105, 200, 20);
        iMarca.setFont(new Font("Arial", Font.BOLD, 14));
        iMarca.setBackground(new Color(245, 245, 245));
        iMarca.setBorder(null);
+       iMarca.setEditable(false);
        PanelPantallaContrato.add(iMarca);
 
        // Input Precio
-       iPrecio = new JTextField();
+       iPrecio = new JTextField("" + precio + "$");
        iPrecio.setBounds(425, 25, 200, 20);
        iPrecio.setFont(new Font("Arial", Font.BOLD, 14));
        iPrecio.setBackground(new Color(245, 245, 245));
        iPrecio.setBorder(null);
+       iPrecio.setEditable(false);
        PanelPantallaContrato.add(iPrecio);
 
        // Input Color
-       iColor = new JTextField();
+       iColor = new JTextField(color);
        iColor.setBounds(425, 65, 200, 20);
        iColor.setFont(new Font("Arial", Font.BOLD, 14));
        iColor.setBackground(new Color(245, 245, 245));
        iColor.setBorder(null);
+       iColor.setEditable(false);
        PanelPantallaContrato.add(iColor);
 
        // Input Gasolina
-       iGasolina = new JTextField();
+       iGasolina = new JTextField(gasolina);
        iGasolina.setBounds(425, 105, 200, 20);
        iGasolina.setFont(new Font("Arial", Font.BOLD, 14));
        iGasolina.setBackground(new Color(245, 245, 245));
        iGasolina.setBorder(null);
+       iGasolina.setEditable(false);
        PanelPantallaContrato.add(iGasolina);
     }
-    
+
+    public static void getData(String nombre, String modelo, String marca, String color, String gasolina, float precio){
+        PantallaContrato.nombre = nombre;
+        PantallaContrato.modelo = modelo;
+        PantallaContrato.marca = marca;
+        PantallaContrato.color = color;
+        PantallaContrato.gasolina = gasolina;
+        PantallaContrato.precio = precio;
+    }    
 }
