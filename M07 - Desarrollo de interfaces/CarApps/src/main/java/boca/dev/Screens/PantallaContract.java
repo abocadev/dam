@@ -3,24 +3,24 @@ package boca.dev.Screens;
 import java.awt.*;
 import javax.swing.*;
 
-public class PantallaContrato extends JFrame{
+public class PantallaContract extends JFrame{
 
     // Datos cogidos
     static String nombre, modelo, marca, color, gasolina;
     static float precio;
 
     public static JPanel PanelPantallaContrato;
-    static JLabel lNombre, lModelo, lMarca, lPrecio, lColor, lGasolina;
+    static JLabel lNombre, lModelo, lMarca, lPrecio, lColor, lGasolina, lFirma, lCoche;
     static JTextField iNombre, iModelo, iMarca, iPrecio, iColor, iGasolina;
     
     public static void start(){
-        PantallaContrato p = new PantallaContrato("Contrato " + modelo);
+        PantallaContract p = new PantallaContract("Caracteristicas: " + marca + " "+ modelo);
         p.setVisible(true);
     }
     
-    public PantallaContrato(String s) throws HeadlessException{
+    public PantallaContract (String s) throws HeadlessException{
         super(s);
-        setSize(1000, 500);
+        setSize(700, 500);
         setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -34,7 +34,7 @@ public class PantallaContrato extends JFrame{
         CrearInputs();
     }
 
-    void CrearPanel(){
+    public void CrearPanel(){
         PanelPantallaContrato = new JPanel();
         PanelPantallaContrato.setBackground(Color.gray);
         PanelPantallaContrato.setLayout(null);
@@ -80,11 +80,24 @@ public class PantallaContrato extends JFrame{
         lGasolina.setBounds(350, 90, 150, 50);
         lGasolina.setFont(new Font("Tahoma", Font.BOLD, 14));
         PanelPantallaContrato.add(lGasolina);
+        
+        // Imagen de Firma
+        lFirma = new JLabel();
+        lFirma.setIcon(new ImageIcon("firma.png"));
+        lFirma.setBounds(425, 250, 200, 90);
+        PanelPantallaContrato.add(lFirma);
+        
+        // Imagen del coche exterior
+        lCoche = new JLabel();
+        String modelo = PantallaInicio.TablaCoches.getVali
+                
+        
+        lCoche.setBounds(20, 250, 200, 90);
+        PanelPantallaContrato.add(lCoche);
     }
     
     // Creamos las entradasde texto
     public void CrearInputs() {
-    
         // Input Nombre
        iNombre = new JTextField(nombre);
        iNombre.setBounds(85, 25, 200, 20);
@@ -141,11 +154,11 @@ public class PantallaContrato extends JFrame{
     }
 
     public static void getData(String nombre, String modelo, String marca, String color, String gasolina, float precio){
-        PantallaContrato.nombre = nombre;
-        PantallaContrato.modelo = modelo;
-        PantallaContrato.marca = marca;
-        PantallaContrato.color = color;
-        PantallaContrato.gasolina = gasolina;
-        PantallaContrato.precio = precio;
+        PantallaContract.nombre = nombre;
+        PantallaContract.modelo = modelo;
+        PantallaContract.marca = marca;
+        PantallaContract.color = color;
+        PantallaContract.gasolina = gasolina;
+        PantallaContract.precio = precio;
     }    
 }

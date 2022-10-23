@@ -1,8 +1,8 @@
 package boca.dev.Objects;
 
-public class Coche{
+public class CocheObject{
+    String MarcaCoche;
     String ModeloCoche;
-    String TipoGasolina;
     int VelocidadMaxima;
     String ColorCoche;
     int YearCoche;
@@ -13,9 +13,9 @@ public class Coche{
     String RutaImagenCocheFuera;
     String RutaImagenCocheDentro;
 
-    public Coche(String modeloCoche, String tipoGasolina, int velocidadMaxima, String colorCoche, int yearCoche, String tipoMotor, int numeroPuertas, String tipoMarchas, String descripcionVehiculo, String rutaImagenCocheFuera, String rutaImagenCocheDentro) {
+    public CocheObject(String marcaCoche, String modeloCoche, int velocidadMaxima, String colorCoche, int yearCoche, String tipoMotor, int numeroPuertas, String tipoMarchas, String descripcionVehiculo, String rutaImagenCocheFuera, String rutaImagenCocheDentro) {
+        MarcaCoche = marcaCoche;
         ModeloCoche = modeloCoche;
-        TipoGasolina = tipoGasolina;
         VelocidadMaxima = velocidadMaxima;
         ColorCoche = colorCoche;
         YearCoche = yearCoche;
@@ -27,6 +27,13 @@ public class Coche{
         RutaImagenCocheDentro = rutaImagenCocheDentro;
     }
 
+    public String getMarcaCoche(){
+        return MarcaCoche;
+    }
+    
+    public void setMarcaCoche(String marca){
+        this.MarcaCoche = marca;
+    }
     public String getModeloCoche() {
         return ModeloCoche;
     }
@@ -34,15 +41,7 @@ public class Coche{
     public void setModeloCoche(String modeloCoche) {
         ModeloCoche = modeloCoche;
     }
-
-    public String getTipoGasolina() {
-        return TipoGasolina;
-    }
-
-    public void setTipoGasolina(String tipoGasolina) {
-        TipoGasolina = tipoGasolina;
-    }
-
+    
     public int getVelocidadMaxima() {
         return VelocidadMaxima;
     }

@@ -12,7 +12,7 @@ public class E012lectura {
     public void inicio(){
         try {
             // intentamos abrir un fichero
-            File f = new File("D:/fichero.txt");
+            File f = new File("fichero.txt");
             Scanner lectura = new Scanner(f);
             // Si se ejecuta, se ha abierto el fichero
             int contador=0;

@@ -1,10 +1,9 @@
 package boca.dev.Screens;
 
 import boca.dev.Events.EventosPantallaPrincipal;
-import boca.dev.Objects.Coche;
+import boca.dev.Objects.Coches;
 
 import java.awt.*;
-import java.io.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,7 +19,7 @@ public class PantallaInicio extends JFrame{
     public static JTextField iNombre, iModelo, iMarca, iPrecio, iColor;
     public static JComboBox<String> jCBGasolina;
 
-    public static JButton bAdd, bRead, bContract, bFeatures;
+    public static JButton bAdd, bRead, bCompletar, bContract, bFeatures;
     public static JTable TablaNuevosCoches, TablaCoches;
     
     public PantallaInicio(String s) throws HeadlessException{
@@ -32,7 +31,8 @@ public class PantallaInicio extends JFrame{
         crearComponentes();
     }
 
-    public void crearComponentes() {
+    private void crearComponentes() {
+        Coches.CreateCars();
         crearPanel();
         crearEtiquetas();
         crearInputs();
@@ -40,6 +40,7 @@ public class PantallaInicio extends JFrame{
         crearTableNuevosCoches();
         crearTableCoches();     
         eventos();
+        
     }
 
 
@@ -142,7 +143,7 @@ public class PantallaInicio extends JFrame{
 
        // ComboBox Gasolina
        String [] TipoGasolina = { "-- TIPO GASOLINA --", "Diesel", "Gasolina", "Hibrido", "Hibrido enchufable", "Electrico"};
-       jCBGasolina = new JComboBox<String>(TipoGasolina);
+       jCBGasolina = new JComboBox<>(TipoGasolina);
        jCBGasolina.setBounds(425, 105, 200, 20);
        jCBGasolina.setFont(new Font("Arial", Font.PLAIN, 14));
        jCBGasolina.setBackground(new Color(245, 245, 245));
@@ -152,7 +153,6 @@ public class PantallaInicio extends JFrame{
 
     // Creamos los botones
     public void crearButtons(){
-        
         // Button Add
         bAdd = new JButton("Añadir");
         bAdd.setBounds(675, 23, 100, 40);
@@ -168,6 +168,14 @@ public class PantallaInicio extends JFrame{
         bRead.setForeground(Color.WHITE);
         bRead.setBackground(new Color(46, 46, 46));
         PanelPantallaPrincipal.add(bRead);
+        
+        // Button completa
+        bCompletar = new JButton("Completar");
+        bCompletar.setBounds(675, 160, 125, 40);
+        bCompletar.setFont(new Font("Arial", Font.BOLD, 14));
+        bCompletar.setForeground(Color.WHITE);
+        bCompletar.setBackground(new Color(46, 46, 46));
+        PanelPantallaPrincipal.add(bCompletar);
         
         // Button Contrato
         bContract = new JButton("Contrato");
@@ -205,7 +213,10 @@ public class PantallaInicio extends JFrame{
     public void eventos(){
         bAdd.addMouseListener(EventosPantallaPrincipal.AddButton());
         bRead.addMouseListener(EventosPantallaPrincipal.ReadButton());
+        bCompletar.addMouseListener(EventosPantallaPrincipal.CompleteButton());
+        bFeatures.addMouseListener(EventosPantallaPrincipal.FeaturesButton());
         bContract.addMouseListener(EventosPantallaPrincipal.ContractButton());
     }
 }
+
 
