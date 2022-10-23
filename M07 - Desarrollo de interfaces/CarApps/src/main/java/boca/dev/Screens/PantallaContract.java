@@ -1,5 +1,6 @@
 package boca.dev.Screens;
 
+import boca.dev.Objects.Coches;
 import java.awt.*;
 import javax.swing.*;
 
@@ -89,11 +90,17 @@ public class PantallaContract extends JFrame{
         
         // Imagen del coche exterior
         lCoche = new JLabel();
-        String modelo = PantallaInicio.TablaCoches.getVali
-                
-        
+        int punteroTabla = PantallaInicio.TablaCoches.getSelectedRow();
+        String modelo = (String) PantallaInicio.TablaCoches.getValueAt(punteroTabla, 1);
+        String ruta = "";
+        for(int i = 0; i < Coches.coches.size(); i++){
+            String aux = Coches.coches.get(i).getModeloCoche();
+            if(aux.equalsIgnoreCase(modelo)) ruta = Coches.coches.get(i).getRutaImagenCocheFuera();
+        }
+        if(ruta.equals("")) ruta = "ImagenNoDisponible.png";
+        lCoche.setIcon(new ImageIcon(ruta));
         lCoche.setBounds(20, 250, 200, 90);
-        PanelPantallaContrato.add(lCoche);
+        PanelPantallaContrato.add(lCoche);        
     }
     
     // Creamos las entradasde texto
