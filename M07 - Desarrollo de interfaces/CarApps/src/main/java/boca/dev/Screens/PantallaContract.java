@@ -15,7 +15,7 @@ public class PantallaContract extends JFrame{
     static JTextField iNombre, iModelo, iMarca, iPrecio, iColor, iGasolina;
     
     public static void start(){
-        PantallaContract p = new PantallaContract("Caracteristicas: " + marca + " "+ modelo);
+        PantallaContract p = new PantallaContract("Contrato: " + marca + " "+ modelo);
         p.setVisible(true);
     }
     
@@ -85,7 +85,7 @@ public class PantallaContract extends JFrame{
         // Imagen de Firma
         lFirma = new JLabel();
         lFirma.setIcon(new ImageIcon("firma.png"));
-        lFirma.setBounds(425, 250, 200, 90);
+        lFirma.setBounds(425, 150, 200, 90);
         PanelPantallaContrato.add(lFirma);
         
         // Imagen del coche exterior
@@ -99,7 +99,7 @@ public class PantallaContract extends JFrame{
         }
         if(ruta.equals("")) ruta = "ImagenNoDisponible.png";
         lCoche.setIcon(new ImageIcon(ruta));
-        lCoche.setBounds(20, 250, 200, 90);
+        lCoche.setBounds(425, 250, 200, 150);
         PanelPantallaContrato.add(lCoche);        
     }
     
