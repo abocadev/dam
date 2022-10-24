@@ -1,18 +1,24 @@
 package boca.dev.Screens;
 
 import boca.dev.Objects.Coches;
+import boca.dev.Events.EventosPantallaContract;
 import java.awt.*;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.util.Date;
 import javax.swing.*;
 
 public class PantallaContract extends JFrame{
 
     // Datos cogidos
-    static String nombre, modelo, marca, color, gasolina;
+    public static String nombre, modelo, marca, color, gasolina, contrato, hour;
     static float precio;
 
     public static JPanel PanelPantallaContrato;
     static JLabel lNombre, lModelo, lMarca, lPrecio, lColor, lGasolina, lFirma, lCoche;
     static JTextField iNombre, iModelo, iMarca, iPrecio, iColor, iGasolina;
+    static JButton bDownload;
+    static JTextArea tContrato;
     
     public static void start(){
         PantallaContract p = new PantallaContract("Contrato: " + marca + " "+ modelo);
@@ -30,9 +36,13 @@ public class PantallaContract extends JFrame{
 
     
     public void CrearComponentes(){
+        makeContract();
         CrearPanel();
         CrearEtiquetas();
         CrearInputs();
+        crearTextArea();
+        crearButtons();
+        eventos();
     }
 
     public void CrearPanel(){
@@ -159,7 +169,30 @@ public class PantallaContract extends JFrame{
        iGasolina.setEditable(false);
        PanelPantallaContrato.add(iGasolina);
     }
+    
+    public void crearTextArea(){
+        tContrato = new JTextArea();
+        tContrato.setText(contrato);
+        tContrato.setEditable(false);
+        tContrato.setLineWrap(true);
+        JScrollPane jScrollPane = new JScrollPane(tContrato);
+        jScrollPane.setBounds(20, 150, 350, 200);
+        PanelPantallaContrato.add(jScrollPane);
+    }
 
+    public void crearButtons(){
+        bDownload = new JButton("Descargar Documento");
+        bDownload.setBounds(20, 350, 250, 40);
+        bDownload.setFont(new Font("Arial", Font.BOLD, 14));
+        bDownload.setForeground(Color.WHITE);
+        bDownload.setBackground(new Color(46, 46, 46));
+        PanelPantallaContrato.add(bDownload);
+    }
+ 
+    public void eventos(){
+        bDownload.addMouseListener(EventosPantallaContract.DownloadFile());
+    }
+    
     public static void getData(String nombre, String modelo, String marca, String color, String gasolina, float precio){
         PantallaContract.nombre = nombre;
         PantallaContract.modelo = modelo;
@@ -168,4 +201,49 @@ public class PantallaContract extends JFrame{
         PantallaContract.gasolina = gasolina;
         PantallaContract.precio = precio;
     }    
+    
+    public void makeContract(){
+        Date date = new Date();
+        
+        ZoneId timeZone = ZoneId.systemDefault();
+        ZonedDateTime getLocalDate = date.toInstant().atZone(timeZone);
+        
+        String dayName = "", monthName = "";
+        int dayNum = getLocalDate.getDayOfMonth(),  monthNum = getLocalDate.getMonthValue(), yearNum = getLocalDate.getYear();
+        hour = getLocalDate.getHour() + ":" + getLocalDate.getMinute() + ":" + getLocalDate.getSecond();
+        String dayOfWeek = getLocalDate.getDayOfWeek().toString();
+        
+        switch(dayOfWeek){
+            case "MONDAY" -> dayName = "Lunes";
+            case "TUESDAY" -> dayName = "Martes";
+            case "WEDNESDAY" -> dayName = "Miercoles";
+            case "THURSDAY" -> dayName = "Jueves";
+            case "FRIDAY" -> dayName = "Viernes";
+            case "SATURDAY" -> dayName = "Sabado";
+            case "SUNDAY" -> dayName = "Domingo";
+        }
+        
+        
+        contrato = "CONTRATO DE COMPRAVENTA DE UN VEHICULO:\n\n"
+                
+                + "En Barcelona " + dayName + ", " + dayNum + " de " + monthName + " de " + yearNum + "     HORA: " + hour
+                
+                + "VENDEDOR: Albert Bocanegra Barreiro, con NIF 12345678A, y domicilio en Hospitalet de Llobregat, Av. de Josep Tarradellas i Joan, 171.\n"
+                + "COMPRADOR: " + nombre + "con NIF 98765432Z, y domicilio en Barcelona, Carrer de Llança, 51.\n\n"
+                
+                + "Vehiculo:\n"
+                + "MARCA: " + marca + "\n"
+                + "Matricula: 0789GSC\n"
+                + "Kilometros: 170.000 km\n\n"
+                
+                + "Reunidos vendedor y comprador en la fecha del encabezamiento , manifestan haber acordado formalizar en este documento CONTRATO DE COMPRAVENTA del vehiculo automovil que se especifica, en las siguientes:\n\n"
+                + "CONDICIONES\n"
+                + "1) El vendedor vende al comprador el vehiculo de su propiedad anteriormente especificado por la cantidad de " + precio + " euros, sin incluir los impuestos correspondientes. que seran a cargo del comnprador.\n"
+                + "2) El vendedor declara que no pesa sobre el vehiculo ninguna carga o gravamen ni impuesto, deduda o sancion pendientes de abono en la fecha de la firma de este contrato, comprometiendose en caso contrario a regularizar tal situacion a su exclusivo cargo.\n"
+                + "3) El vendedor se compromete a facilitar los distintos documentos relativos al vehiculo, asi como a firmar cuantos documentos aparte de este sean necesarios para que el vehiculo quede correctamente inscrito a nombre del comprador en los correspondientes organismos publicos, siendo todos los gastos a cargo del comprador.\n"
+                + "4) Una vez realizada la correspondencia transferencia en Trafico, el vendedor entregara materialmente al comprador  la posesion  del vehiculo, haciendose el comprador cargo de cuantas responsabilidades puedan contraerse por la propiedad del vehiculo y su tenencia y uso a partir de dicho momento de la entrega.\n"
+                + "5) El vehiculo dispone de seguro en vigor hasta fecha de " + dayNum +"/" + monthNum + "/" + (yearNum+1) + " y se encuentra al corriente respecto a las obligaciones derivadas de la ITV (Inspeccion Tecnica de Vehiculos).\n"
+                + "6) El comprador declara conocer e estado actual del vehiculo, por lo que exime al vendedor de garantia por vicios o defectos que surjan con posterioridad a la entrega, salvo aquellos ocultos que tengan su origen en dolo o mala fe del vendedor.\n"
+                + "7) Para cualquier litigio que surja entre las partes de la interpretacion o cumplimiento del presente contrato, estas, con expresa renuncia al fuero que pudiera corresponderles, se someteran a los Juzgados y Tribunales de Barcelona.\n";
+    }
 }
