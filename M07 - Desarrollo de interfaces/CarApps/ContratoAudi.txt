@@ -1,0 +1,20 @@
+CONTRATO DE COMPRAVENTA DE UN VEHICULO:
+
+En Barcelona Lunes, 24 de  de 2022     HORA: 20:20:15VENDEDOR: Albert Bocanegra Barreiro, con NIF 12345678A, y domicilio en Hospitalet de Llobregat, Av. de Josep Tarradellas i Joan, 171.
+COMPRADOR: ASFDcon NIF 98765432Z, y domicilio en Barcelona, Carrer de Llança, 51.
+
+Vehiculo:
+MARCA: Audi
+Matricula: 0789GSC
+Kilometros: 170.000 km
+
+Reunidos vendedor y comprador en la fecha del encabezamiento , manifestan haber acordado formalizar en este documento CONTRATO DE COMPRAVENTA del vehiculo automovil que se especifica, en las siguientes:
+
+CONDICIONES
+1) El vendedor vende al comprador el vehiculo de su propiedad anteriormente especificado por la cantidad de 1234.0 euros, sin incluir los impuestos correspondientes. que seran a cargo del comnprador.
+2) El vendedor declara que no pesa sobre el vehiculo ninguna carga o gravamen ni impuesto, deduda o sancion pendientes de abono en la fecha de la firma de este contrato, comprometiendose en caso contrario a regularizar tal situacion a su exclusivo cargo.
+3) El vendedor se compromete a facilitar los distintos documentos relativos al vehiculo, asi como a firmar cuantos documentos aparte de este sean necesarios para que el vehiculo quede correctamente inscrito a nombre del comprador en los correspondientes organismos publicos, siendo todos los gastos a cargo del comprador.
+4) Una vez realizada la correspondencia transferencia en Trafico, el vendedor entregara materialmente al comprador  la posesion  del vehiculo, haciendose el comprador cargo de cuantas responsabilidades puedan contraerse por la propiedad del vehiculo y su tenencia y uso a partir de dicho momento de la entrega.
+5) El vehiculo dispone de seguro en vigor hasta fecha de 24/10/2023 y se encuentra al corriente respecto a las obligaciones derivadas de la ITV (Inspeccion Tecnica de Vehiculos).
+6) El comprador declara conocer e estado actual del vehiculo, por lo que exime al vendedor de garantia por vicios o defectos que surjan con posterioridad a la entrega, salvo aquellos ocultos que tengan su origen en dolo o mala fe del vendedor.
+7) Para cualquier litigio que surja entre las partes de la interpretacion o cumplimiento del presente contrato, estas, con expresa renuncia al fuero que pudiera corresponderles, se someteran a los Juzgados y Tribunales de Barcelona.
