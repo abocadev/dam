@@ -182,7 +182,7 @@ public class PantallaContract extends JFrame{
 
     public void crearButtons(){
         bDownload = new JButton("Descargar Documento");
-        bDownload.setBounds(20, 350, 250, 40);
+        bDownload.setBounds(20, 375, 350, 40);
         bDownload.setFont(new Font("Arial", Font.BOLD, 14));
         bDownload.setForeground(Color.WHITE);
         bDownload.setBackground(new Color(46, 46, 46));
