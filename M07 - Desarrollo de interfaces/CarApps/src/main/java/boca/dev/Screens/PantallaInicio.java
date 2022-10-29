@@ -15,7 +15,7 @@ public class PantallaInicio extends JFrame{
     }
     
     public static JPanel PanelPantallaPrincipal;
-    public static JLabel lNombre, lModelo, lMarca, lPrecio, lColor, lGasolina, lIcon;
+    public static JLabel lNombre, lModelo, lMarca, lPrecio, lColor, lGasolina, lIcon, lTablaNuevosCoches, lTablaCoches;
     public static JTextField iNombre, iModelo, iMarca, iPrecio, iColor;
     public static JComboBox<String> jCBGasolina;
 
@@ -91,6 +91,18 @@ public class PantallaInicio extends JFrame{
         lGasolina.setBounds(350, 90, 150, 50);
         lGasolina.setFont(new Font("Tahoma", Font.BOLD, 14));
         PanelPantallaPrincipal.add(lGasolina);
+        
+        // Label Title News Cars
+        lTablaNuevosCoches = new JLabel("TABLA DE NUEVOS COCHES");
+        lTablaNuevosCoches.setBounds(150, 105, 350, 100);
+        lTablaNuevosCoches.setFont(new Font("Arial", Font.BOLD, 24));
+        PanelPantallaPrincipal.add(lTablaNuevosCoches);
+        
+        lTablaCoches = new JLabel("TABLA DE COCHES LEIDOS");
+        lTablaCoches.setBounds(150, 230, 350, 100);
+        lTablaCoches.setFont(new Font("Arial", Font.BOLD, 24));
+        PanelPantallaPrincipal.add(lTablaCoches);
+        
 
         // Icono boca
         lIcon = new JLabel();
@@ -126,7 +138,7 @@ public class PantallaInicio extends JFrame{
        PanelPantallaPrincipal.add(iMarca);
 
        // Input Precio
-       iPrecio = new JTextField();
+       iPrecio = new JTextField("0");
        iPrecio.setBounds(425, 25, 200, 20);
        iPrecio.setFont(new Font("Arial", Font.BOLD, 14));
        iPrecio.setBackground(new Color(245, 245, 245));

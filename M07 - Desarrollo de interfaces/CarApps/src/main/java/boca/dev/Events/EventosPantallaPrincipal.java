@@ -2,6 +2,7 @@ package boca.dev.Events;
 import boca.dev.Objects.Coches;
 import boca.dev.Screens.PantallaContract;
 import boca.dev.Screens.PantallaInicio;
+import java.awt.TrayIcon;
 import java.awt.event.MouseAdapter;
 
 import java.awt.event.MouseEvent;
@@ -22,7 +23,12 @@ public class EventosPantallaPrincipal {
                 String color = PantallaInicio.iColor.getText();
                 int indexGasolina = PantallaInicio.jCBGasolina.getSelectedIndex();
 
-                if (indexGasolina == 0) JOptionPane.showMessageDialog(null, "No has seleccionado tipo de gasolina");
+                if(nombre.equalsIgnoreCase("")) JOptionPane.showMessageDialog(null, "NO HAS PUESTO NINGUN NOMBRE");
+                if(modelo.equalsIgnoreCase("")) JOptionPane.showMessageDialog(null, "NO HAS PUESTO NINGUN MODELO");
+                if(marca.equalsIgnoreCase("")) JOptionPane.showMessageDialog(null, "NO HAS PUESTO NINGUNA MARCA");
+                if(precio <= 0) JOptionPane.showMessageDialog(null, "EL PRECIO QUE HAS PUESTO TIENE QUE SER SUPERIOR A 0");
+                if(color.equalsIgnoreCase("")) JOptionPane.showMessageDialog(null, "NO HAS PUESTO NINGUN COLOR");
+                if (indexGasolina == 0) JOptionPane.showMessageDialog(null, "NO HAS SELECCIONADO NINGUN TIPO DE GASOLINA");
                 else {
                     String gas = "";
                     switch (indexGasolina) {
@@ -32,15 +38,19 @@ public class EventosPantallaPrincipal {
                         case 4 -> gas = "Hibrido enchufable";
                         case 5 -> gas = "Electrico";
                     }
-                    DefaultTableModel model = (DefaultTableModel) PantallaInicio.TablaNuevosCoches.getModel();
-                    model.addRow(new Object[]{nombre,modelo,marca,precio,color,gas});
-                    
-                    PantallaInicio.iNombre.setText("");
-                    PantallaInicio.iPrecio.setText("");
-                    PantallaInicio.iModelo.setText("");
-                    PantallaInicio.iColor.setText("");
-                    PantallaInicio.iMarca.setText("");
-                    PantallaInicio.jCBGasolina.setSelectedIndex(0);
+                    if(comprobarCocheRepetido(nombre, modelo, marca, precio, color, gas)){
+                        JOptionPane.showMessageDialog(null, "EL COCHE QUE QUIERES AÑADIR YA ESTA EN LA TABLA");
+                    }else{
+                        DefaultTableModel model = (DefaultTableModel) PantallaInicio.TablaNuevosCoches.getModel();
+                        model.addRow(new Object[]{nombre,modelo,marca,precio,color,gas});
+
+                        PantallaInicio.iNombre.setText("");
+                        PantallaInicio.iPrecio.setText("");
+                        PantallaInicio.iModelo.setText("");
+                        PantallaInicio.iColor.setText("");
+                        PantallaInicio.iMarca.setText("");
+                        PantallaInicio.jCBGasolina.setSelectedIndex(0);
+                    }
                 }
             }
 
@@ -48,6 +58,7 @@ public class EventosPantallaPrincipal {
             @Override public void mouseReleased(MouseEvent e) {}
             @Override public void mouseEntered(MouseEvent e) {}
             @Override public void mouseExited(MouseEvent e) {}
+
         };
         return l;
     }
@@ -157,5 +168,30 @@ public class EventosPantallaPrincipal {
           }  
         };
         return l;
+    }
+    
+    public static boolean comprobarCocheRepetido(String nombre, String modelo, String marca, float precio, String color, String gasolina){
+        int puntos = 0;
+        final int FILAS = PantallaInicio.TablaNuevosCoches.getRowCount();
+        final int COLUMNAS = PantallaInicio.TablaNuevosCoches.getColumnCount();
+        boolean repetido = false;
+        for(int i = 0; i < FILAS; i++){
+            String auxNombre = (String) PantallaInicio.TablaNuevosCoches.getValueAt(i, 0);
+            String auxModelo = (String) PantallaInicio.TablaNuevosCoches.getValueAt(i, 1);
+            String auxMarca = (String) PantallaInicio.TablaNuevosCoches.getValueAt(i, 2);
+            float auxPrecio = (float) PantallaInicio.TablaNuevosCoches.getValueAt(i, 3);
+            String auxColor = (String) PantallaInicio.TablaNuevosCoches.getValueAt(i, 4);
+            String auxGasolina = (String) PantallaInicio.TablaNuevosCoches.getValueAt(i, 5);
+            if(auxNombre.equalsIgnoreCase(nombre)) puntos++;
+            if(auxModelo.equalsIgnoreCase(modelo)) puntos++;
+            if(auxMarca.equalsIgnoreCase(marca)) puntos++;
+            if(auxPrecio == precio) puntos++;
+            if(auxColor.equalsIgnoreCase(color)) puntos++;
+            if(auxGasolina.equalsIgnoreCase(gasolina)) puntos++;
+            
+            if(puntos == COLUMNAS) repetido = true;
+            else puntos = 0;
+        }
+        return repetido;
     }
 }
