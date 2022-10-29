@@ -1,8 +1,8 @@
 package boca.dev.Events;
 import boca.dev.Objects.Coches;
 import boca.dev.Screens.PantallaContract;
+import boca.dev.Screens.PantallaFeatures;
 import boca.dev.Screens.PantallaInicio;
-import java.awt.TrayIcon;
 import java.awt.event.MouseAdapter;
 
 import java.awt.event.MouseEvent;
@@ -164,7 +164,17 @@ public class EventosPantallaPrincipal {
     public static MouseListener FeaturesButton() {
         MouseListener l = new MouseAdapter() {
           @Override public void mouseClicked(MouseEvent e){
-              
+              String modelo = null;
+              int puntero;
+              try {
+                  puntero = PantallaInicio.TablaCoches.getSelectedRow();
+                  modelo = (String) PantallaInicio.TablaCoches.getValueAt(puntero, 1);
+                  
+                  PantallaFeatures pf = new PantallaFeatures();
+                  pf.getData(modelo);
+                  pf.start();
+              } catch (Exception ee) {
+              }
           }  
         };
         return l;

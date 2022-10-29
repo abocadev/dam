@@ -1,0 +1,54 @@
+[
+  {
+    "MarcaCoche": "Audi",
+    "ModeloCoche": "A5",
+    "ColorCoche": "Gris Claro",
+    "TipoMotor": "Gasolina",
+    "TipoMarchas": "Automatico",
+    "DescripcionVehiculo": "El Audi A5 es un automovil del segmento D producido por el fabricante aleman Audi desde el año 2007. El rango del A5 comprende un cupé, un cabriolet y una versión de \u0027SportBack\u0027 (un cuatro puertas con un techo que asemeja al de un fastback con una inclinación de la ventana trasera muy pronunciada y tapa del maletero integrada) de los modelos Audi A4 sedán y familiar",
+    "RutaImagenCocheFuera": "AudiA5Exterior.jpg",
+    "RutaImagenCocheDentro": "AudiA5Interior.jpg",
+    "VelocidadMaxima": 180,
+    "YearCoche": 2004,
+    "NumeroPuertas": 2019
+  },
+  {
+    "MarcaCoche": "Dacia",
+    "ModeloCoche": "Sandero",
+    "ColorCoche": "Azul",
+    "TipoMotor": "Gasolina",
+    "TipoMarchas": "Manual: 5 marchas",
+    "DescripcionVehiculo": "Dacia Sandero (tambien denominado Renault Sandero) es un automovil de turismo del segmento B diseñado por el fabricante francés Renault junto su filial rumana Dacia. Fue puesto a la venta desde principios de marzo de 2007 en Brasil, y a lo largo de ese año se fue ofreciendo en otras partes del mundo, bajo las marcas Renault y Dacia.",
+    "RutaImagenCocheFuera": "DaciaSanderoExterior.jpg",
+    "RutaImagenCocheDentro": "DaciaSanderoInterior.jpg",
+    "VelocidadMaxima": 170,
+    "YearCoche": 2021,
+    "NumeroPuertas": 5
+  },
+  {
+    "MarcaCoche": "Ford",
+    "ModeloCoche": "Transit",
+    "ColorCoche": "Blanco",
+    "TipoMotor": "Electrico",
+    "TipoMarchas": "Automatico",
+    "DescripcionVehiculo": "Ford Transit es un modelo de vehiculo comercial ligero producido por Ford Motor Company en Europa y en el Cono Sur desde 1953. La variante furgon mediana de la Transit disponible tanto en Vehiculo comercial como turismo es denominada como Ford Transit Custom o como Ford Tourneo Custom.",
+    "RutaImagenCocheFuera": "FordTransitExterior.jpg",
+    "RutaImagenCocheDentro": "FordTransitInterior.jpg",
+    "VelocidadMaxima": 175,
+    "YearCoche": 2004,
+    "NumeroPuertas": 4
+  },
+  {
+    "MarcaCoche": "Renault",
+    "ModeloCoche": "Captur",
+    "ColorCoche": "Naranja",
+    "TipoMotor": "Hibrido enchufable",
+    "TipoMarchas": "Automatico",
+    "DescripcionVehiculo": "El Renault Captur es un automovil todocamino del segmento B que el fabricante frances Renault comenzo a comercializar en el año 2013. Tiene motor delantero transversal, tracción delantera y carrocería de cinco puertas.",
+    "RutaImagenCocheFuera": "RenaultCapturExterior.jpg",
+    "RutaImagenCocheDentro": "RenaultCapturInterior.jpg",
+    "VelocidadMaxima": 168,
+    "YearCoche": 2020,
+    "NumeroPuertas": 4
+  }
+]
