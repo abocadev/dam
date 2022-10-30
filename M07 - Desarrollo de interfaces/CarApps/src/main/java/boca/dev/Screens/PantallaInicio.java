@@ -4,6 +4,8 @@ import boca.dev.Events.EventosPantallaPrincipal;
 import boca.dev.Objects.Coches;
 
 import java.awt.*;
+import java.awt.image.ImageObserver;
+import java.awt.image.ImageProducer;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -28,6 +30,7 @@ public class PantallaInicio extends JFrame{
         setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setIconImage(Toolkit.getDefaultToolkit().getImage("Logo64.png"));
         crearComponentes();
     }
 

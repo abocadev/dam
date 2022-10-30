@@ -56,7 +56,8 @@ public class Coches {
                         RutaImagenCocheDentro));
                 
             }
-        } catch (JsonSyntaxException | IOException e) {
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

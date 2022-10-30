@@ -31,6 +31,7 @@ public class PantallaContract extends JFrame{
         setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(Toolkit.getDefaultToolkit().getImage("Logo64.png"));
         CrearComponentes();
     }
 

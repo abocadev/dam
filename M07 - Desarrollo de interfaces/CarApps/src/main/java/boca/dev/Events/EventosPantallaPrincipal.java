@@ -1,4 +1,5 @@
 package boca.dev.Events;
+
 import boca.dev.Objects.Coches;
 import boca.dev.Screens.PantallaContract;
 import boca.dev.Screens.PantallaFeatures;
@@ -24,11 +25,11 @@ public class EventosPantallaPrincipal {
                 int indexGasolina = PantallaInicio.jCBGasolina.getSelectedIndex();
 
                 if(nombre.equalsIgnoreCase("")) JOptionPane.showMessageDialog(null, "NO HAS PUESTO NINGUN NOMBRE");
-                if(modelo.equalsIgnoreCase("")) JOptionPane.showMessageDialog(null, "NO HAS PUESTO NINGUN MODELO");
-                if(marca.equalsIgnoreCase("")) JOptionPane.showMessageDialog(null, "NO HAS PUESTO NINGUNA MARCA");
-                if(precio <= 0) JOptionPane.showMessageDialog(null, "EL PRECIO QUE HAS PUESTO TIENE QUE SER SUPERIOR A 0");
-                if(color.equalsIgnoreCase("")) JOptionPane.showMessageDialog(null, "NO HAS PUESTO NINGUN COLOR");
-                if (indexGasolina == 0) JOptionPane.showMessageDialog(null, "NO HAS SELECCIONADO NINGUN TIPO DE GASOLINA");
+                else if(modelo.equalsIgnoreCase("")) JOptionPane.showMessageDialog(null, "NO HAS PUESTO NINGUN MODELO");
+                else if(marca.equalsIgnoreCase("")) JOptionPane.showMessageDialog(null, "NO HAS PUESTO NINGUNA MARCA");
+                else if(precio <= 0) JOptionPane.showMessageDialog(null, "EL PRECIO QUE HAS PUESTO TIENE QUE SER SUPERIOR A 0");
+                else if(color.equalsIgnoreCase("")) JOptionPane.showMessageDialog(null, "NO HAS PUESTO NINGUN COLOR");
+                else if (indexGasolina == 0) JOptionPane.showMessageDialog(null, "NO HAS SELECCIONADO NINGUN TIPO DE GASOLINA");
                 else {
                     String gas = "";
                     switch (indexGasolina) {
@@ -164,7 +165,7 @@ public class EventosPantallaPrincipal {
     public static MouseListener FeaturesButton() {
         MouseListener l = new MouseAdapter() {
           @Override public void mouseClicked(MouseEvent e){
-              String modelo = null;
+              String modelo = "";
               int puntero;
               try {
                   puntero = PantallaInicio.TablaCoches.getSelectedRow();

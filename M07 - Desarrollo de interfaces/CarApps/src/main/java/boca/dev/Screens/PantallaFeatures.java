@@ -2,9 +2,9 @@ package boca.dev.Screens;
 
 import boca.dev.Objects.Coches;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Font;
 import java.awt.HeadlessException;
+import java.awt.Toolkit;
 import javax.swing.*;
 
 public class PantallaFeatures extends JFrame {
@@ -15,8 +15,8 @@ public class PantallaFeatures extends JFrame {
     
     // Panel
     JPanel PanelPantallaFeatures;
-    JLabel lMarca, lModelo, lColor, lTipoMotor, lTipoMarchas;
-    JTextField iMarca, iModelo, iColor, iTipoMotor, iTipoMarchas;
+    JLabel lMarca, lModelo, lColor, lTipoMotor, lTipoMarchas, lVelocidadCoche, lYearCoche, lNumeroPuertas;
+    JTextField iMarca, iModelo, iColor, iTipoMotor, iTipoMarchas, iVelocidadCoche, iYearCoche, iNumeroPuertas;
     JTextArea tDescripcionVehiculo;
     
     JLabel imgCocheDentro, imgCocheFuera;
@@ -34,6 +34,7 @@ public class PantallaFeatures extends JFrame {
         setResizable(true);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(Toolkit.getDefaultToolkit().getImage("Logo64.png"));
         CrearComponentes();
     }
     
@@ -41,6 +42,8 @@ public class PantallaFeatures extends JFrame {
         CrearPanel();
         CrearEtiquetas();
         CrearInputs();
+        CrearImgs();
+        CrearDescription();
     }
     
     public void CrearPanel(){
@@ -66,21 +69,39 @@ public class PantallaFeatures extends JFrame {
         
         // Label Color
         lColor = new JLabel("Color:");
-        lColor.setBounds(200, 90, 150, 50);
+        lColor.setBounds(20, 90, 150, 50);
         lColor.setFont(new Font("Arial", Font.BOLD, 14));
         PanelPantallaFeatures.add(lColor);
         
         // Label TipoMotor
         lTipoMotor = new JLabel("Tipo Motor:");
-        lTipoMotor.setBounds(350, 10, 150, 50);
+        lTipoMotor.setBounds(20, 130, 150, 50);
         lTipoMotor.setFont(new Font("Arial", Font.BOLD, 14));
         PanelPantallaFeatures.add(lTipoMotor);
         
         // Label TipoMarchas
         lTipoMarchas = new JLabel("Tipo Marchas:");
-        lTipoMarchas.setBounds(350, 50, 150, 50);
+        lTipoMarchas.setBounds(20, 170, 150, 50);
         lTipoMarchas.setFont(new Font("Arial", Font.BOLD, 14));
-        PanelPantallaFeatures.add(lTipoMarchas);        
+        PanelPantallaFeatures.add(lTipoMarchas);
+        
+        // Label VelocidadCoche
+        lVelocidadCoche = new JLabel("Velocidad maxima:");
+        lVelocidadCoche.setBounds(20, 210, 150, 50);
+        lVelocidadCoche.setFont(new Font("Arial", Font.BOLD, 14));
+        PanelPantallaFeatures.add(lVelocidadCoche);
+        
+        // Label YearCoche
+        lYearCoche = new JLabel("Año del coche:");
+        lYearCoche.setBounds(20, 250, 150, 50);
+        lYearCoche.setFont(new Font("Arial", Font.BOLD, 14));
+        PanelPantallaFeatures.add(lYearCoche);
+        
+        // Label NumeroPuertas
+        lNumeroPuertas = new JLabel("Numero de puertas:");
+        lNumeroPuertas.setBounds(20, 290, 150, 50);
+        lNumeroPuertas.setFont(new Font("Arial", Font.BOLD, 14));
+        PanelPantallaFeatures.add(lNumeroPuertas);
     }
     
     public void CrearInputs(){
@@ -113,7 +134,7 @@ public class PantallaFeatures extends JFrame {
         
         // Input TipoMotor
         iTipoMotor = new JTextField(TipoMotor);
-        iTipoMotor.setBounds(425, 25, 200, 20);
+        iTipoMotor.setBounds(105, 145, 200, 20);
         iTipoMotor.setFont(new Font("Arial", Font.BOLD, 14));
         iTipoMotor.setBackground(new Color(245, 245, 245));
         iTipoMotor.setBorder(null);
@@ -122,14 +143,63 @@ public class PantallaFeatures extends JFrame {
         
         // Input TipoMarchas
         iTipoMarchas = new JTextField(TipoMarchas);
-        iTipoMarchas.setBounds(425, 65, 200, 20);
+        iTipoMarchas.setBounds(125, 185, 200, 20);
         iTipoMarchas.setFont(new Font("Arial", Font.BOLD, 14));
         iTipoMarchas.setBackground(new Color(245, 245, 245));
         iTipoMarchas.setBorder(null);
         iTipoMarchas.setEditable(false);
         PanelPantallaFeatures.add(iTipoMarchas);
-
+        
+        // Input VelocidadCoche
+        iVelocidadCoche = new JTextField("" + VelocidadCoche + "");
+        iVelocidadCoche.setBounds(155, 225, 175, 20);
+        iVelocidadCoche.setFont(new Font("Arial", Font.BOLD, 14));
+        iVelocidadCoche.setBackground(new Color(245, 245, 245));
+        iVelocidadCoche.setBorder(null);
+        iVelocidadCoche.setEditable(false);
+        PanelPantallaFeatures.add(iVelocidadCoche);
+        
+        // Input YearCoche
+        iYearCoche = new JTextField("" + YearCoche + "");
+        iYearCoche.setBounds(135, 265, 200, 20);
+        iYearCoche.setFont(new Font("Arial", Font.BOLD, 14));
+        iYearCoche.setBackground(new Color(245, 245, 245));
+        iYearCoche.setEditable(false);
+        PanelPantallaFeatures.add(iYearCoche);
+        
+        
+        // Input NumeroPuertas
+        iNumeroPuertas = new JTextField("" + NumeroPuertas + "");
+        iNumeroPuertas.setBounds(165, 305, 185, 20);
+        iNumeroPuertas.setFont(new Font("Arial", Font.BOLD, 14));
+        iNumeroPuertas.setBackground(new Color(245, 245, 245));
+        iNumeroPuertas.setEditable(false);
+        PanelPantallaFeatures.add(iNumeroPuertas);
     }
+    
+    public void CrearImgs(){
+        // imgCocheDentro, imgCocheFuera
+        imgCocheDentro = new JLabel();
+        imgCocheDentro.setIcon(new ImageIcon(RutaImagenCocheDentro));
+        imgCocheDentro.setBounds(400, -10, 200, 200);
+        PanelPantallaFeatures.add(imgCocheDentro);
+        
+        imgCocheFuera = new JLabel();
+        imgCocheFuera.setIcon(new ImageIcon(RutaImagenCocheFuera));
+        imgCocheFuera.setBounds(400, 125, 200, 200);
+        PanelPantallaFeatures.add(imgCocheFuera);
+    }
+    
+    public void CrearDescription(){
+        tDescripcionVehiculo = new JTextArea();
+        tDescripcionVehiculo.setText(DescripcionVehiculo);
+        tDescripcionVehiculo.setEditable(false);
+        tDescripcionVehiculo.setLineWrap(true);
+        JScrollPane jScrollPanel = new JScrollPane(tDescripcionVehiculo);
+        jScrollPanel.setBounds(400, 300, 200, 150);
+        PanelPantallaFeatures.add(jScrollPanel);
+    }
+    
     // Metodo de obtener los datos necesarios
     public void getData(String modelo){
         int contador = 0;
@@ -138,6 +208,7 @@ public class PantallaFeatures extends JFrame {
             if(modelo.equalsIgnoreCase(Coches.coches.get(contador).getModeloCoche())) break;
             else contador++;
         }
+        
         Marca = Coches.coches.get(contador).getMarcaCoche();
         Modelo = Coches.coches.get(contador).getModeloCoche();
         color = Coches.coches.get(contador).getColorCoche();
