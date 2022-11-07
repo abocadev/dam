@@ -13,21 +13,21 @@ public class PantallaFeatures extends JFrame {
     static String Marca, Modelo, color, TipoMotor, TipoMarchas, DescripcionVehiculo, RutaImagenCocheFuera, RutaImagenCocheDentro;
     static int VelocidadCoche, YearCoche, NumeroPuertas;
     
-    // Panel
+    // Variables de los botones, etiquetas, imagenes y cajas de texto
     JPanel PanelPantallaFeatures;
     JLabel lMarca, lModelo, lColor, lTipoMotor, lTipoMarchas, lVelocidadCoche, lYearCoche, lNumeroPuertas;
     JTextField iMarca, iModelo, iColor, iTipoMotor, iTipoMarchas, iVelocidadCoche, iYearCoche, iNumeroPuertas;
     JTextArea tDescripcionVehiculo;
-    
     JLabel imgCocheDentro, imgCocheFuera;
     
+    // Metodo que inicia la app
     public void start(){
         PantallaFeatures p = new PantallaFeatures("Caracteristicas: " + Marca + " " + Modelo);
         p.setVisible(true);
     }
     
+    // Constructor de la app
     public PantallaFeatures(){}
-    
     public PantallaFeatures(String s) throws HeadlessException{
         super(s);
         setSize(700, 500);
@@ -38,6 +38,7 @@ public class PantallaFeatures extends JFrame {
         CrearComponentes();
     }
     
+    // Metodo para crear llamar a los componentes
     public void CrearComponentes(){
         CrearPanel();
         CrearEtiquetas();
@@ -46,6 +47,7 @@ public class PantallaFeatures extends JFrame {
         CrearDescription();
     }
     
+    // Metodos para crear el panel
     public void CrearPanel(){
         PanelPantallaFeatures = new JPanel();
         PanelPantallaFeatures.setBackground(Color.GRAY);
@@ -54,6 +56,7 @@ public class PantallaFeatures extends JFrame {
         this.getContentPane().add(PanelPantallaFeatures);
     }
     
+    // Metodo para crear las etiquetas
     public void CrearEtiquetas(){
         // Label Marca
         lMarca = new JLabel("Marca:");
@@ -104,6 +107,7 @@ public class PantallaFeatures extends JFrame {
         PanelPantallaFeatures.add(lNumeroPuertas);
     }
     
+    // Metodo para crear las entradas de texto
     public void CrearInputs(){
         // Input Marca
         iMarca = new JTextField(Marca);
@@ -167,7 +171,6 @@ public class PantallaFeatures extends JFrame {
         iYearCoche.setEditable(false);
         PanelPantallaFeatures.add(iYearCoche);
         
-        
         // Input NumeroPuertas
         iNumeroPuertas = new JTextField("" + NumeroPuertas + "");
         iNumeroPuertas.setBounds(165, 305, 185, 20);
@@ -177,6 +180,7 @@ public class PantallaFeatures extends JFrame {
         PanelPantallaFeatures.add(iNumeroPuertas);
     }
     
+    // Metodo para crear las imagenes
     public void CrearImgs(){
         // imgCocheDentro, imgCocheFuera
         imgCocheDentro = new JLabel();
@@ -190,6 +194,7 @@ public class PantallaFeatures extends JFrame {
         PanelPantallaFeatures.add(imgCocheFuera);
     }
     
+    // Metodo para crear las descripcion con textArea
     public void CrearDescription(){
         tDescripcionVehiculo = new JTextArea();
         tDescripcionVehiculo.setText(DescripcionVehiculo);

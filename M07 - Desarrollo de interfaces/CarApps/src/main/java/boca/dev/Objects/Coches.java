@@ -4,10 +4,8 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.google.gson.JsonSyntaxException;
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class Coches {
@@ -16,6 +14,8 @@ public class Coches {
     
     public static void CreateCars(){
         try {
+            
+            // Lee el archivo coches.json y lo almacena en una variable String
             String linea, json = "";
             
             BufferedReader br = new BufferedReader(new FileReader("coches.json"));
@@ -29,7 +29,8 @@ public class Coches {
             
             for(JsonElement obj : gsonArr){
                 JsonObject gsonObj = obj.getAsJsonObject();
-                
+            
+                // Obtiene los valores y los añade en un ArrayList de objetos de Coche 
                 String MarcaCoche = gsonObj.get("MarcaCoche").getAsString();
                 String ModeloCoche = gsonObj.get("ModeloCoche").getAsString();
                 String ColorCoche = gsonObj.get("ColorCoche").getAsString();
@@ -57,7 +58,6 @@ public class Coches {
                 
             }
         } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 }

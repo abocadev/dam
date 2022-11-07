@@ -14,17 +14,20 @@ public class PantallaContract extends JFrame{
     public static String nombre, modelo, marca, color, gasolina, contrato, hour;
     static float precio;
 
+    // Variables de los botones, etiquetas, imagenes y cajas de texto
     public static JPanel PanelPantallaContrato;
     static JLabel lNombre, lModelo, lMarca, lPrecio, lColor, lGasolina, lFirma, lCoche;
     static JTextField iNombre, iModelo, iMarca, iPrecio, iColor, iGasolina;
     static JButton bDownload;
     static JTextArea tContrato;
     
+    // Metodo para ejecutar la aplicacion
     public static void start(){
         PantallaContract p = new PantallaContract("Contrato: " + marca + " "+ modelo);
         p.setVisible(true);
     }
     
+    // Constructor de la app
     public PantallaContract (String s) throws HeadlessException{
         super(s);
         setSize(700, 500);
@@ -34,8 +37,8 @@ public class PantallaContract extends JFrame{
         setIconImage(Toolkit.getDefaultToolkit().getImage("Logo64.png"));
         CrearComponentes();
     }
-
     
+    // Metodo para crear todos los componentes
     public void CrearComponentes(){
         makeContract();
         CrearPanel();
@@ -46,6 +49,7 @@ public class PantallaContract extends JFrame{
         eventos();
     }
 
+    // Metodos para crear el panel
     public void CrearPanel(){
         PanelPantallaContrato = new JPanel();
         PanelPantallaContrato.setBackground(Color.gray);
@@ -171,6 +175,7 @@ public class PantallaContract extends JFrame{
        PanelPantallaContrato.add(iGasolina);
     }
     
+    // Creamos el text Area, que es donde esta el contrato
     public void crearTextArea(){
         tContrato = new JTextArea();
         tContrato.setText(contrato);
@@ -181,6 +186,7 @@ public class PantallaContract extends JFrame{
         PanelPantallaContrato.add(jScrollPane);
     }
 
+    // Creamos el boton de descargar
     public void crearButtons(){
         bDownload = new JButton("Descargar Documento");
         bDownload.setBounds(20, 375, 350, 40);
@@ -190,6 +196,7 @@ public class PantallaContract extends JFrame{
         PanelPantallaContrato.add(bDownload);
     }
  
+    // Añadimos el metodo de eventos para llamarlos
     public void eventos(){
         bDownload.addMouseListener(EventosPantallaContract.DownloadFile());
     }

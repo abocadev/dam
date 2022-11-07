@@ -2,20 +2,21 @@ package boca.dev.Screens;
 
 import boca.dev.Events.EventosPantallaPrincipal;
 import boca.dev.Objects.Coches;
+import boca.dev.Objects.Tablas;
 
 import java.awt.*;
-import java.awt.image.ImageObserver;
-import java.awt.image.ImageProducer;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 public class PantallaInicio extends JFrame{
     
+    // Metodo para iniciar la app
     public static void start(){
         PantallaInicio h = new PantallaInicio("Concesionario de coches");
         h.setVisible(true);
     }
     
+    // Variables de los botones, etiquetas, imagenes y cajas de texto
     public static JPanel PanelPantallaPrincipal;
     public static JLabel lNombre, lModelo, lMarca, lPrecio, lColor, lGasolina, lIcon, lTablaNuevosCoches, lTablaCoches;
     public static JTextField iNombre, iModelo, iMarca, iPrecio, iColor;
@@ -24,6 +25,7 @@ public class PantallaInicio extends JFrame{
     public static JButton bAdd, bRead, bCompletar, bContract, bFeatures;
     public static JTable TablaNuevosCoches, TablaCoches;
     
+    // Constructor de la app
     public PantallaInicio(String s) throws HeadlessException{
         super(s);
         setSize(1000, 500);
@@ -34,16 +36,17 @@ public class PantallaInicio extends JFrame{
         crearComponentes();
     }
 
+    // Metodo para llamar a los componentes
     private void crearComponentes() {
-        Coches.CreateCars();
+        Coches.CreateCars(); // Metodo para crea los objetos de coche
         crearPanel();
         crearEtiquetas();
         crearInputs();
         crearButtons();
         crearTableNuevosCoches();
         crearTableCoches();     
+        new Tablas().ExecuteApp(); // Metodo para crear añadir los achivos
         eventos();
-        
     }
 
 
@@ -52,7 +55,6 @@ public class PantallaInicio extends JFrame{
         PanelPantallaPrincipal = new JPanel();
         PanelPantallaPrincipal.setBackground(Color.gray);
         PanelPantallaPrincipal.setLayout(null);
-
         PanelPantallaPrincipal.setVisible(true);
         this.getContentPane().add(PanelPantallaPrincipal);
     }
@@ -105,7 +107,6 @@ public class PantallaInicio extends JFrame{
         lTablaCoches.setBounds(150, 230, 350, 100);
         lTablaCoches.setFont(new Font("Arial", Font.BOLD, 24));
         PanelPantallaPrincipal.add(lTablaCoches);
-        
 
         // Icono boca
         lIcon = new JLabel();
@@ -209,6 +210,7 @@ public class PantallaInicio extends JFrame{
         PanelPantallaPrincipal.add(bFeatures);
     }
      
+    // Creamos la tabla de coches nuevos
     public void crearTableNuevosCoches(){
         Object [] columnas = {"Nombre", "Modelo", "Marca", "Precio", "Color", "Gasolina"};
         TablaNuevosCoches = new JTable(new DefaultTableModel(columnas, 0));
@@ -217,6 +219,7 @@ public class PantallaInicio extends JFrame{
         PanelPantallaPrincipal.add(jScrollPanel);
     }
     
+    // Creamos la tabla de coches leidos
     public void crearTableCoches(){
         Object [] columnas = {"Nombre", "Modelo", "Marca", "Precio", "Color", "Gasolina"};
         TablaCoches = new JTable (new DefaultTableModel(columnas, 0));
@@ -225,6 +228,7 @@ public class PantallaInicio extends JFrame{
         PanelPantallaPrincipal.add(jScrollPanel);
     }
     
+    // Llamamos al evento de todos los botones
     public void eventos(){
         bAdd.addMouseListener(EventosPantallaPrincipal.AddButton());
         bRead.addMouseListener(EventosPantallaPrincipal.ReadButton());

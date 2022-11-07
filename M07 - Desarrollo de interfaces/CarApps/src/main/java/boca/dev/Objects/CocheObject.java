@@ -1,6 +1,8 @@
 package boca.dev.Objects;
 
 public class CocheObject{
+    
+    // Objeto de coche
     String MarcaCoche, ModeloCoche, ColorCoche, TipoMotor, TipoMarchas, DescripcionVehiculo, RutaImagenCocheFuera, RutaImagenCocheDentro;
     int VelocidadMaxima, YearCoche, NumeroPuertas;
 
