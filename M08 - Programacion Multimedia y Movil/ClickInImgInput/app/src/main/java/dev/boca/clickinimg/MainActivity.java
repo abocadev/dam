@@ -13,7 +13,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class MainActivity extends AppCompatActivity {
 
     public static final String EXTRA_MESSAGE = "dev.boca.clickinimg.extra.MESSAGE";
-    private String mOrderMessage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 Intent intent = new Intent(MainActivity.this, OrderActivity.class);
-                intent.putExtra(EXTRA_MESSAGE, mOrderMessage);
                 startActivity(intent);
             }
         });
@@ -35,9 +34,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showDonutOrder(View view){
-        String msg = getString(R.string.donut_order_message);
-        displayToast(msg);
-        mOrderMessage = msg;
+        displayToast(getString(R.string.donut_order_message));
     }
 
     public void showIceCreamOrder(View view){
