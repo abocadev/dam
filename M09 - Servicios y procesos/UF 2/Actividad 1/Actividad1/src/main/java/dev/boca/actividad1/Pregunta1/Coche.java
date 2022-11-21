@@ -1,25 +1,38 @@
 package dev.boca.actividad1.Pregunta1;
 
-import java.util.Random;
+public class Coche extends Thread {
 
-public class Coche extends Thread{
-    GestorGarage gg;
-    boolean cocheEste;
-    public Coche(GestorGarage gg, boolean cocheEste){
-        this.gg = gg;
+    Garaje garaje = new Garaje();
+    Boolean PuertaE;
+    int contador = 0;
+
+    public Coche(Garaje g, Boolean PuertaE) {
+
+        this.garaje = g;
+        this.PuertaE = PuertaE;
     }
-    
+
     @Override
-    public void run(){
-        if(cocheEste){
-            gg.entraEste();
-        }else{
-            gg.entraOeste();
-        }
+    public void run() {
+
+
+        System.out.println("Contador: " + contador);
         try {
-            Thread.sleep(new Random().nextInt(10000)+1);
-        } catch (InterruptedException ex) {
+            if (PuertaE) {
+                contador++;
+                garaje.EntraCocheEste();
+                Thread.sleep(10000);
+                garaje.salirCoche();
+            } else {
+                contador++;
+                garaje.EntraCocheOeste();
+                Thread.sleep(10000);
+                garaje.salirCoche();
+            }
+
+        } catch (InterruptedException e) {
+            System.out.println("Exception: " + e);
         }
-        gg.saleCoche();
+
     }
 }
