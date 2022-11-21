@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="390a6465-b8bc-4ea0-a584-5d81245e0851" name="Changes" comment="" />
+    <list default="true" id="390a6465-b8bc-4ea0-a584-5d81245e0851" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../M09 - Servicios y procesos/UF 2/Actividad 1/Actividad1/src/main/java/dev/boca/actividad1/Pregunta1/Coche.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../M09 - Servicios y procesos/UF 2/Actividad 1/Actividad1/src/main/java/dev/boca/actividad1/Pregunta1/Coche.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../M09 - Servicios y procesos/UF 2/Actividad 1/Actividad1/src/main/java/dev/boca/actividad1/Pregunta1/GestorGarage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../M09 - Servicios y procesos/UF 2/Actividad 1/Actividad1/src/main/java/dev/boca/actividad1/Pregunta1/GestorGarage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../M09 - Servicios y procesos/UF 2/Actividad 1/Actividad1/src/main/java/dev/boca/actividad1/Pregunta1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../M09 - Servicios y procesos/UF 2/Actividad 1/Actividad1/src/main/java/dev/boca/actividad1/Pregunta1/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../M09 - Servicios y procesos/UF 2/Actividad 1/Actividad1/src/main/java/dev/boca/actividad1/Pregunta1/Parking.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../M09 - Servicios y procesos/UF 2/Actividad 1/Actividad1/src/main/java/dev/boca/actividad1/Pregunta3/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../M09 - Servicios y procesos/UF 2/Actividad 1/Actividad1/src/main/java/dev/boca/actividad1/Pregunta3/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,7 +37,7 @@
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ClickInImg" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CodeLabs/Parte 4/4.2/ClickInImgInput" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />

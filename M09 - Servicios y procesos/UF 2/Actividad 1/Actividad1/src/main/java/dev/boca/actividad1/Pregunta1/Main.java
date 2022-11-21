@@ -5,11 +5,13 @@ public class Main {
         final int NUM_PLAZAS = 100;
         final int NUM_COCHES = 300;
         
-        Parking p = new Parking();
-        GestorGarage gg = new GestorGarage();
+        GestorGarage gg = new GestorGarage(NUM_PLAZAS);
         
         for(int i = 0; i < NUM_COCHES; i++){
-            new Thread(new Coche(gg, p, i)).start();
+            new Thread(new Coche(gg, true)).start();
         }
     }
 }
+
+
+
