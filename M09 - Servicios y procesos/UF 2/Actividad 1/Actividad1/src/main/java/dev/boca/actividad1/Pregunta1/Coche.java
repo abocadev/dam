@@ -2,36 +2,29 @@ package dev.boca.actividad1.Pregunta1;
 
 public class Coche extends Thread {
 
-    Garaje garaje = new Garaje();
-    Boolean PuertaE;
-    int contador = 0;
+    GestorGaraje gg = new GestorGaraje();
+    boolean entradaEste;
 
-    public Coche(Garaje g, Boolean PuertaE) {
+    public Coche(GestorGaraje g, boolean entradaEste) {
 
-        this.garaje = g;
-        this.PuertaE = PuertaE;
+        this.gg = g;
+        this.entradaEste = entradaEste;
     }
 
     @Override
     public void run() {
-
-
-        System.out.println("Contador: " + contador);
         try {
-            if (PuertaE) {
-                contador++;
-                garaje.EntraCocheEste();
-                Thread.sleep(10000);
-                garaje.salirCoche();
+            if (entradaEste) {
+                gg.entraEste();
+                Thread.sleep(3000);
+                gg.salirCoche();
             } else {
-                contador++;
-                garaje.EntraCocheOeste();
+                gg.entraOeste();
                 Thread.sleep(10000);
-                garaje.salirCoche();
+                gg.salirCoche();
             }
 
         } catch (InterruptedException e) {
-            System.out.println("Exception: " + e);
         }
 
     }
