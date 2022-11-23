@@ -12,6 +12,7 @@ public class GestorDespegue {
         avionesEsperando++;
         while(pistaOcupada) wait();
         System.out.println("El avion va a comenzar a despegar");
+        anteriorAvioneta = false;
         avionesEsperando--;
         temporizador.iniciarTemporizador(true);
         pistaOcupada = true;
@@ -19,7 +20,7 @@ public class GestorDespegue {
                 + "\nAvionetas esperando: " + avionetasEsperando);
     }
     
-    public void despegarAvioneta() throws InterruptedException{
+    public synchronized void despegarAvioneta() throws InterruptedException{
         System.out.println("Hay una avioneta que esta esperando");
         avionetasEsperando++;
         while(pistaOcupada) wait();
@@ -32,8 +33,9 @@ public class GestorDespegue {
                 + "\nAvionetas esperando: " + avionetasEsperando);
     }
     
-    public void autorizarDespegue(String n){
-        System.out.println("Vehiculo que se ha autorizado despegue: " + n);
+    public synchronized void autorizarDespegue(boolean avion) throws InterruptedException{
+        System.out.println("Hay un vehiculo que se ha autorizado el despegue.");
+        temporizador.iniciarTemporizador(avion);
         pistaOcupada = false;
         notifyAll();
     }

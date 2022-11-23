@@ -1,6 +1,15 @@
 package dev.boca.actividad1.Pregunta2;
 public class Main {
     public static void main(String[] args) {
+        GestorDespegue gd = new GestorDespegue();
         
+        for(int i = 0; i < 20; i++){
+            if(i%4 == 0){
+                (new Vehiculo(gd, true)).start();
+            }else{
+                (new Vehiculo(gd, false)).start();
+            }
+            
+        }
     }
 }
