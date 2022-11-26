@@ -4,12 +4,8 @@ public class Main {
         GestorDespegue gd = new GestorDespegue();
         
         for(int i = 0; i < 20; i++){
-            if(i%4 == 0){
-                (new Vehiculo(gd, true)).start();
-            }else{
-                (new Vehiculo(gd, false)).start();
-            }
-            
+            if(i%4 == 0) (new Avion(gd)).start(); 
+            else (new Avioneta(gd)).start();
         }
     }
 }
