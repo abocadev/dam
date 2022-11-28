@@ -4,7 +4,7 @@ public class Main {
         GestorDespegue gd = new GestorDespegue();
         
         for(int i = 0; i < 20; i++){
-            if(i%4 == 0) (new Avion(gd)).start(); 
+            if(i%2 == 0) (new Avion(gd)).start(); 
             else (new Avioneta(gd)).start();
         }
     }
