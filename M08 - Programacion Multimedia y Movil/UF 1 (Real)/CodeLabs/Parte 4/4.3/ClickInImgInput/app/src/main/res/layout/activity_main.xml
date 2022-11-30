@@ -6,22 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        tools:ignore="MissingClass,MissingConstraints">
+        android:background="@color/red"
+        app:tabTextColor="@color/white"
+        android:contentDescription="descripcion"
+        app:tabSelectedTextColor="#FFFF00"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:tabBackground="@drawable/ic_action_name"
+        tools:ignore="MissingConstraints" />
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
-            tools:ignore="MissingClass" />
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <include layout="@layout/content" />
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/pagina_content"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/layout"
+        tools:ignore="MissingConstraints" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"

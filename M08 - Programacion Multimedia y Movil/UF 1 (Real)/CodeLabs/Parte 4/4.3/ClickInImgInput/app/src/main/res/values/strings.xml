@@ -22,10 +22,6 @@
     <string name="same_day_messenger_service">You select same day messenger service</string>
     <string name="next_day_messenger_service">You select next day messenger service</string>
     <string name="pick_up_day_messenger_service">You select pick up messenger service</string>
-    <string name="action_contact">Contacttar</string>
-    <string name="action_order">Comprar</string>
-    <string name="action_status">Estado</string>
-    <string name="action_favorite">Favorito</string>
 
     <string-array name="labels_array">
         <item>Home</item>
