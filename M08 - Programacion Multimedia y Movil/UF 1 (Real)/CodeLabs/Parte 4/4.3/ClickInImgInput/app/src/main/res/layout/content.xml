@@ -8,6 +8,8 @@
     tools:context="dev.boca.clickinimg.MainActivity"
     tools:showIn="@layout/activity_main">
 
+    <include android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
     <TextView
         android:id="@+id/textIntro"
         android:layout_width="wrap_content"

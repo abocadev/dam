@@ -24,23 +24,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         TabLayout tabLayout = findViewById(R.id.layout);
-        tabLayout.addTab(tabLayout.newTab().setText("FRIOS"));
-        tabLayout.addTab(tabLayout.newTab().setText("CALIENTES"));
-        tabLayout.addTab(tabLayout.newTab().setText("ENTRANTES"));
+
+        tabLayout.addTab(tabLayout.newTab().setText("Frios"));
+        tabLayout.addTab(tabLayout.newTab().setText("Calientes"));
+        tabLayout.addTab(tabLayout.newTab().setText("Para picar"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        final ViewPager viewPager = findViewById(R.id.pagina_content);
-        final PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount()) {
-            @Override
-            public int getCount() {
-                return 0;
-            }
 
-            @Override
-            public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-                return false;
-            }
-        };
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener(){
             @Override

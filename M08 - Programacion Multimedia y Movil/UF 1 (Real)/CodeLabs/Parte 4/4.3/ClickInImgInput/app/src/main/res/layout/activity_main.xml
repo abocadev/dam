@@ -12,11 +12,10 @@
         android:layout_height="wrap_content"
         android:background="@color/red"
         app:tabTextColor="@color/white"
-        android:contentDescription="descripcion"
         app:tabSelectedTextColor="#FFFF00"
+        android:paddingEnd="10dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:tabBackground="@drawable/ic_action_name"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints,RtlSymmetry" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/pagina_content"
@@ -25,6 +24,9 @@
         android:layout_below="@id/layout"
         tools:ignore="MissingConstraints" />
 
+
+    <include android:id="@+id/content"
+        layout="@layout/content"/>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
