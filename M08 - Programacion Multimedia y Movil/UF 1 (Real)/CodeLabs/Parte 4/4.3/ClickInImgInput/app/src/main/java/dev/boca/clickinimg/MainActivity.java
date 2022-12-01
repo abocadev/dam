@@ -1,9 +1,6 @@
 package dev.boca.clickinimg;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +9,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,14 +18,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        TabLayout tabLayout = findViewById(R.id.layout);
-
-        tabLayout.addTab(tabLayout.newTab().setText("Frios"));
-        tabLayout.addTab(tabLayout.newTab().setText("Calientes"));
-        tabLayout.addTab(tabLayout.newTab().setText("Para picar"));
-        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener(){
