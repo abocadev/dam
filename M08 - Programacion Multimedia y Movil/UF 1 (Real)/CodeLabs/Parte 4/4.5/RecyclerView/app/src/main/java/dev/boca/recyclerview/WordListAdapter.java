@@ -16,19 +16,19 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
     private final LinkedList<String> mWordList;
     private final LayoutInflater mInflater;
 
-    public class WordViewHolder extends RecyclerView.ViewHolder{
+    class WordViewHolder extends RecyclerView.ViewHolder{
 
         public final TextView wordItemView;
         final WordListAdapter mAdapter;
 
-        public WordViewHolder(@NonNull View itemView, WordListAdapter adapter) {
+        public WordViewHolder(View itemView, WordListAdapter adapter) {
             super(itemView);
             wordItemView = itemView.findViewById(R.id.word);
             this.mAdapter = adapter;
             itemView.setOnClickListener((View.OnClickListener) this);
         }
 
-        @Override
+
         public void onClick(View view){
             int mPosition = getLayoutPosition();
 
@@ -45,7 +45,6 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
         this.mWordList = mWordList;
     }
 
-    @NonNull
     @Override
     public WordListAdapter.WordViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View mItemView = mInflater.inflate(R.layout.wordlist_item, parent, false);
