@@ -1,14 +1,6 @@
 <resources>
-    <string name="app_name">Bocadev Portfolio</string>
-    <string name="action_contact">Contact</string>
-    <string name="action_order">Order</string>
-    <string name="action_status">Status</string>
-    <string name="action_favorites">Favorites</string>
-    <string name="imagenrotatoria">ImagenRotatoria</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="title_aboutme">ABOUT ME</string>
-    <string name="text_aboutme">Hello, my name is Albert Bocanegra Barreiro, I am 19 years ols and I am from Tarragona.\n\nI am studying the Advanced Training Cycle in Multiplatform Application Development at the iFP Professional Training Institute. I have previous experiencie in the IT area, where I fulfilled my duties as an IT technician and web maintenance with PHP and MySQL. Also, I\'m taking a course to train as a server-side programmer, with technologies like PHP, Laravel and Symfony.\n\nI am also learning a programming language called Dart, with is respective framework you can develper desktop applications, mobile applications and web applications (or landing pages). </string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="floatting">Boton de configuracion</string>
+    <string name="app_name">Hamburguer Home</string>
+    <string name="logo_app">Logo App</string>
+    <string name="email">Correo Electronico</string>
+    <string name="password">Enter your password</string>
 </resources>

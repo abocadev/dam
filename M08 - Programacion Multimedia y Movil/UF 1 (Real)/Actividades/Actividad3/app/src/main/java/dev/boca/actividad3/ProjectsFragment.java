@@ -1,4 +1,4 @@
-package layout;
+package dev.boca.actividad3;
 
 import android.os.Bundle;
 
