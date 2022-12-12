@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".TabLayoutActivity">
+    tools:context="dev.boca.ejercicio3_uf1_bocanegrabarreiroalbert.TabLayoutActivity">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"

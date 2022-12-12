@@ -1,4 +1,4 @@
-package dev.boca.actividad3;
+package layout;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

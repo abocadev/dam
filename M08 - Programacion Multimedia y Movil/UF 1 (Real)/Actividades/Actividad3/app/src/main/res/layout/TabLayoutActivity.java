@@ -1,4 +1,4 @@
-package dev.boca.actividad3;
+package layout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".ChargeActivity">
+    tools:context="dev.boca.ejercicio3_uf1_bocanegrabarreiroalbert.ChargeActivity">
 
     <TextView
         android:id="@+id/texto"
