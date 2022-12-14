@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Hamburguer Home</string>
     <string name="logo_app">Logo App</string>
-    <string name="email">Correo Electronico</string>
-    <string name="password">Enter your password</string>
+    <string name="email">Correo Electrónico</string>
+    <string name="password">Introduce la contraseña</string>
+    <string name="signin">Iniciar sesión</string>
 </resources>

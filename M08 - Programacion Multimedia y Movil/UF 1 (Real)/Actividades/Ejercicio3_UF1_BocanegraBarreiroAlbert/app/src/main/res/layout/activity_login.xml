@@ -9,11 +9,11 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="-3dp"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="0dp">
 
         <LinearLayout
@@ -29,19 +29,53 @@
                 android:src="@drawable/logo"
                 tools:ignore="MissingConstraints" />
 
-            <EditText
-                android:id="@+id/EditTextEmail"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:autofillHints=""
-                android:ems="15"
-                android:hint="@string/email"
-                android:inputType="textEmailAddress"
-                android:layout_marginStart="40dp"
-                android:minHeight="48dp"
-                android:textColorHint="#757575" />
+                android:textColorHint="@color/colorTextEditText">
 
+                <EditText
+                    android:id="@+id/EditTextEmail"
+                    android:layout_width="325dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="55dp"
+                    android:layout_marginTop="30dp"
+                    android:autofillHints="emailAddress"
+                    android:background="@color/colorBackground"
+                    android:ems="15"
+                    android:hint="@string/email"
+                    android:inputType="textEmailAddress"
+                    android:minHeight="48dp" />
 
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/colorTextEditText">
+
+                <EditText
+                    android:id="@+id/EditTextPassword"
+                    android:layout_width="325dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="55dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@color/colorBackground"
+                    android:ems="15"
+                    android:hint="@string/password"
+                    android:inputType="textWebPassword"
+                    android:minHeight="48dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/ButtonSignIn"
+                android:layout_width="120dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="75dp"
+                android:backgroundTint="@color/colorTextEditText"
+                android:text="@string/signin"
+                android:layout_gravity="center"
+                app:cornerRadius="10dp" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

@@ -2,6 +2,16 @@
 <resources>
     <color name="colorPrimary">#90A143</color>
     <color name="colorBackground">#FCFFFF</color>
+    <color name="colorBackgroundEditText">#EDEDED</color>
+    <color name="colorTextEditText">#9B9B9B</color>
+
+    <!-- COLOR LOGO -->
+    <color name="NaranjaLogo">#F16323</color>
+    <color name="NaranjaClaritoLogo">#f6b13a</color>
+    <color name="NaranjaClaroLogo">#F7942C</color>
+    <color name="RojoLogo">#E12E31</color>
+    <color name="RojoOscuroLogo">#82181C</color>
+
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
