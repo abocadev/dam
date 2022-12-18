@@ -14,7 +14,6 @@ public class Coches {
     
     public static void CreateCars(){
         try {
-            
             // Lee el archivo coches.json y lo almacena en una variable String
             String linea, json = "";
             
