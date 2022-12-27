@@ -13,9 +13,12 @@
         android:theme="@style/Theme.Ejercicio3_UF1_BocanegraBarreiroAlbert"
         tools:targetApi="31">
         <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
+        <activity
             android:name=".LoginActivity"
-            android:label="Inicio de sesion"
-            android:exported="false">
+            android:exported="false"
+            android:label="Inicio de sesion">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

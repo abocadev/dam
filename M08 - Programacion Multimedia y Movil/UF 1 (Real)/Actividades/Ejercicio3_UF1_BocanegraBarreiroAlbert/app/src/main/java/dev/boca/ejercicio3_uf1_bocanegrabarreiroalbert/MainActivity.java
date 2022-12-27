@@ -36,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void rotarImagen(ImageView imageView) {
         RotateAnimation animation =
-                new RotateAnimation(0,
-                360, RotateAnimation.RELATIVE_TO_SELF, 0.5f,
+                new RotateAnimation(0, 360,
+                RotateAnimation.RELATIVE_TO_SELF, 0.5f,
                 RotateAnimation.RELATIVE_TO_SELF, 0.5f);
         animation.setDuration(3000);
         animation.setRepeatCount(1);

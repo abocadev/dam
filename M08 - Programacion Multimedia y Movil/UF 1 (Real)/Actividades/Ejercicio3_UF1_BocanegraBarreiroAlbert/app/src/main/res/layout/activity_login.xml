@@ -72,10 +72,12 @@
                 android:layout_width="120dp"
                 android:layout_height="70dp"
                 android:layout_marginTop="75dp"
-                android:backgroundTint="@color/colorTextEditText"
+                android:backgroundTint="@color/RojoLogo"
                 android:text="@string/signin"
                 android:layout_gravity="center"
-                app:cornerRadius="10dp" />
+                android:onClick="launchHomeActivity"
+                app:cornerRadius="10dp"
+                tools:ignore="UsingOnClickInXml" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
