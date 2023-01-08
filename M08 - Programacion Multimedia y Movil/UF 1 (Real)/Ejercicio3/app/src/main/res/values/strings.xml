@@ -41,4 +41,12 @@
     <string name="info_complements4">Nuevos deliciosos, crujientes, dorados... dipealos en su sabrosa salsa...</string>
     <string name="info_complements5">Unas patatas siempre están bien. Pero un cubo repleto de patatas es otro rollo. Vamos, acompaña tu Cubo de...</string>
     <string name="info_complements6">El snack que no podía faltar en Burger King. Con esta masa crujiente...</string>
+    <string name="ir_carrito">Ir al carrito</string>
+    <string name="title_desserts">Postres</string>
+    <string name="title_dessert1_Products">King Fusion El Almendro</string>
+    <string name="info_dessert1_Products">Que gustito volver a casa por navidad, con solo un sabor. La version de un clasico helado...</string>
+    <string name="title_dessert2_Products">Oreo Shake</string>
+    <string name="info_dessert2_Products">Delicioso shake con chocolate con nuestro riquisimo helado más trozos de OREO."</string>
+    <string name="title_dessert3_Products">Tarta de Oreo</string>
+    <string name="info_dessert3_Products">Con Oreo todo esta mas bueno, incluidas las tartas. Hazle hueco al postre y disfruta de la tarta mas top.</string>
 </resources>

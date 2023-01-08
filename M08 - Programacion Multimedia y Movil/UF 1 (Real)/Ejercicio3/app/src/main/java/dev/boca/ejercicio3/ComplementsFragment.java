@@ -1,5 +1,6 @@
 package dev.boca.ejercicio3;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -59,6 +60,16 @@ public class ComplementsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_complements, container, false);
+        ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_complements, container, false);
+        root.findViewById(R.id.GoToCartComplements)
+            .setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(new Intent(getActivity(), CartActivity.class));
+                    }
+                }
+            );
+        return root;
     }
 }

@@ -36,16 +36,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showDonutOrder(View view){
-        String msg = getString(R.string.donut_order_message);
-        displayToast(msg);
-        mOrderMessage = msg;
+        mOrderMessage = getString(R.string.donut_order_message);
+        displayToast(mOrderMessage);
     }
 
     public void showIceCreamOrder(View view){
-        displayToast(getString(R.string.ice_cream_order_message));
+        mOrderMessage = getString(R.string.ice_cream_order_message);
+        displayToast(mOrderMessage);
     }
 
     public void showFroyoOrder(View view){
-        displayToast(getString(R.string.froyo_order_message));
+        mOrderMessage = getString(R.string.froyo_order_message);
+        displayToast(mOrderMessage);
     }
 }
