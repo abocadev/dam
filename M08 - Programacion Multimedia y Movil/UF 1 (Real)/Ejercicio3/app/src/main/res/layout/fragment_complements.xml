@@ -279,6 +279,16 @@
                     android:text="@string/info_complements6"
                     android:textColor="@color/white" />
             </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/GoToCartComplements"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="100dp"
+                android:layout_marginBottom="50dp"
+                android:text="@string/ir_carrito"
+                />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

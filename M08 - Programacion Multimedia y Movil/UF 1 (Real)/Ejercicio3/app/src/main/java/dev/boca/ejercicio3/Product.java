@@ -4,34 +4,52 @@ import java.util.ArrayList;
 
 public class Product {
 
-    private int title;
-    private int description;
-    private int img;
+    public static ArrayList<Product> products = new ArrayList<>();
 
-    public Product(int title, int description, int img) {
+    private int title;
+    private int img;
+    private int quantity;
+
+    public Product(){}
+
+    public Product(int title, int img, int quantity){
         this.title = title;
-        this.description = description;
         this.img = img;
+        this.quantity = quantity;
     }
 
     public int getTitle() {
         return title;
     }
 
-    public int getDescription(){
-        return description;
-    }
-
     public int getImg() {
         return img;
     }
 
-    public static ArrayList<Product> createBurgers(){
-        ArrayList<Product> products = new ArrayList<Product>();
-        products.add(new Product(R.string.title_burger1_Products, R.string.info_burger1_Products, R.drawable.brutar_bacon_crispy));
-        products.add(new Product(R.string.title_burger2_Products, R.string.info_burger2_Products, R.drawable.chicken_wrap));
-        products.add(new Product(R.string.title_burger3_Products, R.string.info_burger3_Products, R.drawable.king_chicken));
-        products.add(new Product(R.string.title_burger4_Products, R.string.info_burger4_Products, R.drawable.whopper));
+    public int getQuantity() {
+        return quantity;
+    }
+
+
+    public void addProduct(int title, int img){
+        for(Product product : products){
+            if(title == product.getTitle()){
+                product.quantity++;
+                return ;
+            }
+        }
+        products.add(new Product(title, img, 1));
+    }
+
+    public void removeProduct(int position){
+        if(products.get(position).quantity > 1){
+            products.get(position).quantity--;
+        }else{
+            products.remove(position);
+        }
+    }
+
+    public ArrayList<Product> getProducts(){
         return products;
     }
 }
