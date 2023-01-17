@@ -77,6 +77,42 @@ public class BurgerFragment extends Fragment {
                             startActivity(new Intent(getActivity(), CartActivity.class));
                         }
         });
+        root.findViewById(R.id.CardView_burger1)
+                .setOnClickListener(
+                        new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Product.crearPregunta(getActivity(),"Brutal Bacon Crispy", 7.99f);
+                            }
+                        }
+                );
+        root.findViewById(R.id.CardView_burger2)
+                .setOnClickListener(
+                        new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Product.crearPregunta(getActivity(),"Chicken Wrap", 5.99f);
+                            }
+                        }
+                );
+        root.findViewById(R.id.CardView_burger3)
+                .setOnClickListener(
+                        new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Product.crearPregunta(getActivity(),"King Chicken", 6.49f);
+                            }
+                        }
+                );
+        root.findViewById(R.id.CardView_burger4)
+                .setOnClickListener(
+                        new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Product.crearPregunta(getActivity(), "Whopper", 4.69f);
+                            }
+                        }
+                );
         return root;
     }
 }

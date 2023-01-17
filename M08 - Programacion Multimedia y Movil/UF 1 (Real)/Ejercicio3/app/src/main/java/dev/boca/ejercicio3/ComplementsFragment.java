@@ -70,6 +70,61 @@ public class ComplementsFragment extends Fragment {
                     }
                 }
             );
+        root.findViewById(R.id.CardView_complements1)
+                .setOnClickListener(
+                        new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Product.crearPregunta(getActivity(),"Ensalada Delight", 3.99f);
+                            }
+                        }
+                );
+        root.findViewById(R.id.CardView_complements2)
+                .setOnClickListener(
+                        new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Product.crearPregunta(getActivity(),"Aros de cebolla", 2.99f);
+                            }
+                        }
+                );
+        root.findViewById(R.id.image_complements3)
+                .setOnClickListener(
+                        new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Product.crearPregunta(getActivity(),"Cubo de alitas de pollo", 7.49f);
+                            }
+                        }
+                );
+
+        root.findViewById(R.id.CardView_complements4)
+                .setOnClickListener(
+                        new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Product.crearPregunta(getActivity(),"Chicken Nuggets", 1.59f);
+                            }
+                        }
+                );
+        root.findViewById(R.id.CardView_complements5)
+                .setOnClickListener(
+                        new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Product.crearPregunta(getActivity(),"Cubo de patatas", 4.99f);
+                            }
+                        }
+                );
+        root.findViewById(R.id.CardView_complements6)
+                .setOnClickListener(
+                        new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Product.crearPregunta(getActivity(),"Tequeños", 2.99f);
+                            }
+                        }
+                );
         return root;
     }
 }

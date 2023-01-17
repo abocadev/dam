@@ -69,6 +69,33 @@ public class DessertsFragment extends Fragment {
                     }
                 }
             );
+        root.findViewById(R.id.CardView_dessert1)
+                .setOnClickListener(
+                        new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Product.crearPregunta(getActivity(), "King Fusion El Almendro", 3.59f);
+                            }
+                        }
+                );
+        root.findViewById(R.id.CardView_dessert2)
+                .setOnClickListener(
+                        new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Product.crearPregunta(getActivity(), "Oreo Shake", 3.99f);
+                            }
+                        }
+                );
+        root.findViewById(R.id.CardView_dessert3)
+                .setOnClickListener(
+                        new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Product.crearPregunta(getActivity(), "Tarta de Oreo", 3.49f);
+                            }
+                        }
+                );
         return root;
     }
 
