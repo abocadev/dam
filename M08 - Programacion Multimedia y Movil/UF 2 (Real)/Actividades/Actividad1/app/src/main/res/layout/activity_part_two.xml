@@ -4,25 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <ImageView
-        android:id="@+id/imagen"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/imagen_one"
-        android:contentDescription="imagen_1"/>
+    android:paddingTop="30dp"
+    tools:context=".ActivityPartTwo">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonPartTwo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Second Part"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:text="FIRST PART"
         tools:ignore="OnClick"
-        tools:layout_editor_absoluteY="50dp"
-        android:onClick="openActivityTwo"/>
-
-
+        android:onClick="openPartOne"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

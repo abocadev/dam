@@ -5,6 +5,7 @@ import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.core.view.GestureDetectorCompat;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -24,10 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         ImageView image = (ImageView) findViewById(R.id.imagen);
-        String imgDesc = (String) image.getContentDescription();
-        Toast.makeText(this, "Esta es la descripcion: " + imgDesc, Toast.LENGTH_SHORT).show();
         gdc = new GestureDetectorCompat(getApplicationContext(), new GestureListener());
 
         image.setOnTouchListener(new View.OnTouchListener() {
@@ -38,11 +37,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button boton = (Button) findViewById(R.id.button);
+        boton.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+
+                return true;
+            }
+        });
+
     }
 
     public boolean onTouchEvent(MotionEvent event){
         gdc.onTouchEvent(event);
         return super.onTouchEvent(event);
+    }
+
+    public void openActivityTwo(View view) {
+        Intent intent = new Intent(getApplicationContext(), ActivityPartTwo.class);
+        startActivity(intent);
     }
 
     private class GestureListener implements GestureDetector.OnGestureListener {
@@ -80,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
             float distanceY = e2.getY() - e1.getY();
             if(Math.abs(distanceX) > Math.abs(distanceY) &&
                 Math.abs(distanceX) > SWIPE_DISTANCE_THRESHOULD &&
-                Math.abs(distanceY) > SWIPE_VELOCITY_THRESHOLD){
+                Math.abs(distanceX) > SWIPE_VELOCITY_THRESHOLD){
                 if(distanceX > 0) onSwipeRight();
                 else onSwipeLeft();
                 return true;
@@ -92,7 +105,6 @@ public class MainActivity extends AppCompatActivity {
     private void onSwipeLeft() {
         ImageView image = (ImageView) findViewById(R.id.imagen);
         String imgDesc = (String) image.getContentDescription();
-        image.setImageResource(R.drawable.imagen_two);
         switch (imgDesc){
             case "imagen_1":
                 image.setImageResource(R.drawable.imagen_three);
