@@ -43,10 +43,6 @@ public class MainActivity extends AppCompatActivity {
         return super.onTouchEvent(event);
     }
 
-    public void openActivityTwo(View view) {
-
-    }
-
     private class GestureListener implements GestureDetector.OnGestureListener {
         private static final int SWIPE_DISTANCE_THRESHOULD = 100;
         private static final int SWIPE_VELOCITY_THRESHOLD = 100;
@@ -137,7 +133,5 @@ public class MainActivity extends AppCompatActivity {
 
             default: break;
         }
-        imgDesc = (String) image.getContentDescription();
-        Toast.makeText(this, "onSwipeRight: " + imgDesc, Toast.LENGTH_SHORT).show();
     }
 }
