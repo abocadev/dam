@@ -13,16 +13,4 @@
         android:src="@drawable/imagen_one"
         android:contentDescription="imagen_1"/>
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Second Part"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="OnClick"
-        tools:layout_editor_absoluteY="50dp"
-        android:onClick="openActivityTwo"/>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -36,16 +36,6 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-
-        Button boton = (Button) findViewById(R.id.button);
-        boton.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-
-                return true;
-            }
-        });
-
     }
 
     public boolean onTouchEvent(MotionEvent event){
@@ -54,8 +44,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openActivityTwo(View view) {
-        Intent intent = new Intent(getApplicationContext(), ActivityPartTwo.class);
-        startActivity(intent);
+
     }
 
     private class GestureListener implements GestureDetector.OnGestureListener {
