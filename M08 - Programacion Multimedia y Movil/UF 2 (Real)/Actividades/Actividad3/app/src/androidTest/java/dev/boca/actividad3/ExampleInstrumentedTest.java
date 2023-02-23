@@ -1,4 +1,4 @@
-package com.example.actividad3;
+package dev.boca.actividad3;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.example.actividad3", appContext.getPackageName());
+        assertEquals("dev.boca.actividad3", appContext.getPackageName());
     }
 }

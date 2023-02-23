@@ -3,12 +3,12 @@ plugins {
 }
 
 android {
-    namespace 'com.example.actividad3'
+    namespace 'dev.boca.actividad3'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.actividad3"
-        minSdk 33
+        applicationId "dev.boca.actividad3"
+        minSdk 24
         targetSdk 33
         versionCode 1
         versionName "1.0"

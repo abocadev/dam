@@ -1,4 +1,4 @@
-package com.example.actividad3;
+package dev.boca.actividad3;
 
 import org.junit.Test;
 
