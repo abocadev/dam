@@ -7,10 +7,22 @@
     android:background="#000000"
     tools:context=".MainActivity">
 
+    <!-- Imagen del titulo -->
+    <ImageView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/carnaval_cadiz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Imagen de la cancion que va cambiando -->
     <ImageView
         android:id="@+id/imageview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
         android:layout_marginTop="-100dp"
         android:contentDescription="imagen_juan_carlos"
         android:src="@drawable/juan_carlos_aragon"
@@ -19,12 +31,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Titulo de la cancion-->
     <TextView
         android:id="@+id/title_song"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="350dp"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="350dp"
         android:text="El credo"
         android:textColor="#fff"
         android:textSize="24dp"
@@ -33,25 +46,113 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
+    <!-- Textview que muestra el artista de la cancion-->
     <TextView
         android:id="@+id/artist_song"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="405dp"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="405dp"
         android:text="Juan Carlos Aragon"
         android:textColor="#FF9C9C9C"
         android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
-        />
+        tools:ignore="MissingConstraints" />
 
+    <!-- Seekbar de la barra de progreso de la cancion -->
     <SeekBar
-        android:layout_width="100dp"
+        android:id="@+id/seekbar"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="75dp"
+        android:secondaryProgress="100"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/artist_song" />
 
+    <!-- Textview que muestra los segundos actuales -->
+    <TextView
+        android:id="@+id/seconds_now"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginBottom="95dp"
+        android:text="00:00"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="@id/seekbar"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Textview que muestra los segundos totales de la cancion -->
+    <TextView
+        android:id="@+id/seconds_song"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="95dp"
+        android:text="00:00"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="@id/seekbar"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
         />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- Boton de cancion aleatoria -->
+        <ImageButton
+            android:id="@+id/button_random"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/button_radius_none_background"
+            android:src="@drawable/ic_shuffle" />
+
+        <!-- Boton de cancion anterior -->
+        <ImageButton
+            android:id="@+id/button_previous_song"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/button_radius_none_background"
+            android:rotation="180"
+            android:src="@drawable/ic_next" />
+
+        <!-- Boton de pausar/continuar la cancion -->
+        <ImageButton
+            android:id="@+id/button_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_radius"
+            android:contentDescription="play"
+            android:src="@drawable/ic_play" />
+
+        <!-- Boton de la siguiente cancion-->
+        <ImageButton
+            android:id="@+id/button_next_song"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/button_radius_none_background"
+            android:src="@drawable/ic_next" />
+
+        <!-- Boton de la siguiente cancion -->
+        <ImageButton
+            android:id="@+id/button_repeat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/button_radius_none_background"
+            android:src="@drawable/ic_repeat" />
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
