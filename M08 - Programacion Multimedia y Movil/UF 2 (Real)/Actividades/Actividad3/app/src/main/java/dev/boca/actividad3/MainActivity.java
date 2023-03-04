@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    boolean presionado;
+    public static boolean presionado = false;
     MediaRecorder md;
     public static final int REQUEST_AUDIO_PERMISSION_CODE = 1;
 
@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), Environment.getExternalStorageDirectory().getAbsolutePath(), Toast.LENGTH_LONG).show();
         Button button = findViewById(R.id.button);
 
-        presionado = false;
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,20 +45,18 @@ public class MainActivity extends AppCompatActivity {
 
                     try {
                         md.prepare();
-                        md.start();
                     }catch (Exception e){
                         e.printStackTrace();
                     }
-
+                    md.start();
                     presionado = true;
+                    Toast.makeText(MainActivity.this, "Esta grabando", Toast.LENGTH_SHORT).show();
                 }else{
-                    try {
-                        md.stop();
-                        md.release();
-                        presionado = false;
-                    }catch (Exception e){
-                        e.printStackTrace();
-                    }
+                    md.stop();
+                    md.release();
+                    md = null;
+                    presionado = false;
+                    Toast.makeText(MainActivity.this, "Esta grabando", Toast.LENGTH_SHORT).show();
                 }
                 Toast.makeText(MainActivity.this, "The button is clicked", Toast.LENGTH_SHORT).show();
             }
