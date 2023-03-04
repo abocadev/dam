@@ -1,30 +1,21 @@
 package dev.boca.actividad3;
 
-import static android.Manifest.permission.RECORD_AUDIO;
-import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
-import android.app.Activity;
-import android.content.pm.PackageManager;
-import android.media.MediaRecorder;
 import android.os.Bundle;
-import android.os.Environment;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
-
 public class MainActivity extends AppCompatActivity {
 
+<<<<<<< HEAD
     public static boolean presionado = false;
     MediaRecorder md;
     public static final int REQUEST_AUDIO_PERMISSION_CODE = 1;
 
+=======
+>>>>>>> 859c23c2c1f88af46db4d0b13bd9471e5b99e0b8
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+<<<<<<< HEAD
         RequestsPermissions();
 
         Toast.makeText(getApplicationContext(), Environment.getExternalStorageDirectory().getAbsolutePath(), Toast.LENGTH_LONG).show();
@@ -83,5 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
         }
+=======
+>>>>>>> 859c23c2c1f88af46db4d0b13bd9471e5b99e0b8
     }
 }
