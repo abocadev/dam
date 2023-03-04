@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/player_bg"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="70dp"
+    >
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="0dp"
+        android:weightSum="10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/meda_header_bg"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            app:srcCompat="@drawable/ic_music_note"
+            />
+
+        <TextView
+            android:id="@+id/plater_header_name"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textSize="16sp"
+            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:text="Media Player"
+            />
+
+        <TextView
+            android:id="@+id/player_header_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textSize="16sp"
+            android:layout_weight="3"
+            android:text="Not Playing"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:textAlignment="textEnd"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/filename_textview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:textAlignment="center"
+        android:fontFamily="sans-serif-condensed-medium"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="File Name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/imageView_play"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:padding="16dp"
+        android:src="@drawable/ic_play"
+        app:layout_constraintTop_toBottomOf="@id/filename_textview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        />
+
+    <ImageView
+        android:id="@+id/imageView_backSound"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:src="@drawable/ic_back"
+        android:rotation="180"
+        android:padding="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/imageView_play"
+        app:layout_constraintTop_toTopOf="@id/imageView_play"
+        app:layout_constraintBottom_toBottomOf="@id/imageView_play"
+        />
+
+
+    <ImageView
+        android:id="@+id/imageView_nextSound"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:src="@drawable/ic_back"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imageView_play"
+        app:layout_constraintTop_toTopOf="@id/imageView_play"
+        app:layout_constraintBottom_toBottomOf="@id/imageView_play"
+        />
+
+    <SeekBar
+        android:layout_margin="32dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/imageView_play"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
