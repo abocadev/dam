@@ -2,5 +2,7 @@
     <string name="app_name">Actividad3</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="presionar_para_grabar">Presiona el boton del microfono\npara empezar a grabar</string>
+    <string name="presiona_microfono">Presiona el microfono para \nempezar a grabar</string>
+    <string name="description_imageview">imagen de una nota</string>
+    <string name="media_player">Media player</string>
 </resources>
