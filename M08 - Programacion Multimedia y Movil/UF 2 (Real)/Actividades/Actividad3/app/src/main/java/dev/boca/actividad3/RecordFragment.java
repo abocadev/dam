@@ -39,15 +39,15 @@ import java.time.format.DateTimeFormatter;
 
 public class RecordFragment extends Fragment implements View.OnClickListener {
 
-    public static final int REQUEST_AUDIO_PERMISSION_CODE = 21;
-    private TextView filenameText;
-    private NavController navController;
-    private ImageButton listBtn;
-    private ImageButton recordBtn;
-    private boolean isRecording = false;
-    private MediaRecorder mediaRecorder;
-    private String recordFile;
-    private Chronometer timer;
+    public static final int REQUEST_AUDIO_PERMISSION_CODE = 21; // Los permisos para obtener el audio
+    private TextView filenameText; // El nombre de cada grabacion
+    private NavController navController; // obtiene el controlador de navegacion
+    private ImageButton listBtn; // Boton que va a la lista de grabaciones
+    private ImageButton recordBtn; // Boton de grabacion
+    private boolean isRecording = false; // Variable para comprobar si esta grabando
+    private MediaRecorder mediaRecorder; // Objeto utilizado para grabar
+    private String recordFile; // String para obtener el nombre del archivo
+    private Chronometer timer; // Este es el cronometro
 
     public RecordFragment() {
         // Required empty public constructor
@@ -63,6 +63,8 @@ public class RecordFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        // Inicializamos las variables
         navController = Navigation.findNavController(view);
         listBtn = view.findViewById(R.id.record_list_button);
         recordBtn = view.findViewById(R.id.record_button);
@@ -76,26 +78,21 @@ public class RecordFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch(v.getId()){
-            case R.id.record_list_button:
-                if(isRecording){
+            case R.id.record_list_button: // Si se ha pulsado el boton de lista ejecuta lo siguiente
+                if(isRecording){ // Si esta grabando salta una alerta indicando que no se puede ya que esta grabando
                     AlertDialog.Builder alertDialog = new AlertDialog.Builder(getContext());
                     alertDialog.setPositiveButton("Ok", null);
                     alertDialog.setTitle("¡¡¡ESTAS GRABANDO!!!");
                     alertDialog.setMessage("Para poder passar de página lo que tienes que hacer es detener la grabacion");
                     alertDialog.create().show();
-                }else{
-                    navController.navigate(R.id.action_recordFragment_to_audioListFragment);
-                }
+                }else navController.navigate(R.id.action_recordFragment_to_audioListFragment); // Pasa a la ventana de las listas
                 break;
 
             case R.id.record_button:
-                if(isRecording) {
-                    // Stop recording
+                if(isRecording) { // Para la gabracion si esta grabando
                     stopRecording();
-
-                }else{
-                    // Start recording
-                    if(checkPermissions()){
+                }else{ // Inicia la grabacion si no esta grabando
+                    if(checkPermissions()){ // Y si tiene los permisos necesarios empieza a grabar
                         startRecording();
                     }
                 }
@@ -106,6 +103,7 @@ public class RecordFragment extends Fragment implements View.OnClickListener {
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void startRecording() {
 
+        // Pedimos el nombre y luego el encoder
         final int[] audioEncoder = new int[1];
         AlertDialog.Builder builderName = new AlertDialog.Builder(getContext());
         builderName.setTitle("Introduce el nombre");
@@ -117,17 +115,19 @@ public class RecordFragment extends Fragment implements View.OnClickListener {
         builderName.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                 // Una vez introducido obtenemos el nombre e indicamos que esta grabando
                 recordFile = input.getText().toString() + ".3gp";
                 if(TextUtils.isEmpty(recordFile)) recordFile = getDate() + ".3gp";
                 recordBtn.setImageResource(R.drawable.ic_stop);
                 recordBtn.setBackgroundResource(R.drawable.circle_recording);
                 isRecording = true;
 
+                // EJecutamos el cronometro
                 timer.setBase(SystemClock.elapsedRealtime());
                 timer.start();
 
-                mediaRecorder = new MediaRecorder();
-                mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+                mediaRecorder = new MediaRecorder(); // Iniciamos el media recorder
+                mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC); // Introducimos el recurso
                 if(audioEncoder[0] == MediaRecorder.AudioEncoder.AAC) mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
                 else if(audioEncoder[0] == MediaRecorder.AudioEncoder.AMR_NB) mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.AMR_NB);
                 else if(audioEncoder[0] == MediaRecorder.AudioEncoder.AMR_WB) mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.AMR_WB);

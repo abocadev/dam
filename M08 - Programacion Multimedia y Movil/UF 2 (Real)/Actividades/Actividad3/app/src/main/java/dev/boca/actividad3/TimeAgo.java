@@ -12,16 +12,11 @@ public class TimeAgo {
         long hours = TimeUnit.MILLISECONDS.toHours(now.getTime() - duration);
         long days = TimeUnit.MILLISECONDS.toDays(now.getTime() - duration);
 
-        if(seconds < 60){
-            return "Hace menos de un minuto";
-        } else if(minutes == 1){
-            return "Hace un minuto";
-        } else if(minutes > 1 && minutes < 60){
-            return minutes + ":" + seconds;
-        }else if(hours > 0 && hours < 24){
-            return hours + ":" + minutes + ":" + seconds;
-        }else {
-            return "Hace " + days + " dias. " + hours + ":" + minutes + ":" + seconds;
-        }
+        if(seconds < 60) return "Hace menos de un minuto";
+        else if(minutes == 1) return "Hace un minuto";
+        else if(minutes > 1 && minutes < 60) return minutes + ":" + seconds;
+        else if(hours > 0 && hours < 24) return hours + ":" + minutes + ":" + seconds;
+        else return "Hace " + days + " dias. " + hours + ":" + minutes + ":" + seconds;
+
     }
 }
