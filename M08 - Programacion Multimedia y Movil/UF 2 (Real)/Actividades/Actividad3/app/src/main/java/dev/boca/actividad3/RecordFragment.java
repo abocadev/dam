@@ -103,7 +103,7 @@ public class RecordFragment extends Fragment implements View.OnClickListener {
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void startRecording() {
 
-        // Pedimos el nombre y luego el encoder
+        // Pedimos el nombre y luego el encoder con un cuadro de alerta
         final int[] audioEncoder = new int[1];
         AlertDialog.Builder builderName = new AlertDialog.Builder(getContext());
         builderName.setTitle("Introduce el nombre");
@@ -128,29 +128,28 @@ public class RecordFragment extends Fragment implements View.OnClickListener {
 
                 mediaRecorder = new MediaRecorder(); // Iniciamos el media recorder
                 mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC); // Introducimos el recurso
-                if(audioEncoder[0] == MediaRecorder.AudioEncoder.AAC) mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+                if(audioEncoder[0] == MediaRecorder.AudioEncoder.AAC) mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP); // Depende a la opcion que haya seleccionado utilizara un codec u otro
                 else if(audioEncoder[0] == MediaRecorder.AudioEncoder.AMR_NB) mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.AMR_NB);
                 else if(audioEncoder[0] == MediaRecorder.AudioEncoder.AMR_WB) mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.AMR_WB);
                 else mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-                mediaRecorder.setOutputFile(getPath() + "/" + recordFile);
-                mediaRecorder.setAudioEncoder(audioEncoder[0]);
+                mediaRecorder.setOutputFile(getPath() + "/" + recordFile); // Indicamos en la ruta que se guardara
+                mediaRecorder.setAudioEncoder(audioEncoder[0]); // Introducimos el audio correspondiente
 
-                filenameText.setText("Esta grabando, el nombre del archivo: " + recordFile);
+                filenameText.setText("Esta grabando, el nombre del archivo: " + recordFile); // Indicamos como se llama el archivo
                 try {
-                    mediaRecorder.prepare();
+                    mediaRecorder.prepare(); // Preparamos para gabrar
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-
-                mediaRecorder.start();
+                mediaRecorder.start(); // Empezamos a grabar
             }
         });
 
 
-        final String[] opciones = {"AMR_NB", "AMR_WB", "AAC"};
-        AlertDialog.Builder builderSetCodec = new AlertDialog.Builder(getContext());
-        builderSetCodec.setTitle("Introduce el codec de audio");
-        builderSetCodec.setItems(opciones, new DialogInterface.OnClickListener() {
+        final String[] opciones = {"AMR_NB", "AMR_WB", "AAC"}; // Creamos un array con algunos codecs
+        AlertDialog.Builder builderSetCodec = new AlertDialog.Builder(getContext()); // Pedimos el nombre y luego el encoder con un cuadro de alerta
+        builderSetCodec.setTitle("Introduce el codec de audio"); // Indicamos el titulo
+        builderSetCodec.setItems(opciones, new DialogInterface.OnClickListener() { // Ponemos los items en el cuadro de alerta
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if(opciones[which].equals(opciones[0])) audioEncoder[0] = MediaRecorder.AudioEncoder.AMR_NB;
@@ -163,34 +162,32 @@ public class RecordFragment extends Fragment implements View.OnClickListener {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    private void stopRecording() {
-        timer.stop();
+    private void stopRecording() { // Metodo para detener la grabacion
+        timer.stop(); // Paramos el cronometro
         filenameText.setText("La grabacion se ha detenido, nombre del archivo: " + recordFile);
-        mediaRecorder.stop();
+        mediaRecorder.stop(); // Paramos de grabar
         mediaRecorder.release();
         mediaRecorder = null;
 
+        // Cambiamos el recurso
         recordBtn.setImageResource(R.drawable.ic_mic);
         recordBtn.setBackgroundResource(R.drawable.circle_no_recording);
-        isRecording = false;
+        isRecording = false; // E indicamos que ya no esta grabando
     }
 
     private boolean checkPermissions() {
-        if(ActivityCompat.checkSelfPermission(getContext(), RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED){
-            Toast.makeText(getContext(), "Permisos garantizados", Toast.LENGTH_SHORT).show();
-            return true;
-        }
-        ActivityCompat.requestPermissions(getActivity(), new String[]{RECORD_AUDIO}, REQUEST_AUDIO_PERMISSION_CODE);
-        Toast.makeText(getContext(), "Permisos denegados", Toast.LENGTH_SHORT).show();
+        if(ActivityCompat.checkSelfPermission(getContext(), RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) return true; // Si tiene los permisos garantizados dejamos grabar
+        ActivityCompat.requestPermissions(getActivity(), new String[]{RECORD_AUDIO}, REQUEST_AUDIO_PERMISSION_CODE); // Si tiene los permisos garantizados dejamos grabar
+        Toast.makeText(getContext(), "Permisos denegados", Toast.LENGTH_SHORT).show(); // Indicamos que los permisos estan denegados
         return false;
     }
 
-    public String  getPath(){
+    public String  getPath(){ // retornamos la ruta
         return getActivity().getExternalFilesDir("/").getAbsolutePath();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public String getDate(){
+    public String getDate(){ // Obtenemos la fecha de hoy
         LocalDateTime date = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss");
         return date.format(formatter);
