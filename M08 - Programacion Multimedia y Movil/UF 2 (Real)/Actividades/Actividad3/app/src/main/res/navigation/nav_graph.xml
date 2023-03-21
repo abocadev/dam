@@ -14,7 +14,6 @@
             android:id="@+id/action_recordFragment_to_audioListFragment"
             app:destination="@id/audioListFragment"
             />
-
     </fragment>
     <fragment
         android:id="@+id/audioListFragment"
