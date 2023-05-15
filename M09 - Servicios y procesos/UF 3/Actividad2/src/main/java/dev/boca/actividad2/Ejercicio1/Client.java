@@ -14,8 +14,6 @@ public class Client {
         for(int i = 0; i < 5; i++){
             clientNumbers += (1 + r.nextInt(5)) + " ";
         }
-        System.out.println("Numeros generados aleatoriamente del servidor 2: " + clientNumbers);
-        
         byte[] buffer = clientNumbers.getBytes();
         DatagramPacket packet1 = new DatagramPacket(buffer, buffer.length);
         socketClient1.receive(packet1);
@@ -27,7 +25,6 @@ public class Client {
         else System.out.println("No has ganado");
         
         // Segundo cliente
-        Thread.sleep(3000);
         DatagramSocket socketClient2 = new DatagramSocket(2345);
         String clientNumbers2 = "";
         for(int i = 0; i < 5; i++){

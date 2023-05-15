@@ -19,12 +19,13 @@ public class Server {
         
         byte[] buffer = stringBuffer.getBytes();
         
-        Thread.sleep(3000);
         InetAddress address1 = InetAddress.getByName("localhost");
         DatagramPacket packet1 = new DatagramPacket(buffer, buffer.length, address1, 1234);
         serverSocket.send(packet1);
         
         // Enviamos al segundo cliente
+        Thread.sleep(5000);
+
         stringBuffer = "";
         for(int i = 0; i < 5; i++){
             stringBuffer += (1 + r.nextInt(5)) + " ";
