@@ -8,33 +8,41 @@ public class Client {
     public static void main(String[] args) throws Exception {
         Random r = new Random();
 
+        // Primer cliente
         DatagramSocket socketClient1 = new DatagramSocket(1234);
-        String stringBuffer = "";
+        String clientNumbers = "";
         for(int i = 0; i < 5; i++){
-            stringBuffer += (1 + r.nextInt(5)) + " ";
+            clientNumbers += (1 + r.nextInt(5)) + " ";
         }
-        System.out.println("Numeros generados aleatoriamente del servidor 2: " + stringBuffer);
+        System.out.println("Numeros generados aleatoriamente del servidor 2: " + clientNumbers);
         
-        byte[] buffer = stringBuffer.getBytes();
+        byte[] buffer = clientNumbers.getBytes();
         DatagramPacket packet1 = new DatagramPacket(buffer, buffer.length);
         socketClient1.receive(packet1);
-        String message = new String(packet1.getData(), 0, packet1.getLength());
-        String[] numsStrings = message.trim().split(" ");
-        Set<Integer> serverNumbers = new HashSet<>();
-        for(String part: numsStrings){
-            serverNumbers.add(Integer.parseInt(part));
-        }
-        
-        Set<Integer> clientNumbers = new HashSet<>();
-        String[] aux = stringBuffer.trim().split(" ");
-        for(String part: aux){
-            clientNumbers.add(Integer.parseInt(part));
-        }
-        System.out.println("Numeros del servidor: " + serverNumbers.toString());
-        System.out.println("Numeros del cliente sin hashear: " + stringBuffer);
-        System.out.println("Numeros del cliente: " + clientNumbers.toString());
+        String serverNumbers = new String(packet1.getData(), 0, packet1.getLength());
+        System.out.println("Numeros del servidor: " + serverNumbers);
+        System.out.println("Numeros del cliente: " + clientNumbers);
 
-        /*if(.equals(serverNumbers)) System.out.println("BINGO!!!");
-        else System.out.println("No has ganado");*/
+        if(clientNumbers.equals(serverNumbers)) System.out.println("BINGO!!!");
+        else System.out.println("No has ganado");
+        
+        // Segundo cliente
+        Thread.sleep(3000);
+        DatagramSocket socketClient2 = new DatagramSocket(2345);
+        String clientNumbers2 = "";
+        for(int i = 0; i < 5; i++){
+            clientNumbers2 += (1 + r.nextInt(5)) + " ";
+        }
+        System.out.println("Numeros generados aleatoriamente del servidor 2: " + clientNumbers);
+        
+        buffer = clientNumbers2.getBytes();
+        DatagramPacket packet2 = new DatagramPacket(buffer, buffer.length);
+        socketClient2.receive(packet1);
+        String serverNumbers2 = new String(packet2.getData(), 0, packet2.getLength());
+        System.out.println("Numeros del servidor: " + serverNumbers2);
+        System.out.println("Numeros del cliente: " + clientNumbers2);
+
+        if(clientNumbers2.equals(serverNumbers2)) System.out.println("BINGO!!!");
+        else System.out.println("No has ganado");
     }
 }

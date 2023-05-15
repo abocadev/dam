@@ -18,6 +18,8 @@ public class Server {
         System.out.println("Numeros generados aleatoriamente del servidor 1: " + stringBuffer);
         
         byte[] buffer = stringBuffer.getBytes();
+        
+        Thread.sleep(3000);
         InetAddress address1 = InetAddress.getByName("localhost");
         DatagramPacket packet1 = new DatagramPacket(buffer, buffer.length, address1, 1234);
         serverSocket.send(packet1);

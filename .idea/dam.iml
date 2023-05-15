@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/M08 - Programacion Multimedia y Movil/UF 1 (Real)/CodeLabs/Parte 2/2.1/AAI/gyromaster/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/M08 - Programacion Multimedia y Movil/UF 1 (Real)/CodeLabs/Parte 2/2.1/AAI/gyromaster/build" />
+      <excludeFolder url="file://$MODULE_DIR$/M08 - Programacion Multimedia y Movil/UF 1 (Real)/CodeLabs/Parte 2/2.1/AAI/gyromaster/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/M08 - Programacion Multimedia y Movil/UF 1 (Real)/CodeLabs/Parte 2/2.2/AAI-LifeCycle/gyromaster/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/M08 - Programacion Multimedia y Movil/UF 1 (Real)/CodeLabs/Parte 2/2.2/AAI-LifeCycle/gyromaster/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/M08 - Programacion Multimedia y Movil/UF 1 (Real)/CodeLabs/Parte 2/2.2/AAI-LifeCycle/gyromaster/build" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
