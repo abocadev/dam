@@ -5,38 +5,36 @@ import java.util.*;
 
 public class Client {
 
-    public static void main(String[] args) throws Exception{
-        // Crear paquete para recibir datos del servidor
-        try ( // Crear socket UDP
-                DatagramSocket socket = new DatagramSocket()) {
-            // Crear paquete para recibir datos del servidor
-            byte[] buffer = new byte[1024];
-            DatagramPacket paqueteRecibido = new DatagramPacket(buffer, buffer.length);
-            // Generar números aleatorios
-            Random random = new Random();
-            int[] numerosAleatorios = new int[5];
-            for (int i = 0; i < numerosAleatorios.length; i++) {
-                numerosAleatorios[i] = random.nextInt(5) + 1;
-            }   // Crear paquete con los números aleatorios
-            String mensaje = Arrays.toString(numerosAleatorios);
-            InetAddress direccion = InetAddress.getByName("localhost");
-            int puerto = 12345;
-            DatagramPacket paqueteEnviado = new DatagramPacket(mensaje.getBytes(), mensaje.length(), direccion, puerto);
-            // Enviar paquete con los números aleatorios
-            socket.send(paqueteEnviado);
-            System.out.println("Números aleatorios enviados al servidor: " + Arrays.toString(numerosAleatorios));
-            // Recibir paquete del servidor con el resultado
-            socket.receive(paqueteRecibido);
-            String resultado = new String(paqueteRecibido.getData(), 0, paqueteRecibido.getLength());
-            System.out.println("Resultado recibido del servidor: " + resultado);
-            // Comprobar si el resultado contiene la palabra BINGO
-            if (resultado.contains("BINGO")) {
-                System.out.println("¡¡¡BINGO!!! Tienes números coincidentes.");
-            } else {
-                System.out.println("Lo siento, no has ganado.");
-            }
-            // Cerrar socket
+    public static void main(String[] args) throws Exception {
+        Random r = new Random();
+
+        DatagramSocket socketClient1 = new DatagramSocket(1234);
+        String stringBuffer = "";
+        for(int i = 0; i < 5; i++){
+            stringBuffer += (1 + r.nextInt(5)) + " ";
         }
+        System.out.println("Numeros generados aleatoriamente del servidor 2: " + stringBuffer);
+        
+        byte[] buffer = stringBuffer.getBytes();
+        DatagramPacket packet1 = new DatagramPacket(buffer, buffer.length);
+        socketClient1.receive(packet1);
+        String message = new String(packet1.getData(), 0, packet1.getLength());
+        String[] numsStrings = message.trim().split(" ");
+        Set<Integer> serverNumbers = new HashSet<>();
+        for(String part: numsStrings){
+            serverNumbers.add(Integer.parseInt(part));
+        }
+        
+        Set<Integer> clientNumbers = new HashSet<>();
+        String[] aux = stringBuffer.trim().split(" ");
+        for(String part: aux){
+            clientNumbers.add(Integer.parseInt(part));
+        }
+        System.out.println("Numeros del servidor: " + serverNumbers.toString());
+        System.out.println("Numeros del cliente sin hashear: " + stringBuffer);
+        System.out.println("Numeros del cliente: " + clientNumbers.toString());
+
+        /*if(.equals(serverNumbers)) System.out.println("BINGO!!!");
+        else System.out.println("No has ganado");*/
     }
-    
 }
